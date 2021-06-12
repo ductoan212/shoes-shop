@@ -1,10 +1,84 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <%- include('../partials/head'); %>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shoes Shop</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/index.css" />
   </head>
-
   <body>
-    <%- include('../partials/header'); %>
+    <header style="z-index: 1; position: absolute; width: 100%">
+      <nav
+        class="navbar navbar-expand-lg navbar-dark bg-info"
+        style="background-color: #343a40"
+      >
+        <div class="container-fluid d-flex justify-content-between">
+          <a href="/" class="d-flex">
+            <div class="logo circle"></div>
+          </a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">NEW RELEASE</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">MEN</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">WOMAN</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">KIDS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">SPORTS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">ABOUT US</a>
+              </li>
+            </ul>
+          </div>
+          <div class="d-flex align-items-center justify-content-between">
+            <form class="d-flex mr-5">
+              <input
+                class="form-control me-2 search-input"
+                type="search"
+                placeholder="Search..."
+                aria-label="Search"
+              />
+            </form>
+            <i
+              class="fas fa-shopping-cart fa-lg m-2 btn"
+              style="color: #ffffff"
+            ></i>
+            <i class="fas fa-user fa-lg m-2 btn" style="color: #ffffff"></i>
+          </div>
+        </div>
+      </nav>
+    </header>
 
     <main style="top: 0px" style="z-index: 0">
       <div
@@ -268,6 +342,92 @@
       </div>
     </main>
 
-    <%- include('../partials/footer'); %>
+    <footer
+      class="bg-dark text-white pt-5 pr-5 pl-5 pb-1 reponsive-text-center"
+      style="padding-bottom: 0px"
+    >
+      <div class="d-flex flex-row flex-reponsive">
+        <div class="flex-grow d-flex flex-column align-items-center">
+          <a href="#"><div class="logo circle"></div></a>
+          <p class="text-warning h4 text-center">Subscribe More Info</p>
+          <form class="w-75 form-subscribe">
+            <input type="email" placeholder="Enter your email" />
+            <button>Subscribe</button>
+          </form>
+        </div>
+        <div class="flex-grow">
+          <p class="text-warning h3">Information</p>
+          <ul class="style-type-none">
+            <li><a href="#" class="link-nav">About us</a></li>
+            <li><a href="#" class="link-nav">More Search</a></li>
+            <li><a href="#" class="link-nav">Blogs</a></li>
+            <li><a href="#" class="link-nav">Supports</a></li>
+          </ul>
+        </div>
+        <div class="flex-grow">
+          <p class="text-warning h3">Products</p>
+          <ul class="style-type-none">
+            <li><a href="#" class="link-nav">Men</a></li>
+            <li><a href="#" class="link-nav">Women</a></li>
+            <li><a href="#" class="link-nav">Kids</a></li>
+            <li><a href="#" class="link-nav">Sports</a></li>
+          </ul>
+        </div>
+        <div class="flex-grow">
+          <div>
+            <p class="text-warning h3">About us</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
+              ipsam dolorum consequatur? Suscipit?
+            </p>
+          </div>
+          <div class="d-flex flex-column">
+            <p class="text-warning h3">Contact us</p>
+            <a href="tel:0123456789" class="text-white"
+              ><i class="fas fa-phone mr-2" style="color: #ffc107"></i>
+              0123456789</a
+            >
+            <a href="mailto:shoes@mail.com" class="text-white"
+              ><i class="fas fa-envelope mr-2" style="color: #ffc107"></i>
+              shoes@mail.com</a
+            >
+          </div>
+        </div>
+      </div>
+      <hr class="bg-light" style="height: 0.05rem" />
+      <div class="d-flex w-100 justify-content-center">
+        <a href="#">
+          <img
+            class="m-2 circle"
+            style="height: 2rem; display: inline-block"
+            src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png"
+          />
+        </a>
+        <a href="#">
+          <img
+            class="m-2 circle"
+            style="height: 2rem; display: inline-block"
+            src="https://cdn.iconscout.com/icon/free/png-256/google-2981831-2476479.png"
+          />
+        </a>
+        <a href="#">
+          <img
+            class="m-2 circle"
+            style="height: 2rem; display: inline-block"
+            src="https://image.flaticon.com/icons/png/512/124/124021.png"
+          />
+        </a>
+        <a href="#">
+          <img
+            class="m-2 circle"
+            style="height: 2rem; display: inline-block"
+            src="https://cdn.iconscout.com/icon/free/png-256/instagram-1868978-1583142.png"
+          />
+        </a>
+      </div>
+      <div class="text-center">
+        <p>&copy Copyright by ShoesShop</p>
+      </div>
+    </footer>
   </body>
 </html>

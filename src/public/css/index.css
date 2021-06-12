@@ -29,6 +29,103 @@
   flex: 1 1 0px;
 }
 
+/* ====================== SLIDE ====================== */
+.slide {
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  height: 100vh !important;
+}
+.slide1 {
+  background: url(http://127.0.0.1:5500/src/public/images/slide1.jpg);
+}
+.slide2 {
+  background: url(http://127.0.0.1:5500/src/public/images/slide2.jpg);
+}
+.slide3 {
+  background: url(http://127.0.0.1:5500/src/public/images/slide3.jpg);
+}
+.bg-filter-1 {
+  background: linear-gradient(-65deg, #0080ff31 50%, #00000052 50%);
+  height: 100%;
+  width: 100%;
+}
+.bg-filter-2 {
+  background: linear-gradient(50deg, #343a4079 55%, #343a4052 30%);
+  height: 100%;
+  width: 100%;
+}
+.bg-filter-3 {
+  background: linear-gradient(20deg, #e6ad00c2 30%, #343a4052 30%);
+  height: 100%;
+  width: 100%;
+}
+
+/* ====================== PRODUCT ITEM ====================== */
+.product-item {
+  width: 15rem;
+  /* background-color: #00000052; */
+  cursor: pointer;
+  margin: 1rem;
+}
+.product-item:hover {
+  box-shadow: 0px 0px 10px #343a40;
+}
+.img-product {
+  height: 15rem;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.name-product {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #343a40;
+  margin-bottom: 1rem;
+}
+.old-price-product {
+  margin-bottom: 0px;
+  text-decoration-line: line-through;
+  color: #343a4094;
+}
+.new-price-product {
+  font-size: 1.1rem;
+}
+
+/* ====================== CATEGORY ITEM ====================== */
+.category-item {
+  width: 25rem;
+  height: 25rem;
+  /* background-color: #00000052; */
+  cursor: pointer;
+}
+.category-item:hover {
+  /* box-shadow: 0px 0px 10px #343a40; */
+}
+.img-category {
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-filter-category {
+  background: none;
+  height: 100%;
+  width: 100%;
+  /* opacity: 0; */
+  transition: 0.5s;
+}
+
+.bg-filter-category:hover {
+  background: linear-gradient(-65deg, #0080ff31 50%, #00000052 50%);
+  /* background: linear-gradient(20deg, #e6ad00c2 30%, #343a4052 30%); */
+  /* background: linear-gradient(50deg, #343a4079 55%, #343a4052 30%); */
+}
+
 /* ====================== Footer ====================== */
 .circle {
   border-radius: 50%;
@@ -73,6 +170,118 @@
   font-size: 1.2rem;
 }
 
-.form-subscribe > button:hover{
+.form-subscribe > button:hover {
   background-color: #e6ac00;
+}
+
+/* ====================== Index ====================== */
+.intro-name {
+  background: url('http://127.0.0.1:5500/src/public/images/bg1.jpg');
+  height: 25rem;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-name > p {
+  color: #ffffff;
+  font-size: 5rem;
+  font-weight: bold;
+  border-radius: 0.1rem;
+  background-color: #17a3b89d;
+  padding: 1rem 2rem;
+  width: 100%;
+  text-align: center;
+}
+
+.intro-sale-off {
+  background: url('http://127.0.0.1:5500/src/public/images/bg2.jpg');
+  height: 50rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 2rem;
+}
+
+.intro-top-shoes {
+  background: url('http://127.0.0.1:5500/src/public/images/bg3.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 2rem;
+}
+
+.intro-about-us {
+  background: url('http://127.0.0.1:5500/src/public/images/bg4.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.intro-about-us > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #343a4056;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+/* ====================== Custume ====================== */
+
+.my-button-white {
+  border-radius: 0;
+  border: 2px solid #ffffff;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.my-button-white:hover {
+  color: #343a40;
+  background-color: #ffffff;
+}
+
+.my-button-dark {
+  border-radius: 0;
+  border: 2px solid #343a40;
+  font-size: 1.2rem;
+  color: #343a40;
+}
+
+.my-button-dark:hover {
+  color: #ffffff;
+  background-color: #343a40;
+}
+
+/* ====================== REPONSIVE ====================== */
+@media only screen and (max-width: 768px) {
+  .flex-reponsive {
+    flex-direction: column !important;
+  }
+
+  .reponsive-text-center {
+    text-align: center;
+  }
+
+  .intro-name > p {
+    font-size: 3.5rem;
+  }
+
+  .category-item {
+  width: 15rem;
+  height: 15rem;
+}
 }
