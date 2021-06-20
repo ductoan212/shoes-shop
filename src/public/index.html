@@ -5,33 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shoes Shop</title>
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
+    <!--Bootstrap CSS-->
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     />
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
+
+    <!--FontAwesome CSS-->
     <link
       rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
       crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="css/index.css" />
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="css/index2.css" />
   </head>
   <body>
     <header style="z-index: 1; position: absolute; width: 100%">
-      <nav
+      <!-- <nav
         class="navbar navbar-expand-lg navbar-dark bg-info"
         style="background-color: #343a40"
       >
@@ -77,6 +71,102 @@
             <i class="fas fa-user fa-lg m-2 btn" style="color: #ffffff"></i>
           </div>
         </div>
+      </nav> -->
+
+      <nav
+        class="navbar navbar-expand-lg navbar-dark fixed-top"
+        style="z-index: 2 !important"
+        id="mainNav"
+      >
+        <div class="container">
+          <a
+            id="top-nav"
+            class="
+              navbar-brand
+              js-scroll-trigger
+              font-weight-bold
+              text-white-50
+            "
+            href="#"
+            ><div class="logo circle"></div>
+          </a>
+
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul
+              class="
+                navbar-nav
+                ml-auto
+                my-2 my-lg-0
+                d-flex
+                justify-content-center
+                align-items-center
+                text-center
+              "
+            >
+              <li class="nav-item">
+                <form class="d-flex">
+                  <input
+                    class="form-control me-2 search-input"
+                    type="search"
+                    placeholder="Search..."
+                    aria-label="Search"
+                  />
+                </form>
+              </li>
+
+              <li class="nav-item" style="width: 5rem">
+                <a class="nav-link text-white" href="#">NEW RELEASE</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">MEN</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">WOMAN</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">KIDS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">ABOUT US</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#"
+                  ><i
+                    class="fas fa-shopping-cart fa-lg m-2 btn"
+                    style="color: #ffffff"
+                  ></i
+                ></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#"
+                  ><i
+                    class="fas fa-user fa-lg m-2 btn"
+                    style="color: #ffffff"
+                  ></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <!-- <div class="d-flex align-items-center justify-content-between">
+            <i
+              class="fas fa-shopping-cart fa-lg m-2 btn"
+              style="color: #ffffff"
+            ></i>
+            <i class="fas fa-user fa-lg m-2 btn" style="color: #ffffff"></i>
+          </div> -->
+          <button
+            id="btn-nav"
+            class="navbar-toggler navbar-toggler-left collapsed"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarResponsive"
+            aria-controls="navbarResponsive"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
       </nav>
     </header>
 
@@ -84,7 +174,7 @@
       <div
         id="carouselExampleIndicators"
         class="carousel slide"
-        style="top: 0px"
+        style="top: 0px; z-index: 0 !important"
         data-ride="carousel"
       >
         <ol class="carousel-indicators">
@@ -429,5 +519,11 @@
         <p>&copy Copyright by ShoesShop</p>
       </div>
     </footer>
+
+    <!-- Optional JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <script src="./js/script.js"></script>
   </body>
 </html>
