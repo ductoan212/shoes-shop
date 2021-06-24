@@ -18,14 +18,14 @@ var myNav = $('#mainNav');
 window.onscroll = function () {
   'use strict';
   if ($(this).scrollTop() > myNav.height()) {
-    myNav.addClass('bg-info');
+    myNav.addClass('bg-primary');
     myNav.addClass('shadow-sm');
     topNav.classList.remove('text-white-50');
     descriptNav.classList.remove('text-white-50');
     downloadNav.classList.remove('text-white-50');
     contactNav.classList.remove('text-white-50');
   } else {
-    myNav.removeClass('bg-info');
+    myNav.removeClass('bg-primary');
     myNav.removeClass('shadow-sm');
     topNav.classList.add('text-white-50');
     descriptNav.classList.add('text-white-50');

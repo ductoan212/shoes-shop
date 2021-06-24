@@ -29,6 +29,10 @@
   flex: 1 1 0px;
 }
 
+.bg-primary {
+  background-color: #212529 !important;
+}
+
 /* ====================== SLIDE ====================== */
 .slide {
   background-position: center !important;

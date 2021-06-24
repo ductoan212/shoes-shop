@@ -29,6 +29,10 @@
   flex: 1 1 0px;
 }
 
+.bg-primary {
+  background-color: #212529 !important;
+}
+
 /* ====================== SLIDE ====================== */
 .slide {
   background-position: center !important;
@@ -266,6 +270,15 @@
   background-color: #343a40;
 }
 
+button:hover {
+  filter: contrast(150%);
+}
+
+.btn-my-style {
+  background: rgb(131, 58, 180);
+  background: linear-gradient(45deg, #9a3c94 0%, #e02f47 50%, #fc8648 100%);
+}
+
 /* ====================== REPONSIVE ====================== */
 @media only screen and (max-width: 768px) {
   .flex-reponsive {
@@ -281,7 +294,7 @@
   }
 
   .category-item {
-  width: 15rem;
-  height: 15rem;
-}
+    width: 15rem;
+    height: 15rem;
+  }
 }
