@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #161616;
+  background-image: url(../images/bg-login-removebg.png),
+    url(../images/bg-login-2-removebg-preview.png);
+  background-position: bottom right, top left;
+  background-repeat: no-repeat;
+  background-size: 400px, 300px;
+  background-attachment: fixed;
+}
+
+.container-login {
+  width: 100%;
+  min-height: 100vh !important;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+
+.header-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-login h1 {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.header-login h6 {
+  font-size: 1.5rem;
+  color: #717171;
+  max-width: 50%;
+  text-align: center;
+}
+/* 
+.login-with-account, .login-with-social {
+    flex-grow: 1 !important;
+    flex-shrink: 1 !important;
+} */
+
+input,
+button {
+  width: 400px !important;
+  /* max-width: 450px !important; */
+  margin: 1rem;
+  background-color: #222222 !important;
+  border: 1px solid #353535 !important;
+  outline: none !important;
+  padding: 1rem 1.5rem !important;
+  border-radius: 0.2rem;
+  color: #ffffff;
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+button:hover {
+  filter: contrast(150%);
+}
+
+.btn-my-style {
+  background: rgb(131, 58, 180);
+  background: linear-gradient(45deg, #9a3c94 0%, #e02f47 50%, #fc8648 100%);
+}
+
+.btn-my-style-wrap-1 {
+  padding: 2px !important;
+  position: relative;
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  border: none !important;
+  margin: 16px !important;
+}
+
+.btn-my-style-wrap-2 {
+  padding: 2px !important;
+  position: relative;
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    -90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  border: none !important;
+  margin: 16px !important;
+}
+
+.btn-my-style-2 {
+  background: #222222;
+  border-radius: 0.2rem;
+  padding: 1rem 1.5rem !important;
+}
+
+.link-text {
+  color: #fcb045;
+}
+
+.link-text:hover {
+  color: #fd9f1c;
+}
+
+/* ====================== REPONSIVE ====================== */
+@media only screen and (max-width: 512px) {
+  input,
+  button {
+    width: 250px !important;
+    margin: 1rem 0;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .login-form-container {
+    flex-direction: column;
+  }
+}

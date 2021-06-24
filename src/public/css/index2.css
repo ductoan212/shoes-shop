@@ -41,13 +41,13 @@
   height: 100vh !important;
 }
 .slide1 {
-  background: url(/images/slide1.jpg);
+  background: url(http://127.0.0.1:5500/src/public/images/slide1.jpg);
 }
 .slide2 {
-  background: url(/images/slide2.jpg);
+  background: url(http://127.0.0.1:5500/src/public/images/slide2.jpg);
 }
 .slide3 {
-  background: url(/images/slide3.jpg);
+  background: url(http://127.0.0.1:5500/src/public/images/slide3.jpg);
 }
 .bg-filter-1 {
   background: linear-gradient(-65deg, #0080ff31 50%, #00000052 50%);
@@ -180,7 +180,7 @@
 
 /* ====================== Index ====================== */
 .intro-name {
-  background: url('/images/bg1.jpg');
+  background: url('http://127.0.0.1:5500/src/public/images/bg1.jpg');
   height: 25rem;
   background-position: center;
   background-size: cover;
@@ -202,7 +202,7 @@
 }
 
 .intro-sale-off {
-  background: url('/images/bg2.jpg');
+  background: url('http://127.0.0.1:5500/src/public/images/bg2.jpg');
   height: 50rem;
   background-size: cover;
   background-repeat: no-repeat;
@@ -214,7 +214,7 @@
 }
 
 .intro-top-shoes {
-  background: url('/images/bg3.jpg');
+  background: url('http://127.0.0.1:5500/src/public/images/bg3.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -226,7 +226,7 @@
 }
 
 .intro-about-us {
-  background: url('/images/bg4.jpg');
+  background: url('http://127.0.0.1:5500/src/public/images/bg4.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -270,15 +270,6 @@
   background-color: #343a40;
 }
 
-button:hover {
-  filter: contrast(150%);
-}
-
-.btn-my-style {
-  background: rgb(131, 58, 180);
-  background: linear-gradient(45deg, #9a3c94 0%, #e02f47 50%, #fc8648 100%);
-}
-
 /* ====================== REPONSIVE ====================== */
 @media only screen and (max-width: 768px) {
   .flex-reponsive {
@@ -294,7 +285,7 @@ button:hover {
   }
 
   .category-item {
-    width: 15rem;
-    height: 15rem;
-  }
+  width: 15rem;
+  height: 15rem;
+}
 }
