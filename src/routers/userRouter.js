@@ -34,7 +34,8 @@ userRouter.post('/login', async (req, res) => {
     if (user.password === req.body.password) {
       req.session.user = {
         _id: user._id,
-        fullname: user.name,
+        username: user.username,
+        fullname: user.fullname,
         email: user.email,
         address: user.address,
         phonenumber: user.phonenumber,
@@ -67,6 +68,7 @@ userRouter.post('/register', async (req, res) => {
   const createUser = await user.save();
   req.session.user = {
     _id: user._id,
+    username: user.username,
     fullname: user.name,
     email: user.email,
     address: user.address,

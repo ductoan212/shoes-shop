@@ -3,6 +3,7 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const path = require('path');
 const userRouter = require('./routers/userRouter');
+const productRouter = require('./routers/productRouter');
 
 var app = express();
 
@@ -38,10 +39,11 @@ mongoose.connect(
 );
 
 app.use('/user', userRouter);
+app.use('/product', productRouter);
 app.get('/', async (req, res) => {
-  console.log({ ss: req.session });
   const isLogin = req.session.user ? true : false;
-  res.render('index', { isLogin });
+  const user = req.session.user ? req.session.user : {};
+  res.render('index', {isLogin, user });
 });
 
 app.listen(3000, () => {
