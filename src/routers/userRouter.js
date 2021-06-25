@@ -10,55 +10,75 @@ userRouter.get('/', isAdmin, async (req, res) => {
 });
 
 userRouter.get('/login', async (req, res) => {
-  res.render('login');
+  if (req.session.user) {
+    res.redirect('/');
+  }
+  let error =
+    req.session.error && req.session.error.login ? req.session.error.login : '';
+  req.session.error = {};
+  res.render('login', { error });
 });
 
 userRouter.get('/register', async (req, res) => {
-  res.render('register');
+  let error =
+    req.session.error && req.session.error.register
+      ? req.session.error.register
+      : '';
+  req.session.error = {};
+  res.render('register', { error });
 });
 
-// userRouter.post('/login', async (req, res) => {
-//   const user = await User.findOne({ email: req.body.email });
-//   if (user) {
-//     if (bcrypt.compareSync(req.body.password, user.password)) {
-//       res.send({
-//         _id: user._id,
-//         name: user.name,
-//         email: user.email,
-//         isAdmin: user.isAdmin,
-//         isSeller: user.isSeller,
-//         token: generateToken(user),
-//       });
-//       return;
-//     }
-//   }
-//   res.status(401).send({ message: 'Invalid email or password' });
-// });
+userRouter.post('/login', async (req, res) => {
+  const user = await User.findOne({ username: req.body.username });
+  if (user) {
+    if (user.password === req.body.password) {
+      req.session.user = {
+        _id: user._id,
+        fullname: user.name,
+        email: user.email,
+        address: user.address,
+        phonenumber: user.phonenumber,
+        isAdmin: user.isAdmin,
+      };
+      res.redirect('/');
+      return;
+    }
+  }
+  req.session.error = { login: 'Invalid email or password' };
+  res.redirect('/user/login');
+});
 
-// userRouter.post('/register', async (req, res) => {
-//   const user = new User({
-//     name: req.body.name,
-//     email: req.body.email,
-//     password: bcrypt.hashSync(req.body.password, 8),
-//   });
-//   const createUser = await user.save();
-//   res.send({
-//     _id: user._id,
-//     name: user.name,
-//     email: user.email,
-//     isAdmin: user.isAdmin,
-//     isSeller: user.isSeller,
-//     token: generateToken(user),
-//   });
-// });
+userRouter.post('/register', async (req, res) => {
+  const userTemp = await User.findOne({ username: req.body.username });
+  if (userTemp) {
+    req.session.error = { register: 'Username is exists' };
+    res.redirect('/user/register');
+    return;
+  }
+  const user = new User({
+    username: req.body.username,
+    password: req.body.password,
+    fullname: req.body.fullname,
+    email: req.body.email,
+    phonenumber: req.body.phonenumber,
+    address: req.body.address,
+  });
+  // await User.remove({});
+  const createUser = await user.save();
+  req.session.user = {
+    _id: user._id,
+    fullname: user.name,
+    email: user.email,
+    address: user.address,
+    phonenumber: user.phonenumber,
+    isAdmin: user.isAdmin,
+  };
+  res.redirect('/');
+});
 
-// userRouter.get('/:id', async (req, res) => {
-//   const user = await User.findById(req.params.id);
-//   if (user) {
-//     res.send(user);
-//   } else {
-//     res.status(404).send({ message: 'User Not Found' });
-//   }
-// });
+userRouter.get('/logout', (req, res) => {
+  req.session.user = null;
+  res.redirect('/');
+});
 
 module.exports = userRouter;

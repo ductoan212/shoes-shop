@@ -37,6 +37,11 @@
           reiciendis!
         </h6>
       </div>
+      <% if(error) { %>
+        <div class="alert alert-error" role="alert">
+          <%= error %>
+        </div>
+        <% } %>
       <div class="
             login-form-container
             d-flex
@@ -52,7 +57,7 @@
               flex-column
               justify-content-center
               align-items-center
-            ">
+            " method="POST" action="/user/login">
           <input type="text" id="username" name="username" placeholder="Username" />
           <input type="password" id="password" name="password" placeholder="Password" />
           <button type="submit" class="
