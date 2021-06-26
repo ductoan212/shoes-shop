@@ -245,6 +245,42 @@
   text-align: center;
 }
 
+/* ====================== Search Page ====================== */
+.filter {
+  width: max-content;
+}
+
+.filter a {
+  border: 1px solid #e6ac00;
+  border-radius: 2px;
+  width: 100%;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  color: #e6ac00;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.filter a:hover {
+  background-color: #e6ac00;
+  color: #ffffff;
+}
+
+
+.filter-active {
+  background-color: #e6ac00;
+  color: #ffffff !important;
+}
+
+.filter li {
+  height: fit-content;
+  padding: 0.6rem 0rem ;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 /* ====================== Custume ====================== */
 
 .my-button-white {

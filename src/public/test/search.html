@@ -24,35 +24,48 @@
     <link rel="stylesheet" href="../css/index2.css" />
   </head>
   <body>
-    <header style="z-index: 1; width: 100%">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="position: fixed; top: 0px; left: 0px;" id="mainNav">
+    <header style="z-index: 1; position: absolute; width: 100%">
+      <nav
+        class="navbar navbar-expand-lg navbar-dark fixed-top "
+        style="z-index: 2 !important"
+        id="mainNav"
+      >
         <div class="container">
-          <a id="top-nav" class="
-                  navbar-brand
-                  js-scroll-trigger
-                  font-weight-bold
-                  text-white-50
-                " href="/">
-            <div class="logo circle"></div>
+          <a
+            id="top-nav"
+            class="
+              navbar-brand
+              js-scroll-trigger
+              font-weight-bold
+              text-white-50
+            "
+            href="#"
+            ><div class="logo circle"></div>
           </a>
-    
+
           <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="
-                    navbar-nav
-                    ml-auto
-                    my-2 my-lg-0
-                    d-flex
-                    justify-content-center
-                    align-items-center
-                    text-center
-                  ">
+            <ul
+              class="
+                navbar-nav
+                ml-auto
+                my-2 my-lg-0
+                d-flex
+                justify-content-center
+                align-items-center
+                text-center
+              "
+            >
               <li class="nav-item">
-                <form class="d-flex" action="/product/search">
-                  <input name="query" class="form-control me-2 search-input" type="search" placeholder="Search..."
-                    aria-label="Search" />
+                <form class="d-flex">
+                  <input
+                    class="form-control me-2 search-input"
+                    type="search"
+                    placeholder="Search..."
+                    aria-label="Search"
+                  />
                 </form>
               </li>
-    
+
               <li class="nav-item" style="width: 5rem">
                 <a class="nav-link text-white" href="#">NEW RELEASE</a>
               </li>
@@ -69,15 +82,40 @@
                 <a class="nav-link text-white" href="#">ABOUT US</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="#"><i class="fas fa-shopping-cart fa-lg m-2 btn"
-                    style="color: #ffffff"></i></a>
+                <a class="nav-link text-white" href="#"
+                  ><i
+                    class="fas fa-shopping-cart fa-lg m-2 btn"
+                    style="color: #ffffff"
+                  ></i
+                ></a>
               </li>
-    
-         
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#"
+                  ><i
+                    class="fas fa-user fa-lg m-2 btn"
+                    style="color: #ffffff"
+                  ></i
+                ></a>
+              </li>
+            </ul>
           </div>
-          <button id="btn-nav" class="navbar-toggler navbar-toggler-left collapsed" type="button" data-toggle="collapse"
-            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-            aria-label="Toggle navigation">
+          <!-- <div class="d-flex align-items-center justify-content-between">
+            <i
+              class="fas fa-shopping-cart fa-lg m-2 btn"
+              style="color: #ffffff"
+            ></i>
+            <i class="fas fa-user fa-lg m-2 btn" style="color: #ffffff"></i>
+          </div> -->
+          <button
+            id="btn-nav"
+            class="navbar-toggler navbar-toggler-left collapsed"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarResponsive"
+            aria-controls="navbarResponsive"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>

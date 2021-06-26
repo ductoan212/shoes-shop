@@ -1,17 +1,195 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <%- include('../partials/head'); %>
-  </head>
 
-  <body>
-    <%- include('../partials/header2'); %>
+<head>
+  <%- include('../partials/head'); %>
+</head>
 
-    <main style="z-index: 0; padding-top: 10px;">
-      <div>
-        <%= query %> 
+<body>
+  <%- include('../partials/header2'); %>
+
+    <main class="d-flex flex-column" style="padding-top: 6rem !important;">
+      <div class="d-flex justify-content-between p-3">
+        <div class="d-flex"> 
+          <b>XXX Results</b>
+        </div>
+        <div class="input-group mb-3" style="width: 20rem;">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Sort by</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            <option value="1">lore</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
       </div>
+      <div class="d-flex ">
+        <div class="d-flex flex-column p-3">
+          <div>
+            <h3>Category</h3>
+            <ul  class="style-type-none filter">
+              <li>
+                <a class="filter-active" href="#">All</a>
+              </li>
+              <li>
+                <a href="#">Men</a>
+              </li>
+              <li>
+                <a href="#">Women</a>
+              </li>
+              <li>
+                <a href="#">Kids</a>
+              </li>
+              <li>
+                <a href="#">Sport</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+          <div>
+            <h3>Price</h3>
+            <ul class="style-type-none filter">
+              <li>
+                <a class="filter-active" href="#">All</a>
+              </li>
+              <li>
+                <a href="#">$1 - $10</a>
+              </li>
+              <li>
+                <a href="#">$10 - $100</a>
+              </li>
+              <li>
+                <a href="#">$100 - $1000</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex flex-column  flex-grow-1">
+          <div class="w-100 d-flex flex-wrap justify-content-around align-items-center">
+            <div class="product-item">
+              <div class="img-product" style="background-image: url('/images/p1.jpg')"></div>
+              <div class="p-2">
+                <p class="name-product">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+                <p class="old-price-product">1,200,000đ</p>
+                <p class="new-price-product">990,000đ</p>
+              </div>
+            </div>
+            <div class="product-item">
+              <div class="img-product" style="background-image: url('/images/p3.jpg')"></div>
+              <div class="p-2">
+                <p class="name-product">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+                <p class="old-price-product">1,200,000đ</p>
+                <p class="new-price-product">990,000đ</p>
+              </div>
+            </div>
+            <div class="product-item">
+              <div class="img-product" style="background-image: url('/images/p2.jpg')"></div>
+              <div class="p-2">
+                <p class="name-product">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+                <p class="old-price-product">1,200,000đ</p>
+                <p class="new-price-product">990,000đ</p>
+              </div>
+            </div>
+            <div class="product-item">
+              <div class="img-product" style="background-image: url('/images/p4.jpg')"></div>
+              <div class="p-2">
+                <p class="name-product">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+                <p class="old-price-product">1,200,000đ</p>
+                <p class="new-price-product">990,000đ</p>
+              </div>
+            </div>
+            <div class="product-item">
+              <div class="img-product" style="background-image: url('/images/p4.jpg')"></div>
+              <div class="p-2">
+                <p class="name-product">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+                <p class="old-price-product">1,200,000đ</p>
+                <p class="new-price-product">990,000đ</p>
+              </div>
+            </div>
+            <div class="product-item">
+              <div class="img-product" style="background-image: url('/images/p4.jpg')"></div>
+              <div class="p-2">
+                <p class="name-product">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+                <p class="old-price-product">1,200,000đ</p>
+                <p class="new-price-product">990,000đ</p>
+              </div>
+            </div>
+            <div class="product-item">
+              <div class="img-product" style="background-image: url('/images/p4.jpg')"></div>
+              <div class="p-2">
+                <p class="name-product">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+                <p class="old-price-product">1,200,000đ</p>
+                <p class="new-price-product">990,000đ</p>
+              </div>
+            </div>
+            <div class="product-item">
+              <div class="img-product" style="background-image: url('/images/p4.jpg')"></div>
+              <div class="p-2">
+                <p class="name-product">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+                <p class="old-price-product">1,200,000đ</p>
+                <p class="new-price-product">990,000đ</p>
+              </div>
+            </div>
+            <div class="product-item">
+              <div class="img-product" style="background-image: url('/images/p4.jpg')"></div>
+              <div class="p-2">
+                <p class="name-product">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+                <p class="old-price-product">1,200,000đ</p>
+                <p class="new-price-product">990,000đ</p>
+              </div>
+            </div>
+            <div class="product-item">
+              <div class="img-product" style="background-image: url('/images/p4.jpg')"></div>
+              <div class="p-2">
+                <p class="name-product">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+                <p class="old-price-product">1,200,000đ</p>
+                <p class="new-price-product">990,000đ</p>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex align-items-center justify-content-center" >
+            <ul  class="style-type-none filter d-flex">
+              <li>
+                <a>1</a>
+              </li>
+              <li>
+                <a class="filter-active">2</a>
+              </li>
+              <li>
+                <a>3</a>
+              </li>
+              <li>
+                <a>4</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
     </main>
 
     <%- include('../partials/footer'); %>
-  </body>
+</body>
+
 </html>
