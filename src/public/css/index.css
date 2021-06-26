@@ -281,6 +281,19 @@ a:hover {
   text-decoration: none;
 }
 
+/* ====================== Back to top ====================== */
+.back-to-top {
+  width: 55px;
+  height: 55px;
+  background-image: url(/images/to-top.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+
 /* ====================== Custume ====================== */
 
 .my-button-white {
