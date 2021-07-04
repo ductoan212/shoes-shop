@@ -5,6 +5,22 @@
   scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .logo {
   background-image: url(https://i.pinimg.com/474x/f9/1a/a3/f91aa37eae15b0b16e6f0a5fb40f7732.jpg);
   height: 4rem;
@@ -266,7 +282,6 @@
   color: #ffffff;
 }
 
-
 .filter-active {
   background-color: #e6ac00;
   color: #ffffff !important;
@@ -274,7 +289,7 @@
 
 .filter li {
   height: fit-content;
-  padding: 0.6rem 0rem ;
+  padding: 0.6rem 0rem;
 }
 
 a:hover {

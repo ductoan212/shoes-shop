@@ -45,7 +45,7 @@ userRouter.post('/login', async (req, res) => {
       return;
     }
   }
-  req.session.error = { login: 'Invalid email or password' };
+  req.session.error = { login: 'Invalid username or password' };
   res.redirect('/user/login');
 });
 

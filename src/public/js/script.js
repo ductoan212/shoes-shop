@@ -14,12 +14,14 @@ let topNav = document.getElementById('top-nav');
 var myNav = $('#mainNav');
 window.onscroll = function () {
   'use strict';
-  if ($(this).scrollTop() > myNav.height()) {
-    myNav.addClass('bg-primary');
-    myNav.addClass('shadow-sm');
-  } else {
-    myNav.removeClass('bg-primary');
-    myNav.removeClass('shadow-sm');
+  if (window.location.pathname == '/') {
+    if ($(this).scrollTop() > myNav.height()) {
+      myNav.addClass('bg-primary');
+      myNav.addClass('shadow-sm');
+    } else {
+      myNav.removeClass('bg-primary');
+      myNav.removeClass('shadow-sm');
+    }
   }
 
   if ($(this).scrollTop() > 200) {
@@ -28,6 +30,13 @@ window.onscroll = function () {
     $('.back-to-top').attr('hidden', true);
   }
 };
+
+// Nav
+if (window.location.pathname != '/') {
+  myNav.addClass('bg-primary');
+  myNav.addClass('shadow-sm');
+  console.log('ahihi');
+}
 
 function gotoDescription(e) {
   let description = document.getElementById('description');
