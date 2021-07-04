@@ -59,12 +59,12 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item" href="#">Profile</a>
-                  <a class="dropdown-item" href="/order">List orders</a>
+                  <a class="dropdown-item" href="/order/user/<%= user._id %> ">List orders</a>
                   <% if(user.isAdmin) { %>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">All users</a>
-                    <a class="dropdown-item" href="#">All products</a>
-                    <a class="dropdown-item" href="#">All orders</a>
+                    <a class="dropdown-item" href="/user">All users</a>
+                    <a class="dropdown-item" href="/product">All products</a>
+                    <a class="dropdown-item" href="/order">All orders</a>
                     <% } %>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="/user/logout">Logout</a>

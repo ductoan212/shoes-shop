@@ -2,19 +2,19 @@ var express = require('express');
 var User = require('../models/userModel.js');
 var { isAdmin } = require('../utils.js');
 
-const productRouter = express.Router();
+const orderRouter = express.Router();
 
-productRouter.get('/', isAdmin, async (req, res) => {
+orderRouter.get('/', isAdmin, async (req, res) => {
   const isLogin = req.session.user ? true : false;
   const user = req.session.user ? req.session.user : {};
-  res.render('productListAdmin', { isLogin, user });
+  res.render('orderListAdmin', { isLogin, user });
 });
 
-productRouter.get('/search', async (req, res) => {
-  const { query } = req.query;
+orderRouter.get('/user/:id', async (req, res) => {
+  const id = req.params.id;
   const isLogin = req.session.user ? true : false;
   const user = req.session.user ? req.session.user : {};
-  res.render('search', { isLogin, user, query });
+  res.render('orderListUser', { isLogin, user });
 });
 
-module.exports = productRouter;
+module.exports = orderRouter;

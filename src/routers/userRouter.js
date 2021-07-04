@@ -5,8 +5,23 @@ var { isAdmin } = require('../utils.js');
 const userRouter = express.Router();
 
 userRouter.get('/', isAdmin, async (req, res) => {
-  const users = await User.find({});
-  res.send(users);
+  const pageSize = 3;
+  const page = Number(req.query.pageNumber) || 1;
+  const count = await User.count({});
+  const users = await User.find({})
+    .skip(pageSize * (page - 1))
+    .limit(pageSize);
+
+  const isLogin = req.session.user ? true : false;
+  const user = req.session.user ? req.session.user : {};
+  res.render('userListAdmin', {
+    isLogin,
+    user,
+    users,
+    page,
+    pages: Math.ceil(count / pageSize),
+  });
+  // res.send(users);
 });
 
 userRouter.get('/login', async (req, res) => {

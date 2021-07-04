@@ -1,0 +1,84 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <%- include('../partials/head'); %>
+</head>
+
+<body>
+  <%- include('../partials/header'); %>
+
+    <main class="d-flex flex-column" style="padding-top: 6rem !important;">
+      <section class="p-3">
+        <h1>List all users</h1>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Username</th>
+              <th scope="col">Full name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Address</th>
+              <th scope="col">Created at</th>
+              <th scope="col">Is admin</th>
+              <th scope="col">Method</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let i=0; i<users.length; i++) { %>
+              <% let dateCreated=users[i].createdAt %>
+                <% dateCreated=`${dateCreated.getDate()}-${dateCreated.getMonth()}-${dateCreated.getFullYear()}` %>
+                  <tr>
+                    <th scope="row">
+                      <%= i+1 %>
+                    </th>
+                    <td>
+                      <%= users[i].username %>
+                    </td>
+                    <td>
+                      <%= users[i].fullname %>
+                    </td>
+                    <td>
+                      <%= users[i].email %>
+                    </td>
+                    <td>
+                      <%= users[i].address %>
+                    </td>
+                    <td>
+                      <%= dateCreated %>
+                    </td>
+                    <% if(users[i].isAdmin) { %>
+                      <td class="text-danger font-weight-bold">
+                        YES
+                      </td>
+                      <% } else { %>
+                        <td class="text-danger font-weight-bold">
+                        </td>
+                        <% } %>
+                          <td>
+                            <button class="btn btn-outline-primary">Edit</button>
+                            <button class="btn btn-outline-danger">Delete</button>
+                          </td>
+                  </tr>
+                  <% } %>
+
+          </tbody>
+        </table>
+        <div class="d-flex align-items-center justify-content-center">
+          <ul class="style-type-none filter d-flex">
+            <% for(let i=1; i<=pages; i++) { let classs="" ; if(i==page) classs="filter-active" ; %>
+              <li>
+                <a class="<%= classs %>" href="/user?pageNumber=<%= i %>">
+                  <%= i %>
+                </a>
+              </li>
+              <% } %>
+          </ul>
+        </div>
+      </section>
+
+    </main>
+
+    <%- include('../partials/footer'); %>
+</body>
+
+</html>
