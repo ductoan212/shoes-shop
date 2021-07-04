@@ -7,7 +7,7 @@ const userRouter = express.Router();
 userRouter.get('/', isAdmin, async (req, res) => {
   const pageSize = 3;
   const page = Number(req.query.pageNumber) || 1;
-  const count = await User.count({});
+  const count = await User.countDocuments({});
   const users = await User.find({})
     .skip(pageSize * (page - 1))
     .limit(pageSize);
@@ -21,7 +21,6 @@ userRouter.get('/', isAdmin, async (req, res) => {
     page,
     pages: Math.ceil(count / pageSize),
   });
-  // res.send(users);
 });
 
 userRouter.get('/login', async (req, res) => {

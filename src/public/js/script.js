@@ -35,10 +35,18 @@ window.onscroll = function () {
 if (window.location.pathname != '/') {
   myNav.addClass('bg-primary');
   myNav.addClass('shadow-sm');
-  console.log('ahihi');
 }
 
 function gotoDescription(e) {
   let description = document.getElementById('description');
   window.scrollTo(0, description.offsetTop - 72);
 }
+
+// Comfirm when delete
+const confirmDeleteItem = (name) => {
+  console.log(name);
+  if (confirm(`Do you want to delete product "${name}"?`)) {
+    return true;
+  }
+  return false;
+};

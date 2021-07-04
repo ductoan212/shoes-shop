@@ -1,20 +1,192 @@
 var express = require('express');
-var User = require('../models/userModel.js');
+var Product = require('../models/productModel.js');
 var { isAdmin } = require('../utils.js');
+var data = require('../data.js');
 
 const productRouter = express.Router();
 
 productRouter.get('/', isAdmin, async (req, res) => {
+  const pageSize = 10;
+  const page = Number(req.query.pageNumber) || 1;
+  const count = await Product.countDocuments({});
+  const products = await Product.find({})
+    .skip(pageSize * (page - 1))
+    .limit(pageSize);
+
   const isLogin = req.session.user ? true : false;
   const user = req.session.user ? req.session.user : {};
-  res.render('productListAdmin', { isLogin, user });
+  res.render('productListAdmin', {
+    isLogin,
+    user,
+    products,
+    page,
+    pages: Math.ceil(count / pageSize),
+  });
 });
+
+// productRouter.get('/seed', async (req, res) => {
+//   await Product.remove({});
+//   const createProducts = await Product.insertMany(data.products);
+//   res.send({ createProducts });
+// });
 
 productRouter.get('/search', async (req, res) => {
   const { query } = req.query;
   const isLogin = req.session.user ? true : false;
   const user = req.session.user ? req.session.user : {};
   res.render('search', { isLogin, user, query });
+});
+
+productRouter.get('/create', isAdmin, async (req, res) => {
+  let error =
+    req.session.error && req.session.error.productCreate
+      ? req.session.error.productCreate
+      : '';
+  req.session.error = {};
+
+  const isLogin = req.session.user ? true : false;
+  const user = req.session.user ? req.session.user : {};
+  res.render('productCreate', { isLogin, user, error });
+});
+
+productRouter.post('/create', isAdmin, async (req, res) => {
+  const {
+    name,
+    image,
+    brand,
+    category,
+    description,
+    price,
+    size,
+    countInStock,
+  } = req.body;
+  const sizes = size.split(',');
+  const countInStocks = countInStock.split(',');
+  if (sizes.length != countInStocks.length) {
+    req.session.error = {
+      productCreate: "Size and Count in stock doesn't match.",
+    };
+    res.redirect('/product/create');
+    return;
+  }
+  var sizeAndStock = [];
+  for (let i = 0; i < sizes.length; i++) {
+    sizeAndStock.push({
+      numSize: sizes[i],
+      countInStock: countInStocks[i],
+    });
+  }
+
+  const product = new Product({
+    name,
+    image,
+    brand,
+    category,
+    description,
+    price,
+    sizeAndStock,
+    numSold: 0,
+    rating: 0,
+    numReviews: 0,
+  });
+  var isErr = false;
+  const createProduct = await product.save(function (err) {
+    if (err) {
+      isErr = true;
+      req.session.error = {
+        productCreate: 'Name of product is exists',
+      };
+      res.redirect('/product/create');
+    } else {
+      res.redirect('/product');
+    }
+  });
+});
+
+productRouter.get('/edit/:id', isAdmin, async (req, res) => {
+  let error =
+    req.session.error && req.session.error.productEdit
+      ? req.session.error.productEdit
+      : '';
+  req.session.error = {};
+  const id = req.params.id;
+  const product = await Product.findById(id);
+  size = [];
+  countInStock = [];
+  for (let i = 0; i < product.sizeAndStock.length; i++) {
+    size.push(product.sizeAndStock[i].numSize);
+    countInStock.push(product.sizeAndStock[i].countInStock);
+  }
+
+  product.size = size.join(',');
+  product.countInStock = countInStock.join(',');
+
+  const isLogin = req.session.user ? true : false;
+  const user = req.session.user ? req.session.user : {};
+  res.render('productEdit', { isLogin, user, product, error });
+});
+
+productRouter.post('/edit/:id', isAdmin, async (req, res) => {
+  const id = req.params.id;
+  const {
+    name,
+    image,
+    brand,
+    category,
+    description,
+    price,
+    size,
+    countInStock,
+  } = req.body;
+  const sizes = size.split(',');
+  const countInStocks = countInStock.split(',');
+  if (sizes.length != countInStocks.length) {
+    req.session.error = {
+      productEdit: "Size and Count in stock doesn't match.",
+    };
+    res.redirect(`/product/edit/${id}`);
+    return;
+  }
+  var sizeAndStock = [];
+  for (let i = 0; i < sizes.length; i++) {
+    sizeAndStock.push({
+      numSize: sizes[i],
+      countInStock: countInStocks[i],
+    });
+  }
+  const product = await Product.findById(id);
+  if (product) {
+    product.name = name;
+    product.image = image;
+    product.brand = brand;
+    product.brand = brand;
+    product.category = category;
+    product.description = description;
+    product.price = price;
+    product.sizeAndStock = sizeAndStock;
+
+    const updatedProduct = product.save(function (err) {
+      if (err) {
+        req.session.error = {
+          productEdit: 'Name of product is exists',
+        };
+        res.redirect(`/product/edit/${id}`);
+      } else {
+        res.redirect('/product');
+      }
+    });
+  } else {
+    res.redirect('/product');
+  }
+});
+
+productRouter.get('/delete/:id', isAdmin, async (req, res) => {
+  const id = req.params.id;
+  const product = await Product.findById(id);
+  if (product) {
+    const deleteProduct = await product.remove();
+  }
+  res.redirect('/product');
 });
 
 module.exports = productRouter;
