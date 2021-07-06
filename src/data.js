@@ -10,6 +10,7 @@ const data = {
       description:
         'The adidas Yeezy Boost 700 MNVN Blue Tint features a Blue Tint nylon upper with reflective graphics and details throughout the design. A thick black Boost sole and tongue adds the finishing touches to the hiking-inspired design.',
       price: 284,
+      oldPrice: 399,
       sizeAndStock: [
         {
           numSize: 39,
@@ -41,6 +42,7 @@ const data = {
       description:
         'The Nike Dunk High Game Royal pays homage to the original 1985 University of Kentucky colorway of the Nike Dunk. It features a white leather upper with Game Royal overlays and Swooshes. A matching sole and woven tongue label add the finishing touches.',
       price: 159,
+      oldPrice: 199,
       sizeAndStock: [
         {
           numSize: 39,
@@ -72,6 +74,7 @@ const data = {
       description:
         'Travis Scott and Jordan Brand teamed up to deliver the Air Jordan 6 Retro Travis Scott British Khaki. The British Khaki marks the second time that Travis has added his touch to the Jordan 6 silhouette, the first being the 2019 Air Jordan 6 Travis Scott. The upper of the Air Jordan 6 Retro Travis Scott British Khaki is made of British Khaki suede. From there, hits of Bright Crimson appear on the heel and tongue embroidered logos. The upper also has two cargo pockets: one with a snap enclosure on the lateral ankle and one with a zip enclosure on the medial ankle. A translucent tongue, heel tab, and outsole that glows in the dark adds the finishing touches to this latest Travis Scott Jordan.',
       price: 583,
+      oldPrice: 629,
       sizeAndStock: [
         {
           numSize: 39,
@@ -103,6 +106,7 @@ const data = {
       description:
         "The Nike Blazer Low '77 has transcended the basketball court to streetwear and is ready to land on your kiddo's feet. Tuck their toes into this icon for an old-school look that keeps little feet comfy on all their adventures.",
       price: 61,
+      oldPrice: 99,
       sizeAndStock: [
         {
           numSize: 28,

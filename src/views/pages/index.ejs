@@ -1,10 +1,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <%- include('../partials/head'); %>
-  </head>
 
-  <body>
-    <%- include('../partials/header'); %>
+<head>
+  <%- include('../partials/head'); %>
+</head>
+
+<body>
+  <%- include('../partials/header'); %>
 
     <main style="top: 0px" style="z-index: 0">
       <div id="carouselExampleIndicators" class="carousel slide" style="top: 0px; z-index: 0 !important"
@@ -68,7 +69,7 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-    
+
       <div class="
               container-fluid
               d-flex
@@ -78,51 +79,30 @@
               p-5
             ">
         <h2 class="text-center text-dark">TOP INTERESTING</h2>
-        <div class="w-100 d-flex flex-wrap justify-content-around m-5">
-          <div class="product-item">
-            <div class="img-product" style="background-image: url('images/p1.jpg')"></div>
-            <div class="p-2">
-              <p class="name-product">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </p>
-              <p class="old-price-product">1,200,000đ</p>
-              <p class="new-price-product">990,000đ</p>
+        <div class="w-100 d-flex flex-wrap justify-content-around mt-3 mr-5 ml-5">
+          <% for(let i=0; i<interestProduct.length; i++) { %>
+            <div class="product-item">
+              <div class="img-product" style="background-image: url('<%= interestProduct[i].image %>')"></div>
+              <div class="p-2">
+                <p class="name-product text-truncate">
+                  <%= interestProduct[i].name %>
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <p class="old-price-product">$<%= interestProduct[i].oldPrice %>
+                    </p>
+                    <p class="new-price-product">$<%= interestProduct[i].price %>
+                    </p>
+                  </div>
+                  <a href=""><i class="fas fa-shopping-cart fa-lg m-2 btn" style="color: #fcb045"></i></a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="product-item">
-            <div class="img-product" style="background-image: url('images/p3.jpg')"></div>
-            <div class="p-2">
-              <p class="name-product">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </p>
-              <p class="old-price-product">1,200,000đ</p>
-              <p class="new-price-product">990,000đ</p>
-            </div>
-          </div>
-          <div class="product-item">
-            <div class="img-product" style="background-image: url('images/p2.jpg')"></div>
-            <div class="p-2">
-              <p class="name-product">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </p>
-              <p class="old-price-product">1,200,000đ</p>
-              <p class="new-price-product">990,000đ</p>
-            </div>
-          </div>
-          <div class="product-item">
-            <div class="img-product" style="background-image: url('images/p4.jpg')"></div>
-            <div class="p-2">
-              <p class="name-product">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </p>
-              <p class="old-price-product">1,200,000đ</p>
-              <p class="new-price-product">990,000đ</p>
-            </div>
-          </div>
+            <% } %>
         </div>
-        <button class="btn my-button-dark">VIEW ALL PRODUCTS</button>
+        <a href="/product/search"><button class="btn my-button-dark">VIEW ALL PRODUCTS</button></a>
       </div>
-    
+
       <div class="contain-intro d-flex flex-column">
         <div class="intro-name">
           <p class="h1">ShoesShop</p>
@@ -156,7 +136,7 @@
           </div>
         </div>
       </div>
-    
+
       <div class="
               container-fluid
               d-flex
@@ -167,58 +147,65 @@
             ">
         <h2 class="text-center text-dark">WHO ARE YOU SHOPPING FOR?</h2>
         <div class="w-100 d-flex flex-wrap justify-content-around m-5">
-          <div class="category-item m-1">
-            <div class="img-category" style="background-image: url('images/men.jpg')">
-              <div class="
-                      w-100
-                      h-100
-                      bg-filter-category
-                      d-flex
-                      justify-content-center
-                      align-content-center
-                    ">
-                <p class="h3 font-weight-normal text-white align-self-center">
-                  MEN
-                </p>
+          <a href="/product/search?category=Men">
+            <div class="category-item m-1">
+              <div class="img-category" style="background-image: url('images/men.jpg')">
+                <div class="
+                                  w-100
+                                  h-100
+                                  bg-filter-category
+                                  d-flex
+                                  justify-content-center
+                                  align-content-center
+                                ">
+                  <p class="h3 font-weight-normal text-white align-self-center">
+                    MEN
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          </a>
+          <a href="/product/search?category=Women">
           <div class="category-item m-1">
             <div class="img-category" style="background-image: url('images/women.jpg')">
               <div class="
-                      w-100
-                      h-100
-                      bg-filter-category
-                      d-flex
-                      justify-content-center
-                      align-content-center
-                    ">
+                                w-100
+                                h-100
+                                bg-filter-category
+                                d-flex
+                                justify-content-center
+                                align-content-center
+                              ">
                 <p class="h3 font-weight-normal text-white align-self-center">
                   WOMEN
                 </p>
               </div>
             </div>
           </div>
-          <div class="category-item m-1">
-            <div class="img-category" style="background-image: url('images/kids.jpg')">
-              <div class="
-                      w-100
-                      h-100
-                      bg-filter-category
-                      d-flex
-                      justify-content-center
-                      align-content-center
-                    ">
-                <p class="h3 font-weight-normal text-white align-self-center">
-                  KIDS
-                </p>
+          </a>
+          <a href="/product/search?category=Kids">
+            <div class="category-item m-1">
+              <div class="img-category" style="background-image: url('images/kids.jpg')">
+                <div class="
+                                  w-100
+                                  h-100
+                                  bg-filter-category
+                                  d-flex
+                                  justify-content-center
+                                  align-content-center
+                                ">
+                  <p class="h3 font-weight-normal text-white align-self-center">
+                    KIDS
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </main>
 
     <%- include('../partials/footer'); %>
-  </body>
+</body>
+
 </html>

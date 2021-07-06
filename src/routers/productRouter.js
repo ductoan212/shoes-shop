@@ -31,10 +31,64 @@ productRouter.get('/', isAdmin, async (req, res) => {
 // });
 
 productRouter.get('/search', async (req, res) => {
-  const { query } = req.query;
+  const pageSize = 2;
+  const page = Number(req.query.pageNumber) || 1;
+  const name = req.query.name || '';
+  const brand = req.query.brand || '';
+  const category = req.query.category || '';
+  const order = req.query.order || '';
+  const min =
+    req.query.min && Number(req.query.min) !== 0 ? Number(req.query.min) : 0;
+  const max =
+    req.query.max && Number(req.query.max) !== 0 ? Number(req.query.max) : 0;
+
+  const nameFilter = name ? { name: { $regex: name, $options: '$i' } } : {};
+  const categoryFilter = category ? { category } : {};
+  const brandFilter = brand ? { brand } : {};
+  const priceFilter = min && max ? { price: { $gte: min, $lte: max } } : {};
+  const sortOrder =
+    order === 'lowest'
+      ? { price: 1 }
+      : order === 'highest'
+      ? { price: -1 }
+      : { _id: -1 };
+
+  const count = await Product.countDocuments({
+    ...nameFilter,
+    ...categoryFilter,
+    ...brandFilter,
+    ...priceFilter,
+  });
+
+  const products = await Product.find({
+    ...nameFilter,
+    ...categoryFilter,
+    ...brandFilter,
+    ...priceFilter,
+  })
+    .sort(sortOrder)
+    .skip(pageSize * (page - 1))
+    .limit(pageSize);
+  const query = {
+    pages: Math.ceil(count / pageSize),
+    page,
+    name,
+    brand,
+    category,
+    order,
+    min,
+    max,
+    count,
+  };
   const isLogin = req.session.user ? true : false;
   const user = req.session.user ? req.session.user : {};
-  res.render('search', { isLogin, user, query });
+  // console.log({ products });
+  res.render('search', {
+    isLogin,
+    user,
+    query,
+    products,
+  });
 });
 
 productRouter.get('/create', isAdmin, async (req, res) => {
@@ -56,6 +110,7 @@ productRouter.post('/create', isAdmin, async (req, res) => {
     brand,
     category,
     description,
+    oldPrice,
     price,
     size,
     countInStock,
@@ -83,16 +138,15 @@ productRouter.post('/create', isAdmin, async (req, res) => {
     brand,
     category,
     description,
+    oldPrice,
     price,
     sizeAndStock,
     numSold: 0,
     rating: 0,
     numReviews: 0,
   });
-  var isErr = false;
   const createProduct = await product.save(function (err) {
     if (err) {
-      isErr = true;
       req.session.error = {
         productCreate: 'Name of product is exists',
       };
@@ -111,6 +165,9 @@ productRouter.get('/edit/:id', isAdmin, async (req, res) => {
   req.session.error = {};
   const id = req.params.id;
   const product = await Product.findById(id);
+  if (!product) {
+    res.redirect('/product');
+  }
   size = [];
   countInStock = [];
   for (let i = 0; i < product.sizeAndStock.length; i++) {
@@ -134,6 +191,7 @@ productRouter.post('/edit/:id', isAdmin, async (req, res) => {
     brand,
     category,
     description,
+    oldPrice,
     price,
     size,
     countInStock,
@@ -159,9 +217,9 @@ productRouter.post('/edit/:id', isAdmin, async (req, res) => {
     product.name = name;
     product.image = image;
     product.brand = brand;
-    product.brand = brand;
     product.category = category;
     product.description = description;
+    product.oldPrice = oldPrice;
     product.price = price;
     product.sizeAndStock = sizeAndStock;
 

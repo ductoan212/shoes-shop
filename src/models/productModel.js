@@ -7,6 +7,7 @@ const productShema = new mongoose.Schema(
     brand: { type: String, require: true },
     category: { type: String, require: true },
     description: { type: String, require: true },
+    oldPrice: { type: Number, require: true },
     price: { type: Number, require: true },
     sizeAndStock: [
       {

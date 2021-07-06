@@ -5,6 +5,7 @@ const path = require('path');
 const userRouter = require('./routers/userRouter');
 const productRouter = require('./routers/productRouter');
 const orderRouter = require('./routers/orderRouter');
+const Product = require('./models/productModel');
 
 var app = express();
 
@@ -45,7 +46,9 @@ app.use('/order', orderRouter);
 app.get('/', async (req, res) => {
   const isLogin = req.session.user ? true : false;
   const user = req.session.user ? req.session.user : {};
-  res.render('index', {isLogin, user });
+  const interestProduct = await Product.find({}).limit(4);
+  // console.log({ interestProduct });
+  res.render('index', { isLogin, user, interestProduct });
 });
 
 app.listen(3000, () => {
