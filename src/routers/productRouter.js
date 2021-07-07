@@ -146,9 +146,12 @@ productRouter.post('/create', isAdmin, async (req, res) => {
   // upload image
   const imageFile = req.files.image;
   const image = 'http://localhost:3000/images/products/' + imageFile.name;
-  uploadPath =
-    'F:/NodeJs/UIT COURSE/DO AN/shoes-shop/src/public/images/products/' +
+  const uploadPath =
+    __dirname.slice(0, __dirname.length - 7) +
+    'public/images/products/' +
     imageFile.name;
+  console.log({ uploadPath });
+
   imageFile.mv(uploadPath, function (err) {
     if (err) {
       console.log({ err });
