@@ -50,6 +50,9 @@ app.get('/', async (req, res) => {
   // console.log({ interestProduct });
   res.render('index', { isLogin, user, interestProduct });
 });
+app.get('*', async (req, res) => {
+  res.render('404');
+});
 
 app.listen(3000, () => {
   console.log('App is running on http://localhost:3000');
