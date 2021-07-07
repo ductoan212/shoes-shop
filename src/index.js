@@ -6,6 +6,7 @@ const userRouter = require('./routers/userRouter');
 const productRouter = require('./routers/productRouter');
 const orderRouter = require('./routers/orderRouter');
 const Product = require('./models/productModel');
+const fileUpload = require('express-fileupload');
 
 var app = express();
 
@@ -30,6 +31,15 @@ app.use(
 // View engine
 app.set('views', path.join(__dirname, 'views/pages'));
 app.set('view engine', 'ejs');
+
+// fileUpload
+app.use(
+  fileUpload()
+  // fileUpload({
+  //   useTempFiles: true,
+  //   tempFileDir: '/images/',
+  // })
+);
 
 mongoose.connect(
   process.env.MONGODB_URI || 'mongodb://localhost:27017/shoe_shop',

@@ -106,7 +106,6 @@ productRouter.get('/create', isAdmin, async (req, res) => {
 productRouter.post('/create', isAdmin, async (req, res) => {
   const {
     name,
-    image,
     brand,
     category,
     description,
@@ -115,6 +114,8 @@ productRouter.post('/create', isAdmin, async (req, res) => {
     size,
     countInStock,
   } = req.body;
+
+  // check size and stock
   const sizes = size.split(',');
   const countInStocks = countInStock.split(',');
   if (sizes.length != countInStocks.length) {
@@ -132,6 +133,34 @@ productRouter.post('/create', isAdmin, async (req, res) => {
     });
   }
 
+  // check product name
+  const findProduct = await Product.find({ name });
+  if (findProduct.length !== 0) {
+    req.session.error = {
+      productCreate: 'Name of product is exists',
+    };
+    res.redirect('/product/create');
+    return;
+  }
+
+  // upload image
+  const imageFile = req.files.image;
+  const image = 'http://localhost:3000/images/products/' + imageFile.name;
+  uploadPath =
+    'F:/NodeJs/UIT COURSE/DO AN/shoes-shop/src/public/images/products/' +
+    imageFile.name;
+  imageFile.mv(uploadPath, function (err) {
+    if (err) {
+      console.log({ err });
+      req.session.error = {
+        productCreate: "Can't upload image of product.",
+      };
+      res.redirect('/product/create');
+      return;
+    }
+  });
+
+  // save product
   const product = new Product({
     name,
     image,
@@ -148,7 +177,7 @@ productRouter.post('/create', isAdmin, async (req, res) => {
   const createProduct = await product.save(function (err) {
     if (err) {
       req.session.error = {
-        productCreate: 'Name of product is exists',
+        productCreate: "Can't create product.",
       };
       res.redirect('/product/create');
     } else {
