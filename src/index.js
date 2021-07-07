@@ -33,13 +33,7 @@ app.set('views', path.join(__dirname, 'views/pages'));
 app.set('view engine', 'ejs');
 
 // fileUpload
-app.use(
-  fileUpload()
-  // fileUpload({
-  //   useTempFiles: true,
-  //   tempFileDir: '/images/',
-  // })
-);
+app.use(fileUpload());
 
 mongoose.connect(
   process.env.MONGODB_URI || 'mongodb://localhost:27017/shoe_shop',
