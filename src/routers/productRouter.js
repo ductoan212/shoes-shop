@@ -24,14 +24,14 @@ productRouter.get('/', isAdmin, async (req, res) => {
   });
 });
 
-// productRouter.get('/seed', async (req, res) => {
-//   await Product.remove({});
-//   const createProducts = await Product.insertMany(data.products);
-//   res.send({ createProducts });
-// });
+productRouter.get('/seed', async (req, res) => {
+  await Product.remove({});
+  const createProducts = await Product.insertMany(data.products);
+  res.send({ createProducts });
+});
 
 productRouter.get('/search', async (req, res) => {
-  const pageSize = 2;
+  const pageSize = 8;
   const page = Number(req.query.pageNumber) || 1;
   const name = req.query.name || '';
   const brand = req.query.brand || '';

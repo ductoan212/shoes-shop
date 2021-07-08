@@ -1,6 +1,7 @@
 var express = require('express');
 var User = require('../models/userModel.js');
 var { isAdmin } = require('../utils.js');
+var data = require('../data.js');
 
 const userRouter = express.Router();
 
@@ -21,6 +22,12 @@ userRouter.get('/', isAdmin, async (req, res) => {
     page,
     pages: Math.ceil(count / pageSize),
   });
+});
+
+userRouter.get('/seed', async (req, res) => {
+  await User.remove({});
+  const createUsers = await User.insertMany(data.users);
+  res.send({ createUsers });
 });
 
 userRouter.get('/login', async (req, res) => {

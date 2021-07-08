@@ -7,8 +7,8 @@
 
 body {
   background-color: #161616;
-  background-image: url(../images/bg-login-removebg.png),
-    url(../images/bg-login-2-removebg-preview.png);
+  background-image: url(../images/bg-login.png),
+    url(../images/bg-login-2.png);
   background-position: bottom right, top left;
   background-repeat: no-repeat;
   background-size: 400px, 300px;

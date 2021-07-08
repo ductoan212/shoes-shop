@@ -85,7 +85,8 @@
 /* ====================== PRODUCT ITEM ====================== */
 .product-item {
   width: 15rem;
-  /* background-color: #00000052; */
+  background-color: #88888817;
+  /* border: 1px solid #88888805; */
   cursor: pointer;
   margin: 1rem;
 }
