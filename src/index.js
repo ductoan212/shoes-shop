@@ -36,7 +36,8 @@ app.set('view engine', 'ejs');
 app.use(fileUpload());
 
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost:27017/shoe_shop',
+  process.env.MONGODB_URI ||
+    'mongodb+srv://user:user@shoeshop.wid5k.mongodb.net/shoeshop',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
