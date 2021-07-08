@@ -69,6 +69,7 @@ productRouter.get('/search', async (req, res) => {
     .sort(sortOrder)
     .skip(pageSize * (page - 1))
     .limit(pageSize);
+
   const query = {
     pages: Math.ceil(count / pageSize),
     page,

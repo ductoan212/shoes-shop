@@ -6,11 +6,12 @@ const path = require('path');
 const userRouter = require('./routers/userRouter');
 const productRouter = require('./routers/productRouter');
 const orderRouter = require('./routers/orderRouter');
+const cartRouter = require('./routers/cartRouter');
 const Product = require('./models/productModel');
 const fileUpload = require('express-fileupload');
 
 dotenv.config();
-// abc
+
 var app = express();
 
 // Middleware
@@ -40,7 +41,7 @@ app.use(fileUpload());
 
 // connect to mongodb cloud
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost:27017/shoe_shop',
+  'mongodb://localhost:27017/shoe_shop',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -51,11 +52,11 @@ mongoose.connect(
 app.use('/user', userRouter);
 app.use('/product', productRouter);
 app.use('/order', orderRouter);
+app.use('/cart', cartRouter);
 app.get('/', async (req, res) => {
   const isLogin = req.session.user ? true : false;
   const user = req.session.user ? req.session.user : {};
   const interestProduct = await Product.find({}).limit(4);
-  // console.log({ interestProduct });
   res.render('index', { isLogin, user, interestProduct });
 });
 app.get('*', async (req, res) => {
