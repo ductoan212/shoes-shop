@@ -1,5 +1,6 @@
 const express = require('express');
 const session = require('express-session');
+const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const path = require('path');
 const userRouter = require('./routers/userRouter');
@@ -7,6 +8,8 @@ const productRouter = require('./routers/productRouter');
 const orderRouter = require('./routers/orderRouter');
 const Product = require('./models/productModel');
 const fileUpload = require('express-fileupload');
+
+dotenv.config();
 
 var app = express();
 
@@ -24,7 +27,7 @@ app.use(
     user: {},
     cart: { cartItems: [], total: 0 },
     error: {},
-    cookie: { maxAge: 3600000 * 24 * 1 }, // 1day
+    cookie: { maxAge: 3600000 * 24 * 1 }, // 1 day
   })
 );
 
@@ -35,6 +38,7 @@ app.set('view engine', 'ejs');
 // fileUpload
 app.use(fileUpload());
 
+// connect to mongodb cloud
 mongoose.connect(
   process.env.MONGODB_URI ||
     'mongodb+srv://user:user@shoeshop.wid5k.mongodb.net/shoeshop',
@@ -59,6 +63,8 @@ app.get('*', async (req, res) => {
   res.render('404');
 });
 
-app.listen(3000, () => {
-  console.log('App is running on http://localhost:3000');
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+  console.log(`Server at http://localhost:${port}`);
 });
