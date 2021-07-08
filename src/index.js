@@ -40,8 +40,7 @@ app.use(fileUpload());
 
 // connect to mongodb cloud
 mongoose.connect(
-  // process.env.MONGODB_URI ||
-  'mongodb://localhost:27017/shoe_shop',
+  process.env.MONGODB_URI || 'mongodb://localhost:27017/shoe_shop',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
