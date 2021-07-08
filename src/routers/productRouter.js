@@ -106,6 +106,7 @@ productRouter.get('/create', isAdmin, async (req, res) => {
 productRouter.post('/create', isAdmin, async (req, res) => {
   const {
     name,
+    image,
     brand,
     category,
     description,
@@ -142,26 +143,6 @@ productRouter.post('/create', isAdmin, async (req, res) => {
     res.redirect('/product/create');
     return;
   }
-
-  // upload image
-  const imageFile = req.files.image;
-  const image = 'http://localhost:3000/images/products/' + imageFile.name;
-  const uploadPath =
-    __dirname.slice(0, __dirname.length - 7) +
-    'public/images/products/' +
-    imageFile.name;
-  console.log({ uploadPath });
-
-  imageFile.mv(uploadPath, function (err) {
-    if (err) {
-      console.log({ err });
-      req.session.error = {
-        productCreate: "Can't upload image of product.",
-      };
-      res.redirect('/product/create');
-      return;
-    }
-  });
 
   // save product
   const product = new Product({
