@@ -9,58 +9,86 @@
 
     <main class="d-flex flex-column" style="padding-top: 6rem !important;">
       <section class="p-3">
-        <h1>List all products in web</h1>
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h1>List all product</h1>
+          <a href="/product/create"><button class="btn btn-success">Add new product</button></a>
+        </div>
         <table class="table table-striped">
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
+              <th scope="col" >Name</th>
+              <th scope="col">Brand</th>
+              <th scope="col">Category</th>
+              <th scope="col">Price</th>
+              <th scope="col">Num solds</th>
+              <th scope="col">Rating</th>
+              <th scope="col">Num reviews</th>
+              <th scope="col">Method</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
+            <% for(let i=0; i<products.length; i++) { %>
+              <tr>
+                <th scope="row">
+                  <%= i+1 %>
+                </th>
+                <td style="word-wrap: break-word; max-width: 350px; ">
+                  <%= products[i].name %>
+                </td>
+                <td>
+                  <%= products[i].brand %>
+                </td>
+                <td>
+                  <%= products[i].category %>
+                </td>
+                <td>
+                  <%= products[i].price %>
+                </td>
+                <td>
+                  <%= products[i].numSold %>
+                </td>
+                <td>
+                  <%= products[i].rating %>
+                </td>
+                <td>
+                  <%= products[i].numReviews %>
+                </td>
+                <td>
+                  <a href="/product/edit/<%= products[i]._id %>"><button
+                      class="btn btn-outline-primary">Edit</button></a>
+                  <a onclick="return confirmDeleteItem('<%= products[i].name %>')"
+                    href="/product/delete/<%= products[i]._id %>"><button
+                      class="btn btn-outline-danger">Delete</button></a>
+                </td>
+              </tr>
+              <% } %>
+
           </tbody>
         </table>
         <div class="d-flex align-items-center justify-content-center">
           <ul class="style-type-none filter d-flex">
-            <li>
-              <a>1</a>
-            </li>
-            <li>
-              <a class="filter-active">2</a>
-            </li>
-            <li>
-              <a>3</a>
-            </li>
-            <li>
-              <a>4</a>
-            </li>
+            <% for(let i=1; i<=pages; i++) { let classs="" ; if(i==page) classs="filter-active" ; %>
+              <li>
+                <a class="<%= classs %>" href="/product?pageNumber=<%= i %>">
+                  <%= i %>
+                </a>
+              </li>
+              <% } %>
           </ul>
         </div>
       </section>
-
     </main>
 
     <%- include('../partials/footer'); %>
+      <script>
+        const confirmDeleteItem = () => {
+          if (confirm(`Do you want to delete product?`)) {
+            return true;
+          }
+          return false;
+        };
+      </script>
 </body>
 
 </html>

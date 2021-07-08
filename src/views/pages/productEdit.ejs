@@ -1,0 +1,84 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <%- include('../partials/head'); %>
+</head>
+
+<body>
+  <%- include('../partials/header'); %>
+
+    <main class="d-flex flex-column align-items-center" style="padding-top: 6rem !important;">
+      <section class="p-3 w-75">
+        <div class="d-flex justify-content-center">
+          <a href="/product" class="link-text">
+            <i class="fa fa-home mr-3"></i>Back to list product
+          </a>
+        </div>
+        <h1 class="text-center">Edit product</h1>
+        <% if(error) { %>
+          <div class="alert alert-warning" role="alert">
+            <%= error %>
+          </div>
+          <% } %>
+            <form method="POST" action="/product/edit/<%= product._id %>">
+              <div class="form-group">
+                <label for="name">Name of product</label>
+                <input type="text" class="form-control" id="name" name="name" value="<%= product.name %>" required>
+              </div>
+              <div class="form-group">
+                <label for="image">Link to image</label>
+                <input type="text" class="form-control" id="image" name="image" value="<%= product.image %>" required>
+              </div>
+              <div class=" form-group">
+                <label for="brand">Brand</label>
+                <select class="custom-select" id="brand" name="brand" required>
+                  <% const values=["Adidas", "Nike" , "Jordan" ]; for(let i=0; i<values.length; i++) { let selected="" ;
+                    if(values[i]==product.brand) selected="selected" ; %>
+                    <option value="<%= values[i] %>" <%=selected %>><%= values[i] %>
+                    </option>
+                    <% } %>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="category">Category</label>
+                <select class="custom-select" id="category" name="category" required>
+                  <% const categorys=["Men", "Women" , "Kids" , "Sports" ]; for(let i=0; i<categorys.length; i++) { let
+                    selected="" ; if(categorys[i]==product.category) selected="selected" ; %>
+                    <option value="<%= categorys[i] %>" <%=selected %>><%= categorys[i] %>
+                    </option>
+                    <% } %>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea type="text" class="form-control" id="description" name="description"
+                  required><%= product.description %></textarea>
+              </div>
+              <div class="form-group">
+                <label for="oldPrice">Old price</label>
+                <input type="number" class="form-control" id="oldPrice" name="oldPrice" value="<%= product.oldPrice %>" required>
+              </div>
+              <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" id="price" name="price" value="<%= product.price %>" required>
+              </div>
+              <div class="form-group">
+                <label for="size">Sizes</label>
+                <input type="text" class="form-control" id="size" name="size" value="<%= product.size %>" required>
+              </div>
+              <div class="form-group">
+                <label for="countInStock">Count in stock</label>
+                <input type="text" class="form-control" id="countInStock" name="countInStock"
+                  value="<%= product.countInStock %>" required>
+              </div>
+              <div class="form-group d-flex justify-content-center">
+                <button type="submit" class="btn btn-success">Save</button>
+              </div>
+            </form>
+      </section>
+    </main>
+
+    <%- include('../partials/footer'); %>
+</body>
+
+</html>

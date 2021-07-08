@@ -5,6 +5,8 @@ const path = require('path');
 const userRouter = require('./routers/userRouter');
 const productRouter = require('./routers/productRouter');
 const orderRouter = require('./routers/orderRouter');
+const Product = require('./models/productModel');
+const fileUpload = require('express-fileupload');
 
 var app = express();
 
@@ -30,8 +32,12 @@ app.use(
 app.set('views', path.join(__dirname, 'views/pages'));
 app.set('view engine', 'ejs');
 
+// fileUpload
+app.use(fileUpload());
+
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost:27017/shoe_shop',
+  process.env.MONGODB_URI ||
+    'mongodb+srv://user:user@shoeshop.wid5k.mongodb.net/shoeshop',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -45,7 +51,12 @@ app.use('/order', orderRouter);
 app.get('/', async (req, res) => {
   const isLogin = req.session.user ? true : false;
   const user = req.session.user ? req.session.user : {};
-  res.render('index', {isLogin, user });
+  const interestProduct = await Product.find({}).limit(4);
+  // console.log({ interestProduct });
+  res.render('index', { isLogin, user, interestProduct });
+});
+app.get('*', async (req, res) => {
+  res.render('404');
 });
 
 app.listen(3000, () => {

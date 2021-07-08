@@ -344,6 +344,22 @@ button:hover {
   background: linear-gradient(45deg, #9a3c94 0%, #e02f47 50%, #fc8648 100%);
 }
 
+.link-text {
+  color: #fcb045;
+}
+
+.link-text:hover {
+  color: #fd9f1c;
+}
+
+.no-resutls {
+  background-image: url(/images/no-result.png);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 /* ====================== REPONSIVE ====================== */
 @media only screen and (max-width: 768px) {
   .flex-reponsive {
