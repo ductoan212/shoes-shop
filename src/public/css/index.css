@@ -2,6 +2,23 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .logo {
@@ -244,6 +261,54 @@
   text-align: center;
 }
 
+/* ====================== Search Page ====================== */
+.filter {
+  width: max-content;
+}
+
+.filter a {
+  border: 1px solid #e6ac00;
+  border-radius: 2px;
+  width: 100%;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  color: #e6ac00;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.filter a:hover {
+  background-color: #e6ac00;
+  color: #ffffff;
+}
+
+.filter-active {
+  background-color: #e6ac00;
+  color: #ffffff !important;
+}
+
+.filter li {
+  height: fit-content;
+  padding: 0.6rem 0rem;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* ====================== Back to top ====================== */
+.back-to-top {
+  width: 55px;
+  height: 55px;
+  background-image: url(/images/to-top.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+
 /* ====================== Custume ====================== */
 
 .my-button-white {
@@ -277,6 +342,22 @@ button:hover {
 .btn-my-style {
   background: rgb(131, 58, 180);
   background: linear-gradient(45deg, #9a3c94 0%, #e02f47 50%, #fc8648 100%);
+}
+
+.link-text {
+  color: #fcb045;
+}
+
+.link-text:hover {
+  color: #fd9f1c;
+}
+
+.no-resutls {
+  background-image: url(/images/no-result.png);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 /* ====================== REPONSIVE ====================== */

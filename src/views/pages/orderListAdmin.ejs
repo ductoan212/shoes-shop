@@ -1,0 +1,65 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <%- include('../partials/head'); %>
+</head>
+
+<body>
+  <%- include('../partials/header'); %>
+
+    <main class="d-flex flex-column" style="padding-top: 6rem !important;">
+      <section class="p-3">
+        <h1>List all orders of customner</h1>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Handle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="d-flex align-items-center justify-content-center">
+          <ul class="style-type-none filter d-flex">
+            <li>
+              <a>1</a>
+            </li>
+            <li>
+              <a class="filter-active">2</a>
+            </li>
+            <li>
+              <a>3</a>
+            </li>
+            <li>
+              <a>4</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <%- include('../partials/footer'); %>
+</body>
+
+</html>

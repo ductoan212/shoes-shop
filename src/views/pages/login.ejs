@@ -20,10 +20,6 @@
 
 <body>
   <main>
-    <!-- <div
-        class="container-login text-center"
-        style="background-image: url(./images/bg-login.jpg)"
-      > -->
     <div class="container-login text-center p-1">
       <div>
         <a href="/" class="link-text">
@@ -37,6 +33,11 @@
           reiciendis!
         </h6>
       </div>
+      <% if(error) { %>
+        <div class="alert alert-error" role="alert">
+          <%= error %>
+        </div>
+        <% } %>
       <div class="
             login-form-container
             d-flex
@@ -52,7 +53,7 @@
               flex-column
               justify-content-center
               align-items-center
-            ">
+            " method="POST" action="/user/login">
           <input type="text" id="username" name="username" placeholder="Username" />
           <input type="password" id="password" name="password" placeholder="Password" />
           <button type="submit" class="
@@ -74,17 +75,17 @@
               justify-content-center
               align-items-center
             ">
-          <button class="btn-my-style-wrap-2">
+          <button class="btn-my-style-wrap-2" data-toggle="modal" data-target="#exampleModal">
             <div class="btn-my-style-2">
               <i class="fab fa-google mr-3"></i>Sign in with Google
             </div>
           </button>
-          <button class="btn-my-style-wrap-1">
+          <button class="btn-my-style-wrap-1" data-toggle="modal" data-target="#exampleModal">
             <div class="btn-my-style-2">
               <i class="fab fa-facebook-f mr-3"></i>Sign in with Facebook
             </div>
           </button>
-          <button class="btn-my-style-wrap-2">
+          <button class="btn-my-style-wrap-2" data-toggle="modal" data-target="#exampleModal">
             <div class="btn-my-style-2">
               <i class="fab fa-apple mr-3"></i>Sign in with Apple Account
             </div>
@@ -94,6 +95,25 @@
       <a href="#" class="text-white-50 h5">Fogot Password??</a>
       <a href="./register" class="h5" style="color: rgba(252, 176, 69, 1)">Create an account for shopping...</a>
       <div class="login-footer m-5">&copy Copyright by ShoesShop</div>
+    </div>
+    <div>      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content p-0">
+            <div class="d-flex flex-row container align-items-center">
+              <h3 class="flex-grow-1" style="flex-grow: 1 !important;" id="exampleModalLabel">Notice</h3>
+              <button class="bg-danger d-flex justify-content-center align-items-center p-2" style="width: 50px !important;" data-dismiss="modal" aria-label="Close">
+                &times;
+              </button>
+            </div>
+            <div class="modal-body h5 pt-5 pb-5">
+              Function in progress...
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 

@@ -115,6 +115,11 @@ button:hover {
   color: #fd9f1c;
 }
 
+.alert-error {
+  border: 1px solid #fd9f1c;
+  color: #fd9f1c;
+}
+
 /* ====================== REPONSIVE ====================== */
 @media only screen and (max-width: 512px) {
   input,

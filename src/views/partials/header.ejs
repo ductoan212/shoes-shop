@@ -6,7 +6,7 @@
               js-scroll-trigger
               font-weight-bold
               text-white-50
-            " href="#">
+            " href="/">
         <div class="logo circle"></div>
       </a>
 
@@ -21,22 +21,23 @@
                 text-center
               ">
           <li class="nav-item">
-            <form class="d-flex">
-              <input class="form-control me-2 search-input" type="search" placeholder="Search..." aria-label="Search" />
+            <form class="d-flex" action="/product/search">
+              <input name="name" class="form-control me-2 search-input" type="search" placeholder="Search..."
+                aria-label="Search" />
             </form>
           </li>
 
           <li class="nav-item" style="width: 5rem">
-            <a class="nav-link text-white" href="#">NEW RELEASE</a>
+            <a class="nav-link text-white" href="/product/search?order=">NEW RELEASE</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">MEN</a>
+            <a class="nav-link text-white" href="/product/search?category=Men">MEN</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">WOMAN</a>
+            <a class="nav-link text-white" href="/product/search?category=Women">WOMEN</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">KIDS</a>
+            <a class="nav-link text-white" href="/product/search?category=Kids">KIDS</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="#">ABOUT US</a>
@@ -45,12 +46,32 @@
             <a class="nav-link text-white" href="#"><i class="fas fa-shopping-cart fa-lg m-2 btn"
                 style="color: #ffffff"></i></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#"><i class="fas fa-user fa-lg m-2 btn" style="color: #ffffff"></i></a>
-          </li>
-          <li class="nav-item">
-            <a href="/user/login" class="nav-link btn btn-my-style text-white" >Login</a>
-          </li>
+
+          <% if(!isLogin) { %>
+            <li class="nav-item">
+              <a href="/user/login" class="nav-link btn btn-my-style text-white">Login</a>
+            </li>
+            <% } else { %>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-user fa-lg mr-1" style="color: #ffffff"></i>
+                  <%= user.username %>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Profile</a>
+                  <a class="dropdown-item" href="/order/user/<%= user._id %> ">List orders</a>
+                  <% if(user.isAdmin) { %>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/user">All users</a>
+                    <a class="dropdown-item" href="/product">All products</a>
+                    <a class="dropdown-item" href="/order">All orders</a>
+                    <% } %>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="/user/logout">Logout</a>
+                </div>
+              </li>
+              <% } %>
         </ul>
       </div>
       <button id="btn-nav" class="navbar-toggler navbar-toggler-left collapsed" type="button" data-toggle="collapse"
