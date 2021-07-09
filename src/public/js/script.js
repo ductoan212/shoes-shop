@@ -1,3 +1,7 @@
+AOS.init({
+  duration: 800,
+})
+
 //Toggle
 $('.navbar-nav>li>a').on('click', function () {
   $('.navbar-collapse').collapse('hide');
@@ -50,3 +54,12 @@ const confirmDeleteItem = (name) => {
   }
   return false;
 };
+
+// Redirect when logout
+window.onload = function () {
+  console.log(window.location.href)
+  console.log(window.location.pathname)
+  console.log(window.location.search)
+
+};
+

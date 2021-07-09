@@ -21,6 +21,10 @@
   background: #555;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .logo {
   background-image: url(https://i.pinimg.com/474x/f9/1a/a3/f91aa37eae15b0b16e6f0a5fb40f7732.jpg);
   height: 4rem;
@@ -361,8 +365,8 @@ a:hover {
   padding: 1rem;
   text-align: center;
   cursor: pointer;
-  transition: all 0.4s ease-in-out;
-  background-color: #FFFFFF;
+  transition: all 0.3s ease-in-out;
+  background-color: #ffffff;
 }
 
 .summary:hover {
@@ -419,6 +423,13 @@ button:hover {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.btn-disabled,
+.btn-disabled[disabled] {
+  opacity: 0.4;
+  cursor: default !important;
+  pointer-events: none;
 }
 
 /* ====================== REPONSIVE ====================== */

@@ -76,12 +76,11 @@
               flex-column
               justify-content-center
               align-items-center
-              p-5
-            ">
-        <h2 class="text-center text-dark">TOP INTERESTING</h2>
+              p-5">
+        <h2 data-aos="fade-up" class="text-center text-dark">TOP INTERESTING</h2>
         <div class="w-100 d-flex flex-wrap justify-content-around mt-3 mr-5 ml-5">
           <% for(let i=0; i<interestProduct.length; i++) { %>
-            <div class="product-item">
+            <div class="product-item" data-aos="zoom-in">
               <div class="img-product" style="background-image: url('<%= interestProduct[i].image %>')"></div>
               <div class="p-2">
                 <p class="name-product text-truncate">
@@ -100,15 +99,15 @@
             </div>
             <% } %>
         </div>
-        <a href="/product/search"><button class="btn my-button-dark">VIEW ALL PRODUCTS</button></a>
+        <a data-aos="fade-up" href="/product/search"><button class="btn my-button-dark">VIEW ALL PRODUCTS</button></a>
       </div>
 
-      <div class="contain-intro d-flex flex-column">
+      <div data-aos="fade-up" class="contain-intro d-flex flex-column">
         <div class="intro-name">
           <p class="h1">ShoesShop</p>
         </div>
         <div class="d-flex flex-wrap flex-reponsive">
-          <div class="intro-sale-off flex-grow text-white">
+          <div data-aos="fade-right" class="intro-sale-off flex-grow text-white">
             <p class="h1">
               SALE <b class="font-weight-bold text-dark">50%</b> OFF
             </p>
@@ -116,7 +115,7 @@
             <p>Lorem ipsum dolor sit amet consectetu</p>
             <button class="btn my-button-white">CLICK FOR DETAILS</button>
           </div>
-          <div class="d-flex flex-column flex-grow">
+          <div data-aos="fade-left" class="d-flex flex-column flex-grow">
             <div class="intro-top-shoes flex-grow">
               <p class="h2">TOP <br />RUNNING SHOES</p>
               <p>Lorem ipsum dolor sit amet.</p>
@@ -145,9 +144,9 @@
               align-items-center
               p-5
             ">
-        <h2 class="text-center text-dark">WHO ARE YOU SHOPPING FOR?</h2>
+        <h2 data-aos="fade-up" class="text-center text-dark">WHO ARE YOU SHOPPING FOR?</h2>
         <div class="w-100 d-flex flex-wrap justify-content-around m-5">
-          <a href="/product/search?category=Men">
+          <a data-aos="zoom-in" href="/product/search?category=Men">
             <div class="category-item m-1">
               <div class="img-category" style="background-image: url('images/men.jpg')">
                 <div class="
@@ -165,10 +164,10 @@
               </div>
             </div>
           </a>
-          <a href="/product/search?category=Women">
-          <div class="category-item m-1">
-            <div class="img-category" style="background-image: url('images/women.jpg')">
-              <div class="
+          <a data-aos="zoom-in" href="/product/search?category=Women">
+            <div class="category-item m-1">
+              <div class="img-category" style="background-image: url('images/women.jpg')">
+                <div class="
                                 w-100
                                 h-100
                                 bg-filter-category
@@ -176,14 +175,14 @@
                                 justify-content-center
                                 align-content-center
                               ">
-                <p class="h3 font-weight-normal text-white align-self-center">
-                  WOMEN
-                </p>
+                  <p class="h3 font-weight-normal text-white align-self-center">
+                    WOMEN
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
           </a>
-          <a href="/product/search?category=Kids">
+          <a data-aos="zoom-in" href="/product/search?category=Kids">
             <div class="category-item m-1">
               <div class="img-category" style="background-image: url('images/kids.jpg')">
                 <div class="
