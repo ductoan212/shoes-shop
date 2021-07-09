@@ -14,7 +14,7 @@ const data = {
       password: '1',
       fullname: 'User shoeshop',
       email: 'user@shoeshop.com',
-      isAdmin: true,
+      isAdmin: false,
       phoneNumber: 0123965874,
       address: 'Ho Chi Minh',
     },
