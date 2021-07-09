@@ -310,6 +310,66 @@ a:hover {
   right: 1rem;
 }
 
+/* ====================== Back to top ====================== */
+.bg-aboutus {
+  width: 100%;
+  height: 30rem;
+  background-image: url(https://minara.net/blog/wp-content/uploads/2019/11/5-c%C3%A1ch-%C4%91%E1%BB%83-c%E1%BA%A3i-thi%E1%BB%87n-t%C3%ADnh-t%C6%B0%C6%A1ng-t%C3%A1c-c%E1%BB%A7a-nh%C3%A2n-vi%C3%AAn-%C4%91%E1%BB%91i-v%E1%BB%9Bi-doanh-nghi%E1%BB%87p-minara.net-2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.aboutus-quote {
+  width: 100%;
+  height: 20rem;
+  background-image: url(https://atlassianblog.wpengine.com/wp-content/uploads/2017/12/teamwork-quotes_9_phil-jackson@2x.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.aboutus-quote-2 {
+  width: 100%;
+  height: auto;
+  background-image: url(https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.img-hover-zoom {
+  overflow: hidden;
+  width: 20rem;
+  height: 20rem;
+}
+
+.img-ceo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding: 0.5rem !important;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.img-ceo:hover {
+  transform: scale(1.5);
+}
+
+.summary {
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  background-color: #FFFFFF;
+}
+
+.summary:hover {
+  background-color: #e6ac00;
+  color: #ffffff !important;
+}
+
 /* ====================== Custume ====================== */
 
 .my-button-white {

@@ -53,6 +53,11 @@ app.use('/user', userRouter);
 app.use('/product', productRouter);
 app.use('/order', orderRouter);
 app.use('/cart', cartRouter);
+app.get('/aboutus', async (req, res) => {
+  const isLogin = req.session.user ? true : false;
+  const user = req.session.user ? req.session.user : {};
+  res.render('aboutUs', { isLogin, user });
+});
 app.get('/', async (req, res) => {
   const isLogin = req.session.user ? true : false;
   const user = req.session.user ? req.session.user : {};
