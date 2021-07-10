@@ -40,14 +40,11 @@ app.set('view engine', 'ejs');
 app.use(fileUpload());
 
 // connect to mongodb cloud
-mongoose.connect(
-  'mongodb://localhost:27017/shoe_shop',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-  }
-);
+mongoose.connect('mongodb://localhost:27017/shoe_shop', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+});
 
 app.use('/user', userRouter);
 app.use('/product', productRouter);
@@ -59,6 +56,10 @@ app.get('/aboutus', async (req, res) => {
   res.render('aboutUs', { isLogin, user });
 });
 app.get('/', async (req, res) => {
+  var LocalStorage = require('node-localstorage').LocalStorage;
+  localStorage = new LocalStorage('./scratch');
+  localStorage.setItem('cartItems', []);
+
   const isLogin = req.session.user ? true : false;
   const user = req.session.user ? req.session.user : {};
   const interestProduct = await Product.find({}).limit(4);

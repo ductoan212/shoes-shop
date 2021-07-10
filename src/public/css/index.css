@@ -331,15 +331,17 @@ a:hover {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  margin-right: 8px;
 }
 
 .aboutus-quote-2 {
   width: 100%;
-  height: auto;
+  height: 20rem;
   background-image: url(https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  margin-left: 8px;
 }
 
 .img-hover-zoom {
@@ -433,6 +435,24 @@ button:hover {
 }
 
 /* ====================== REPONSIVE ====================== */
+@media only screen and (max-width: 1200px) {
+  .reponsive-about-us {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .aboutus-quote {
+    margin-right: 0px;
+    margin-bottom: 8px;
+  }
+
+  .aboutus-quote-2 {
+    margin-left: 0px;
+    margin-top: 8px;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .flex-reponsive {
     flex-direction: column !important;
