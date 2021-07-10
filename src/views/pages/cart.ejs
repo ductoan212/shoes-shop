@@ -8,7 +8,55 @@
   <%- include('../partials/header'); %>
 
     <main class="d-flex flex-column" style="padding-top: 6rem !important;">
-      CART
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Qty</th>
+            <th scope="col">Total</th>
+            <th scope="col">Method</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let i=0; i<cartItems.length; i++) { %>
+            <tr>
+              <th scope="row">
+                <%= i+1 %>
+              </th>
+              <th scope="col">
+                <%= cartItems[i].productId %>
+              </th>
+              <th scope="col">
+                <img src="<%= cartItems[i].image %>" style="height: 5rem; width: 5rem; object-position: cover;" alt="">
+              </th>
+              <th scope="col">
+                <%= cartItems[i].name %>
+              </th>
+              <th scope="col">
+                <%= cartItems[i].price %>
+              </th>
+              <th scope="col">
+                <%= cartItems[i].quantity %>
+              </th>
+              <th scope="col">
+                <%= cartItems[i].totalItem %>
+              </th>
+              <td>
+                <a href="/cart/add/<%= cartItems[i].productId %>"><button
+                    class="btn btn-outline-primary">Add</button></a>
+                <a href="/cart/sub/<%= cartItems[i].productId %>"><button class="btn btn-outline-info">Sub</button></a>
+                <a href="/cart/remove/<%= cartItems[i].productId %>"><button
+                    class="btn btn-outline-danger">Del</button></a>
+              </td>
+            </tr>
+            <% } %>
+
+        </tbody>
+      </table>
     </main>
 
     <%- include('../partials/footer'); %>

@@ -1,6 +1,6 @@
 var express = require('express');
 var User = require('../models/userModel.js');
-var { isAdmin } = require('../utils.js');
+var { isAdmin, isLogin } = require('../utils.js');
 var data = require('../data.js');
 
 const userRouter = express.Router();
@@ -102,6 +102,11 @@ userRouter.post('/register', async (req, res) => {
 userRouter.get('/logout', (req, res) => {
   req.session.user = null;
   res.redirect('/');
+});
+
+userRouter.get('/profile', isLogin, async (req, res) => {
+  const user = req.session.user;
+  res.json({ user });
 });
 
 module.exports = userRouter;

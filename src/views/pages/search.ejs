@@ -90,7 +90,11 @@
                           <p class="new-price-product">$<%= products[i].price %>
                           </p>
                         </div>
-                        <a href=""><i class="fas fa-shopping-cart fa-lg m-2 btn" style="color: #fcb045"></i></a>
+                        <% let
+                          redirect=`"/product/search?name=${query.name}&&brand=${query.brand}&&category=${query.category}&&order=${query.order}&&min=${query.min}&&max=${query.max}&&pageNumber=${query.pageNumber}"`
+                          %>
+                          <a class="order-product" href="/cart/add/<%= products[i]._id %>"><i
+                              class="fas fa-shopping-cart fa-lg m-2 btn" style="color: #fcb045"></i></a>
                       </div>
                     </div>
                   </div>

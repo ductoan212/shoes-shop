@@ -1,6 +1,6 @@
 AOS.init({
   duration: 800,
-})
+});
 
 //Toggle
 $('.navbar-nav>li>a').on('click', function () {
@@ -55,11 +55,13 @@ const confirmDeleteItem = (name) => {
   return false;
 };
 
-// Redirect when logout
-window.onload = function () {
-  console.log(window.location.href)
-  console.log(window.location.pathname)
-  console.log(window.location.search)
-
-};
-
+var btnOrder = document.getElementsByClassName('order-product');
+for (let i = 0; i < btnOrder.length; i++) {
+  btnOrder[i].addEventListener('click', (e) => {
+    e.preventDefault();
+    let href = btnOrder[i].href; // http:..../order/cart/add/:id
+    $.ajax(href, {
+      Type: 'GET',
+    });
+  });
+}

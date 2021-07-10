@@ -6,3 +6,11 @@ module.exports.isAdmin = (req, res, next) => {
     res.redirect('/');
   }
 };
+
+module.exports.isLogin = (req, res, next) => {
+  if (req.session.user) {
+    next();
+  } else {
+    res.redirect('/');
+  }
+};
