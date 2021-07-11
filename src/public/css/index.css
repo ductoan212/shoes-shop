@@ -348,13 +348,13 @@ a:hover {
   overflow: hidden;
   width: 20rem;
   height: 20rem;
+  margin: 8px;
 }
 
 .img-ceo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  padding: 0.5rem !important;
   cursor: pointer;
   transition: transform 0.5s ease;
 }
