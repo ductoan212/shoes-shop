@@ -19,14 +19,24 @@ cartRouter.get('/', async (req, res) => {
 cartRouter.get('/add/:id', async (req, res) => {
   const id = req.params.id;
   const product = await Product.findById(id);
+  // Lấy size cho giày
+  let size = product.sizeAndStock[0].numSize;
+  for (let i = 1; i < product.sizeAndStock.length; i++) {
+    if (product.sizeAndStock[i].numSize == req.query.size) {
+      size = product.sizeAndStock[i].numSize;
+      break;
+    }
+  }
 
+  // Check biến cart
   if (!req.session.cart) req.session.cart = { cartItems: [], total: 0 };
   if (!req.session.cart.cartItems) req.session.cart.cartItems = [];
 
+  // Thêm vào giỏ
   let cartItems = [...req.session.cart.cartItems];
   let isExists = false;
   for (let i = 0; i < cartItems.length; i++) {
-    if (cartItems[i].productId == product._id) {
+    if (cartItems[i].productId == product._id && cartItems[i].size == size) {
       cartItems[i].quantity++;
       cartItems[i].totalItem += product.price;
       isExists = true;
@@ -38,6 +48,7 @@ cartRouter.get('/add/:id', async (req, res) => {
       productId: product._id,
       name: product.name,
       image: product.image,
+      size: size,
       price: product.price,
       quantity: 1,
       totalItem: product.price,
@@ -45,22 +56,30 @@ cartRouter.get('/add/:id', async (req, res) => {
   }
   req.session.cart.cartItems = [...cartItems];
   req.session.cart.total += product.price;
-  // res.json({ items: req.session.cart.cartItems });
+
   res.redirect('/cart');
 });
 
 cartRouter.get('/sub/:id', async (req, res) => {
   const id = req.params.id;
   const product = await Product.findById(id);
+  // Lấy size cho giày
+  const size = req.query.size || 0;
+  if (size === 0) {
+    res.redirect('/cart');
+    return;
+  }
 
+  // Check biến cart trong session
   if (!req.session.cart) req.session.cart = { cartItems: [], total: 0 };
   if (!req.session.cart.cartItems) req.session.cart.cartItems = [];
   if (req.session.cart.cartItems == []) return;
 
+  // Tiến hành xóa
   let cartItems = [...req.session.cart.cartItems];
   let isExists = false;
   for (let i = 0; i < cartItems.length; i++) {
-    if (cartItems[i].productId == product._id) {
+    if (cartItems[i].productId == product._id && cartItems[i].size == size) {
       cartItems[i].quantity--;
       cartItems[i].totalItem -= product.price;
       if (cartItems[i].quantity == 0) {
@@ -75,13 +94,14 @@ cartRouter.get('/sub/:id', async (req, res) => {
     req.session.cart.cartItems = [...cartItems];
     req.session.cart.total -= product.price;
   }
-  // res.json({ items: req.session.cart.cartItems });
+
   res.redirect('/cart');
 });
 
 cartRouter.get('/remove/:id', async (req, res) => {
   const id = req.params.id;
   const product = await Product.findById(id);
+  const size = req.query.size || product.sizeAndStock[0].numSize;
 
   if (!req.session.cart) req.session.cart = { cartItems: [], total: 0 };
   if (!req.session.cart.cartItems) req.session.cart.cartItems = [];
@@ -90,7 +110,7 @@ cartRouter.get('/remove/:id', async (req, res) => {
   let cartItems = [...req.session.cart.cartItems];
   let index = -1;
   for (let i = 0; i < cartItems.length; i++) {
-    if (cartItems[i].productId == product._id) {
+    if (cartItems[i].productId == product._id && cartItems[i].size == size) {
       index = i;
       break;
     }
