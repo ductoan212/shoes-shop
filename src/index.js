@@ -21,15 +21,15 @@ app.use(express.urlencoded());
 
 // Session
 app.use(
-  session({
-    secret: 'SECRET',
-    resave: true,
-    saveUninitialized: true,
-    user: {},
-    cart: { cartItems: [], total: 0 },
-    error: {},
-    cookie: { maxAge: 3600000 * 24 * 1 }, // 1 day
-  })
+    session({
+        secret: 'SECRET',
+        resave: true,
+        saveUninitialized: true,
+        user: {},
+        cart: { cartItems: [], total: 0 },
+        error: {},
+        cookie: { maxAge: 3600000 * 24 * 1 }, // 1 day
+    })
 );
 
 // View engine
@@ -41,36 +41,33 @@ app.use(fileUpload());
 
 // connect to mongodb cloud
 mongoose.connect('mongodb://localhost:27017/shoe_shop', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
 });
 
 app.use('/user', userRouter);
 app.use('/product', productRouter);
 app.use('/order', orderRouter);
 app.use('/cart', cartRouter);
-app.get('/aboutus', async (req, res) => {
-  const isLogin = req.session.user ? true : false;
-  const user = req.session.user ? req.session.user : {};
-  res.render('aboutUs', { isLogin, user });
+app.get('/aboutus', async(req, res) => {
+    const isLogin = req.session.user ? true : false;
+    const user = req.session.user ? req.session.user : {};
+    res.render('aboutUs', { isLogin, user });
 });
-app.get('/', async (req, res) => {
-  var LocalStorage = require('node-localstorage').LocalStorage;
-  localStorage = new LocalStorage('./scratch');
-  localStorage.setItem('cartItems', []);
+app.get('/', async(req, res) => {
 
-  const isLogin = req.session.user ? true : false;
-  const user = req.session.user ? req.session.user : {};
-  const latestRelease = await Product.find({}).sort({ _id: -1 }).limit(4);
-  res.render('index', { isLogin, user, latestRelease });
+    const isLogin = req.session.user ? true : false;
+    const user = req.session.user ? req.session.user : {};
+    const latestRelease = await Product.find({}).sort({ _id: -1 }).limit(4);
+    res.render('index', { isLogin, user, latestRelease });
 });
-app.get('*', async (req, res) => {
-  res.render('404');
+app.get('*', async(req, res) => {
+    res.render('404');
 });
 
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-  console.log(`Server at http://localhost:${port}`);
+    console.log(`Server at http://localhost:${port}`);
 });
