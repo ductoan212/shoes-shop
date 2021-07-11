@@ -107,7 +107,10 @@ productRouter.get('/detail/:id', async (req, res) => {
   const user = req.session.user ? req.session.user : {};
   const id = req.params.id;
   const product = await Product.findById(id);
-  res.render('detail', { isLogin, user, product });
+  const productRecommend = await Product.find({})
+    .sort({ numSold: -1 })
+    .limit(3);
+  res.render('detail', { isLogin, user, product, productRecommend });
 });
 
 productRouter.get('/create', isAdmin, async (req, res) => {

@@ -1,101 +1,77 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <script type="application/x-javascript">
-        addEventListener("load", function() {
-            setTimeout(hideURLbar, 0);
-        }, false);
+    <%- include('../partials/head'); %>
+        <!--coustom css-->
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <!--shop-kart-js-->
+        <script src="/js/simpleCart.min.js"></script>
+        <!--default-js-->
+        <script src="/js/jquery-2.1.4.min.js"></script>
+        <!--bootstrap-js-->
+        <script src="/js/bootstrap.min.js"></script>
+        <!--script-->
+        <!-- FlexSlider -->
+        <script src="/js/imagezoom.js"></script>
+        <script defer src="/js/jquery.flexslider.js"></script>
+        <link rel="stylesheet" href="/css/flexslider.css" type="text/css" media="screen" />
 
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-    </script>
-    <meta charset utf="8">
-    <!--fonts-->
-    <link href='//fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
-
-    <!--fonts-->
-    <!--bootstrap-->
-    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <!--coustom css-->
-    <link href="/css/style.css" rel="stylesheet" type="text/css" />
-    <!--shop-kart-js-->
-    <script src="/js/simpleCart.min.js"></script>
-    <!--default-js-->
-    <script src="/js/jquery-2.1.4.min.js"></script>
-    <!--bootstrap-js-->
-    <script src="/js/bootstrap.min.js"></script>
-    <!--script-->
-    <!-- FlexSlider -->
-    <script src="/js/imagezoom.js"></script>
-    <script defer src="/js/jquery.flexslider.js"></script>
-    <!-- <link rel="stylesheet" href="/css/flexslider.css" type="text/css" media="screen" /> -->
-
-    <script>
-        // Can also be used with $(document).ready()
-        $(window).load(function() {
-            $('.flexslider').flexslider({
-                animation: "slide",
-                controlNav: "thumbnails"
+        <script>
+            $(window).load(function () {
+                $('.flexslider').flexslider({
+                    // animation: "slide",
+                    // controlNav: "thumbnails"
+                });
             });
-        });
-    </script>
-    <!-- //FlexSlider-->
+        </script>
 </head>
 
 <body>
     <%- include('../partials/header'); %>
 
-        <main class="d-flex flex-column" style="padding-top: 6rem !important;">
+        <main class="d-flex flex-column " style="padding-top: 8rem !important; padding-left: 15%; padding-right: 15%;">
             <div class="showcase-grid">
-                <div class="container">
-                    <div class="col-md-8 showcase">
-                        <div class="flexslider">
+                <div class="d-flex justify-content-between responsive-detail">
+                    <div class="col-md-7 showcase p-0" style="height: 500px;">
+                        <div class="flexslider m-0 border-0" style="background-color: #f0f8ff00; height: 100%;">
                             <ul class="slides">
                                 <li data-thumb="images/show.jpg">
-                                    <div class="thumb-image"> <img src="<%= product.image %>" data-imagezoom="true" class="img-responsive"> </div>
+                                    <div class="thumb-image"> <img style="object-fit: cover; height: 100%; width: 100%;"
+                                            src="<%= product.image %>" data-imagezoom="true" class="img-responsive">
+                                    </div>
                                 </li>
-                                <!-- <li data-thumb="images/show1.jpg">
-                            <div class="thumb-image"> <img src="images/show1.jpg" data-imagezoom="true" class="img-responsive"> </div>
-                        </li>
-                        <li data-thumb="images/show2.jpg">
-                            <div class="thumb-image"> <img src="images/show2.jpg" data-imagezoom="true" class="img-responsive"> </div>
-                        </li>
-                        <li data-thumb="images/show3.jpg">
-                            <div class="thumb-image"> <img src="images/show3.jpg" data-imagezoom="true" class="img-responsive"> </div>
-                        </li> -->
                             </ul>
-                            <div class="clearfix"></div>
                         </div>
                     </div>
-                    <div class="col-md-4 showcase">
+                    <div class="col-md-5 showcase d-flex flex-column justify-content-between">
                         <div class="showcase-rt-top">
-                            <div class="pull-left shoe-name">
-                                <h3>
+                            <div class="pull-left shoe-name mb-2">
+                                <h3 class="mb-2">
                                     <%= product.name %>
                                 </h3>
-                                <p>
+                                <p class="mb-2">
                                     <%= product.brand %>
                                 </p>
-                                <h4>&#36;
-                                    <%= product.price %>
+                                <p class="mb-2">
+                                    Category: <%= product.category %>
+                                </p>
+                                <h4 style="text-decoration: line-through; color: #888; font-size: 1.25rem;">
+                                    $<%= product.oldPrice %>
+                                </h4>
+                                <h4>
+                                    $<%= product.price %>
                                 </h4>
                             </div>
-                            <div class="pull-left rating-stars">
-                                <ul>
-                                    <%
-                                for(let i=0; i<product.rating ;i++) {
-                            %>
-                                        <li><a href="#" class="active"><span class="glyphicon glyphicon-star star-stn" aria-hidden="true"></span></a></li>
-                                        <% } %>
-                                            <%
-                                for(let i=0; i<(5 - product.rating) ;i++) {
-                            %>
-                                                <li><a href="#"><span class="glyphicon glyphicon-star star-stn" aria-hidden="true"></span></a></li>
-                                                <% } %>
-                                </ul>
+                            <div class="pull-left w-100 rating-stars pt-0">
+                                <% for(let i=0; i<product.rating ;i++) { %>
+                                    <a href="#" class="active"><i class="fas fa-star " style="color: #ffc107;"
+                                            aria-hidden="true"></i></a>
+                                    <% } %>
+                                        <% for(let i=0; i<(5 - product.rating) ;i++) { %>
+                                            <a href="#"><i class="fas fa-star" style="color: #ffc107;"
+                                                    aria-hidden="true"></i></a>
+                                            <% } %>
                             </div>
-                            <div class="clearfix"></div>
                         </div>
                         <hr class="featurette-divider">
                         <div class="shocase-rt-bot">
@@ -104,20 +80,22 @@
                                     <li class="qty">
                                         <h3>Size Chart</h3>
                                         <select class="form-control siz-chrt">
-                                <% for(let i=0; i<product.sizeAndStock.length;i++) { %>
-                                    <option><%= product.sizeAndStock[i].numSize %></option>
-                                <% } %>
-                                </select>
+                                            <% for(let i=0; i<product.sizeAndStock.length;i++) { %>
+                                                <option>
+                                                    <%= product.sizeAndStock[i].numSize %>
+                                                </option>
+                                                <% } %>
+                                        </select>
                                     </li>
                                     <li class="qty">
                                         <h4>QTY</h4>
                                         <select class="form-control qnty-chrt">
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                </select>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
                                     </li>
                                 </ul>
                                 <div class="clearfix"></div>
@@ -129,14 +107,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="showcase-last">
-                            <h3>product details</h3>
-                            <p>
-                                <%= product.description %>
-                            </p>
-                        </div>
                     </div>
-                    <div class="clearfix"></div>
                 </div>
             </div>
 
@@ -146,27 +117,43 @@
                     <div class="detai-tabs">
                         <!-- Nav tabs -->
                         <ul class="nav nav-pills tab-nike" role="tablist">
-                            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Highlights</a></li>
-                            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Description</a></li>
-                            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Terms & conditiona</a></li>
+                            <li role="presentation" class="active m-1"><a class="p-3" href="#home" aria-controls="home"
+                                    role="tab" data-toggle="tab">Description</a></li>
+                            <li role="presentation" class="m-1"><a class="p-3" href="#profile" aria-controls="profile"
+                                    role="tab" data-toggle="tab">Highlights</a></li>
+                            <li role="presentation" class="m-1"><a class="p-3" href="#messages" aria-controls="messages"
+                                    role="tab" data-toggle="tab">Terms & conditiona</a></li>
                         </ul>
 
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="home">
-                                <p>The full-length Max Air unit delivers excellent cushioning with enhanced flexibility for smoother transitions through footstrike.</p>
-                                <p>Dynamic Flywire cables integrate with the laces and wrap your midfoot for a truly adaptive, supportive fit.</p>
+                                <p>
+                                    <%= product.description %>
+                                </p>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="profile">
-                                <p>Nike is one of the leading manufacturer and supplier of sports equipment, footwear and apparels. Nike is a global brand and it continuously creates products using high technology and design innovation. Nike has a vast collection
-                                    of sports shoes for men at Snapdeal. You can explore our range of basketball shoes, football shoes, cricket shoes, tennis shoes, running shoes, daily shoes or lifestyle shoes. Take your pick from an array of sports
-                                    shoes in vibrant colours like red, yellow, green, blue, brown, black, grey, olive, pink, beige and white. Designed for top performance, these shoes match the way you play or run. Available in materials like leather,
-                                    canvas, suede leather, faux leather, mesh etc, these shoes are lightweight, comfortable, sturdy and extremely sporty. The sole of all Nike shoes is designed to provide an increased amount of comfort and the material
-                                    is good enough to provide an improved fit. These shoes are easy to maintain and last for a really long time given to their durability. Buy Nike shoes for men online with us at some unbelievable discounts and great prices.
-                                    So get faster and run farther with your Nike shoes and track how hard you can play.</p>
+                                <p>Nike is one of the leading manufacturer and supplier of sports equipment, footwear
+                                    and apparels. Nike is a global brand and it continuously creates products using high
+                                    technology and design innovation. Nike has a vast collection
+                                    of sports shoes for men at Snapdeal. You can explore our range of basketball shoes,
+                                    football shoes, cricket shoes, tennis shoes, running shoes, daily shoes or lifestyle
+                                    shoes. Take your pick from an array of sports
+                                    shoes in vibrant colours like red, yellow, green, blue, brown, black, grey, olive,
+                                    pink, beige and white. Designed for top performance, these shoes match the way you
+                                    play or run. Available in materials like leather,
+                                    canvas, suede leather, faux leather, mesh etc, these shoes are lightweight,
+                                    comfortable, sturdy and extremely sporty. The sole of all Nike shoes is designed to
+                                    provide an increased amount of comfort and the material
+                                    is good enough to provide an improved fit. These shoes are easy to maintain and last
+                                    for a really long time given to their durability. Buy Nike shoes for men online with
+                                    us at some unbelievable discounts and great prices.
+                                    So get faster and run farther with your Nike shoes and track how hard you can play.
+                                </p>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="messages">
-                                The images represent actual product though color of the image and product may slightly differ.
+                                The images represent actual product though color of the image and product may slightly
+                                differ.
                             </div>
                         </div>
                     </div>
@@ -176,70 +163,33 @@
             <div class="you-might-like">
                 <div class="container">
                     <h3 class="you-might">Products You May Like</h3>
-                    <div class="col-md-4 grid-stn simpleCart_shelfItem">
-                        <!-- normal -->
-                        <div class="ih-item square effect3 bottom_to_top">
-                            <div class="bottom-2-top">
-                                <div class="img"><img src="images/grid4.jpg" alt="/" class="img-responsive gri-wid"></div>
-                                <div class="info">
-                                    <div class="pull-left styl-hdn">
-                                        <h3>style 01</h3>
+                    <div class="d-flex justify-content-between">
+                        <% for(let i=0; i<productRecommend.length; i++) { %>
+                            <div class="product-item">
+                                <a href="/product/detail/<%= productRecommend[i]._id %>">
+                                    <div class="img-product"
+                                        style="background-image: url('<%= productRecommend[i].image %>')">
                                     </div>
-                                    <div class="pull-right styl-price">
-                                        <p><a href="#" class="item_add"><span class="glyphicon glyphicon-shopping-cart grid-cart" aria-hidden="true"></span> <span class=" item_price">$190</span></a></p>
+                                    <div class="p-2">
+                                        <p class="name-product text-truncate" style="text-align: start;">
+                                            <%= productRecommend[i].name %>
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <p class="old-price-product">$<%= productRecommend[i].oldPrice %>
+                                                </p>
+                                                <p class="new-price-product">$<%= productRecommend[i].price %>
+                                                </p>
+                                            </div>
+                                            <a class="order-product" href="/cart/add/<%= productRecommend[i]._id %>"><i
+                                                    class="fas fa-shopping-cart fa-lg m-2 btn"
+                                                    style="color: #fcb045"></i></a>
+                                        </div>
                                     </div>
-                                    <div class="clearfix"></div>
-                                </div>
+                                </a>
                             </div>
-                        </div>
-                        <!-- end normal -->
-                        <div class="quick-view">
-                            <a href="single.html">Quick view</a>
-                        </div>
+                            <% } %>
                     </div>
-                    <div class="col-md-4 grid-stn simpleCart_shelfItem">
-                        <!-- normal -->
-                        <div class="ih-item square effect3 bottom_to_top">
-                            <div class="bottom-2-top">
-                                <div class="img"><img src="images/grid6.jpg" alt="/" class="img-responsive gri-wid"></div>
-                                <div class="info">
-                                    <div class="pull-left styl-hdn">
-                                        <h3>style 01</h3>
-                                    </div>
-                                    <div class="pull-right styl-price">
-                                        <p><a href="#" class="item_add"><span class="glyphicon glyphicon-shopping-cart grid-cart" aria-hidden="true"></span> <span class=" item_price">$190</span></a></p>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end normal -->
-                        <div class="quick-view">
-                            <a href="single.html">Quick view</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 grid-stn simpleCart_shelfItem">
-                        <!-- normal -->
-                        <div class="ih-item square effect3 bottom_to_top">
-                            <div class="bottom-2-top">
-                                <div class="img"><img src="images/grid3.jpg" alt="/" class="img-responsive gri-wid"></div>
-                                <div class="info">
-                                    <div class="pull-left styl-hdn">
-                                        <h3>style 01</h3>
-                                    </div>
-                                    <div class="pull-right styl-price">
-                                        <p><a href="#" class="item_add"><span class="glyphicon glyphicon-shopping-cart grid-cart" aria-hidden="true"></span> <span class=" item_price">$190</span></a></p>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end normal -->
-                        <div class="quick-view">
-                            <a href="single.html">Quick view</a>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
                 </div>
             </div>
         </main>
