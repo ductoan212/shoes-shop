@@ -92,6 +92,14 @@ productRouter.get('/search', async (req, res) => {
   });
 });
 
+productRouter.get('/detail/:id', async (req, res) => {
+  const isLogin = req.session.user ? true : false;
+  const user = req.session.user ? req.session.user : {};
+  const id = req.params.id;
+  const product = await Product.findById(id);
+  res.json({ product });
+});
+
 productRouter.get('/create', isAdmin, async (req, res) => {
   let error =
     req.session.error && req.session.error.productCreate

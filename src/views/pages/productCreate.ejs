@@ -32,9 +32,12 @@
               <div class="form-group">
                 <label for="brand">Brand</label>
                 <select class="custom-select" id="brand" name="brand" required>
-                  <option value="Adidas">Adidas</option>
-                  <option value="Nike">Nike</option>
-                  <option value="Jordan">Jordan</option>
+                  <% let brands=["Adidas", "Nike" ,"Converse", "Vans" ,"Puma" , "Jordan" ]; for(let i=0;
+                    i<brands.length; i++) { %>
+                    <option value="<%= brands[i] %>">
+                      <%= brands[i] %>
+                    </option>
+                    <%}%>
                 </select>
               </div>
               <div class="form-group">

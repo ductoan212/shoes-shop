@@ -62,8 +62,8 @@ app.get('/', async (req, res) => {
 
   const isLogin = req.session.user ? true : false;
   const user = req.session.user ? req.session.user : {};
-  const interestProduct = await Product.find({}).limit(4);
-  res.render('index', { isLogin, user, interestProduct });
+  const latestRelease = await Product.find({}).sort({ _id: -1 }).limit(4);
+  res.render('index', { isLogin, user, latestRelease });
 });
 app.get('*', async (req, res) => {
   res.render('404');

@@ -21,13 +21,16 @@
               <div class="bg-filter-1"></div>
             </div>
             <div class="carousel-caption d-none d-md-block">
-              <h2>Lorem, ipsum dolor</h2>
+              <h2>NIKE SHOES</h2>
               <p class="h5 font-weight-light mb-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-                adipisci. Odit nesciunt voluptatum earum? Incidunt consectetur
-                quidem qui ducimus nemo fuga id.
+                Nike, Inc. (/ˈnaɪki/ or /ˈnaɪk/) is an American multinational corporation that is engaged in the
+                design,
+                development, manufacturing, and worldwide marketing and sales of footwear, apparel, equipment,
+                accessories, and
+                services. The company is headquartered near Beaverton, Oregon, in the Portland metropolitan area.
               </p>
-              <button class="btn my-button-white">MORE INFOMATION</button>
+              <a href="/product/search?brand=Nike" <button class="btn my-button-white">SHOW ALL PRODUCTS OF
+                NIKE</button></a>
             </div>
           </div>
           <div class="carousel-item">
@@ -35,14 +38,15 @@
               <div class="bg-filter-2"></div>
             </div>
             <div class="carousel-caption d-none d-md-block">
-              <h2>Lorem, ipsum dolor</h2>
+              <h2>CONVERSE</h2>
               <p class="h5 font-weight-light mb-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-                repellat, corrupti recusandae corporis rerum ad nam quod
-                adipisci. Odit nesciunt voluptatum earum? Incidunt consectetur
-                quidem qui ducimus nemo fuga id.
+                Converse /ˈkɒnvərs/ is an American shoe company that designs, distributes, and licenses sneakers,
+                skating shoes,
+                lifestyle brand footwear, apparel, and accessories. Founded in 1908, it has been a subsidiary of Nike,
+                Inc. since 2003.
               </p>
-              <button class="btn my-button-white">MORE INFOMATION</button>
+              <a href="/product/search?brand=Converse" <button class="btn my-button-white">SHOW ALL
+                PRODUCTS</button></a>
             </div>
           </div>
           <div class="carousel-item">
@@ -50,12 +54,12 @@
               <div class="bg-filter-3"></div>
             </div>
             <div class="carousel-caption d-none d-md-block">
-              <h2>Lorem, ipsum dolor</h2>
+              <h2>ABOUT US</h2>
               <p class="h5 font-weight-light mb-4">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
                 repellat, corrupti recusandae corporis rerum ad nam quod
               </p>
-              <button class="btn my-button-white">MORE INFOMATION</button>
+              <a href="/aboutus"><button class="btn my-button-white">MORE INFOMATION</button></a>
             </div>
           </div>
         </div>
@@ -77,26 +81,28 @@
               justify-content-center
               align-items-center
               p-5">
-        <h2 data-aos="fade-up" class="text-center text-dark">TOP INTERESTING</h2>
+        <h2 data-aos="fade-up" class="text-center text-dark">LATEST RELEASE</h2>
         <div class="w-100 d-flex flex-wrap justify-content-around mt-3 mr-5 ml-5">
-          <% for(let i=0; i<interestProduct.length; i++) { %>
-            <div class="product-item" data-aos="zoom-in">
-              <div class="img-product" style="background-image: url('<%= interestProduct[i].image %>')"></div>
-              <div class="p-2">
-                <p class="name-product text-truncate">
-                  <%= interestProduct[i].name %>
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div>
-                    <p class="old-price-product">$<%= interestProduct[i].oldPrice %>
-                    </p>
-                    <p class="new-price-product">$<%= interestProduct[i].price %>
-                    </p>
+          <% for(let i=0; i<latestRelease.length; i++) { %>
+            <a href="/product/detail/<%= latestRelease[i]._id %>">
+              <div class="product-item" data-aos="zoom-in">
+                <div class="img-product" style="background-image: url('<%= latestRelease[i].image %>')"></div>
+                <div class="p-2">
+                  <p class="name-product text-truncate">
+                    <%= latestRelease[i].name %>
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <p class="old-price-product">$<%= latestRelease[i].oldPrice %>
+                      </p>
+                      <p class="new-price-product">$<%= latestRelease[i].price %>
+                      </p>
+                    </div>
+                    <a href=""><i class="fas fa-shopping-cart fa-lg m-2 btn" style="color: #fcb045"></i></a>
                   </div>
-                  <a href=""><i class="fas fa-shopping-cart fa-lg m-2 btn" style="color: #fcb045"></i></a>
                 </div>
               </div>
-            </div>
+            </a>
             <% } %>
         </div>
         <a data-aos="fade-up" href="/product/search"><button class="btn my-button-dark">VIEW ALL PRODUCTS</button></a>
@@ -113,13 +119,14 @@
             </p>
             <p class="h4 text">OUT OF THIS WORLD</p>
             <p>Lorem ipsum dolor sit amet consectetu</p>
-            <button class="btn my-button-white">CLICK FOR DETAILS</button>
+            <a href="/product/search?order=lowest"><button class="btn my-button-white">CLICK FOR DETAILS</button></a>
           </div>
           <div class="d-flex flex-column flex-grow">
             <div data-aos="fade-left" class="intro-top-shoes flex-grow">
               <p class="h2">TOP <br />RUNNING SHOES</p>
               <p>Lorem ipsum dolor sit amet.</p>
-              <button class="btn my-button-dark">CLICK FOR DETAILS</button>
+              <a href="/product/search?category=Sports"><button class="btn my-button-dark">CLICK FOR
+                  DETAILS</button></a>
             </div>
             <div data-aos="fade-left" class="intro-about-us flex-grow">
               <div>
@@ -129,7 +136,7 @@
                   deserunt laudantium provident quasi. Lorem ipsum dolor sit
                   amet consectetur adipisicing elit. Doloribus, reiciendis.
                 </p>
-                <button class="btn my-button-white">MORE INFO</button>
+                <a href="/aboutus"><button class="btn my-button-white">MORE INFO</button></a>
               </div>
             </div>
           </div>
