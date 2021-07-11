@@ -11,6 +11,7 @@ productRouter.get('/', isAdmin, async (req, res) => {
   const count = await Product.countDocuments({});
   const products = await Product.find({})
     .skip(pageSize * (page - 1))
+    .sort({ _id: -1 })
     .limit(pageSize);
 
   const isLogin = req.session.user ? true : false;

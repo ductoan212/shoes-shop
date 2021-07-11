@@ -60,8 +60,15 @@ for (let i = 0; i < btnOrder.length; i++) {
   btnOrder[i].addEventListener('click', (e) => {
     e.preventDefault();
     let href = btnOrder[i].href; // http:..../order/cart/add/:id
+    var _this = $(this);
     $.ajax(href, {
       Type: 'GET',
+      success: function (result) {
+        $('.contain-addSuccess').addClass('show-contain-addSuccess');
+        setTimeout(function () {
+          $('.contain-addSuccess').removeClass('show-contain-addSuccess');
+        }, 1000);
+      },
     });
   });
 }

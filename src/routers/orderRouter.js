@@ -25,8 +25,7 @@ orderRouter.get('/id/:id', isAdmin, async (req, res) => {
 orderRouter.get('/user', isLogin, async (req, res) => {
   const user = req.session.user;
   const ordersOfUser = await Order.find({ userId: user._id });
-  res.json({ ordersOfUser });
-  // res.render('orderListUser', { isLogin: true, user });
+  res.json({ userId: user._id, ordersOfUser });
 });
 
 orderRouter.get('/user/id/:id', isLogin, async (req, res) => {
@@ -34,7 +33,6 @@ orderRouter.get('/user/id/:id', isLogin, async (req, res) => {
   const id = req.params.id;
   const ordersOfId = await Order.findById(id);
   res.json({ ordersOfId });
-  // res.render('orderListUser', { isLogin: true, user });
 });
 
 module.exports = orderRouter;
