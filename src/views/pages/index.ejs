@@ -74,7 +74,7 @@
         </a>
       </div>
 
-      <div class="
+      <div data-aos="zoom-in" class="
               container-fluid
               d-flex
               flex-column
@@ -84,8 +84,8 @@
         <h2 data-aos="fade-up" class="text-center text-dark">LATEST RELEASE</h2>
         <div class="w-100 d-flex flex-wrap justify-content-around mt-3 mr-5 ml-5">
           <% for(let i=0; i<latestRelease.length; i++) { %>
-            <a href="/product/detail/<%= latestRelease[i]._id %>">
-              <div class="product-item" data-aos="zoom-in">
+            <div class="product-item" data-aos="zoom-in">
+              <a href="/product/detail/<%= latestRelease[i]._id %>">
                 <div class="img-product" style="background-image: url('<%= latestRelease[i].image %>')"></div>
                 <div class="p-2">
                   <p class="name-product text-truncate">
@@ -98,14 +98,15 @@
                       <p class="new-price-product">$<%= latestRelease[i].price %>
                       </p>
                     </div>
-                    <a href=""><i class="fas fa-shopping-cart fa-lg m-2 btn" style="color: #fcb045"></i></a>
+                    <a class="order-product" href="/cart/add/<%= latestRelease[i]._id %>""><i class=" fas
+                      fa-shopping-cart fa-lg m-2 btn" style="color: #fcb045"></i></a>
                   </div>
                 </div>
-              </div>
-            </a>
+              </a>
+            </div>
             <% } %>
         </div>
-        <a data-aos="fade-up" href="/product/search"><button class="btn my-button-dark">VIEW ALL PRODUCTS</button></a>
+        <a href="/product/search"><button class="btn my-button-dark">VIEW ALL PRODUCTS</button></a>
       </div>
 
       <div data-aos="fade-up" class="contain-intro d-flex flex-column">
@@ -210,7 +211,10 @@
         </div>
       </div>
     </main>
-
+    
+    <div class="contain-addSuccess">
+      <p class="addSuccess "><i class="fa fa-check-circle mr-2"></i>Add to cart success</p>
+    </div>
     <%- include('../partials/footer'); %>
 </body>
 
