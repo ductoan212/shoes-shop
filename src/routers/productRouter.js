@@ -107,7 +107,7 @@ productRouter.get('/detail/:id', async (req, res) => {
   const user = req.session.user ? req.session.user : {};
   const id = req.params.id;
   const product = await Product.findById(id);
-  res.json({ product });
+  res.render('detail', { isLogin, user, product });
 });
 
 productRouter.get('/create', isAdmin, async (req, res) => {
