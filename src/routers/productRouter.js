@@ -43,7 +43,16 @@ productRouter.get('/search', async (req, res) => {
   const max =
     req.query.max && Number(req.query.max) !== 0 ? Number(req.query.max) : 0;
 
-  const nameFilter = name ? { name: { $regex: name, $options: '$i' } } : {};
+  const nameFilter = name
+    ? {
+        $or: [
+          { name: { $regex: name, $options: '$i' } },
+          { category: { $regex: name, $options: '$i' } },
+          { brand: { $regex: name, $options: '$i' } },
+          { description: { $regex: name, $options: '$i' } },
+        ],
+      }
+    : {};
   const categoryFilter = category ? { category } : {};
   const brandFilter = brand ? { brand } : {};
   const priceFilter = min && max ? { price: { $gte: min, $lte: max } } : {};

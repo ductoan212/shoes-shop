@@ -9,10 +9,13 @@
 
     <main class="d-flex flex-column" style="padding-top: 6rem !important;">
       <div class="d-flex justify-content-between p-3 mb-1 align-items-center">
-        <div class="d-flex flex align-items-center">
+        <div class="d-flex flex align-items-center justify-content-center">
           <b class="mr-5">
             <%= query.count %> Results
           </b>
+          <p class="m-0"><b>Search:</b>
+            <%= query.name %>
+          </p>
         </div>
         <div class="input-group" style="width: 20rem;">
           <div class="input-group-prepend">
