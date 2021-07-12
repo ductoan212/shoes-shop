@@ -87,7 +87,7 @@ const data = {
     {
       name: 'Nike Dunk High Game Royal',
       image:
-        'https://images.stockx.com/360/Nike-Dunk-High-Game-Royal/Images/Nike-Dunk-High-Game-Royal/Lv2/img01.jpg?auto=compress&dpr=1&updated_at=1624468016&fit=clip&fm=webp&ixlib=react-9.1.5&q=90&w=1140',
+        'https://static.nike.com/a/images/t_prod_ss/w_960,c_limit,f_auto/bfbf66e6-79ea-48e5-9e17-7cc1128c13df/dunk-high-game-royal-release-date.jpg',
       brand: 'Nike',
       category: 'Men',
       description:
@@ -147,38 +147,6 @@ const data = {
       numSold: 0,
       rating: 0,
       numReviews: 0,
-    },
-    {
-      name: 'Jordan 6 Retro Travis Scott British Khaki',
-      image:
-        'https://images.stockx.com/360/Air-Jordan-6-Retro-Travis-Scott-British-Khaki/Images/Air-Jordan-6-Retro-Travis-Scott-British-Khaki/Lv2/img01.jpg?auto=compress&dpr=1&updated_at=1620406101&fit=clip&fm=webp&ixlib=react-9.1.5&q=90&w=1140',
-      brand: 'Jordan',
-      category: 'Women',
-      description:
-        'Travis Scott and Jordan Brand teamed up to deliver the Air Jordan 6 Retro Travis Scott British Khaki. The British Khaki marks the second time that Travis has added his touch to the Jordan 6 silhouette, the first being the 2019 Air Jordan 6 Travis Scott. The upper of the Air Jordan 6 Retro Travis Scott British Khaki is made of British Khaki suede. From there, hits of Bright Crimson appear on the heel and tongue embroidered logos. The upper also has two cargo pockets: one with a snap enclosure on the lateral ankle and one with a zip enclosure on the medial ankle. A translucent tongue, heel tab, and outsole that glows in the dark adds the finishing touches to this latest Travis Scott Jordan.',
-      price: 583,
-      oldPrice: 629,
-      sizeAndStock: [
-        {
-          numSize: 39,
-          countInStock: 10,
-        },
-        {
-          numSize: 40,
-          countInStock: 5,
-        },
-        {
-          numSize: 41,
-          countInStock: 20,
-        },
-        {
-          numSize: 42,
-          countInStock: 25,
-        },
-      ],
-      numSold: 1,
-      rating: 5,
-      numReviews: 3,
     },
     {
       name: 'Nike Air Zoom Pegasus 38',
@@ -1213,6 +1181,960 @@ const data = {
         {
           numSize: 43,
           countInStock: 25,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: 'Kids fun floral classic slip-on',
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/shoe-shop-6a8b1.appspot.com/o/Kids%20fun%20floral%20classic%20slip-on.png?alt=media&token=84c8d195-93d6-4296-b1ad-6793bf73a84a',
+      brand: 'Vans',
+      category: 'Kids',
+      description:
+        'First introduced in 1977, the Vans #98—now known as the Classic Slip-On—instantly became an icon in Southern California. Fast forward to today, and the Classic Slip-On is known worldwide for its comfortable silhouette, easy wearability, and beloved design. Featuring a vibrant allover floral print, the Kids Fun Floral Classic Slip-On is an everyday essential with true "Off The Wall" style. This iconic slip-on shoe also includes low profile canvas uppers, supportive padded collars, elastic side accents, and signature rubber waffle outsoles.',
+      price: 37,
+      oldPrice: 42,
+      sizeAndStock: [
+        {
+          numSize: 28,
+          countInStock: 20,
+        },
+        {
+          numSize: 29,
+          countInStock: 15,
+        },
+        {
+          numSize: 30,
+          countInStock: 20,
+        },
+        {
+          numSize: 31,
+          countInStock: 25,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: 'Kids spiral tie dye old skool',
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/shoe-shop-6a8b1.appspot.com/o/Kids%20spiral%20tie%20dye%20old%20skool.png?alt=media&token=6ed9cfe3-b805-4e4a-88e5-80e2b3a2e9db',
+      brand: 'Vans',
+      category: 'Kids',
+      description:
+        'First known as the Vans #36, the Old Skool debuted in 1977 with a unique new addition: a random doodle drawn by founder Paul Van Doren, and originally referred to as the "jazz stripe." Today, the famous Vans Sidestripe has become the unmistakable—and instantly recognizable—hallmark of the Vans brand. Featuring a groovy neon tie-dyed print, the Kids Spiral Tie Dye Old Skool pays homage to our heritage while ensuring that this low top, lace-up shoe remains as iconic as ever. Made with durable suede and textile uppers, it also includes re-enforced toe caps, supportive padded collars, and signature rubber waffle outsoles.',
+      price: 45,
+      oldPrice: 49,
+      sizeAndStock: [
+        {
+          numSize: 28,
+          countInStock: 20,
+        },
+        {
+          numSize: 29,
+          countInStock: 15,
+        },
+        {
+          numSize: 30,
+          countInStock: 20,
+        },
+        {
+          numSize: 31,
+          countInStock: 25,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: '2-tone comfycush new skool v',
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/shoe-shop-6a8b1.appspot.com/o/2-tone%20comfycush%20new%20skool%20v.png?alt=media&token=be889098-16da-452f-84bd-867cf0528feb',
+      brand: 'Vans',
+      category: 'Kids',
+      description:
+        'The Kids 2-Tone ComfyCush New Skool V is a fresh take on the classic Old Skool V. Special features include a rubber toe cap and an additional vamp overlay for durability, a single-strap hook-and-loop closure for equal tightness and a consistent fit, and a comfort collar with additional foam padding. It also includes sturdy canvas and suede uppers, heel pulls for an easy on-and-off fit, and a ComfyCush bottom unit.',
+      price: 50,
+      oldPrice: 58,
+      sizeAndStock: [
+        {
+          numSize: 28,
+          countInStock: 20,
+        },
+        {
+          numSize: 29,
+          countInStock: 15,
+        },
+        {
+          numSize: 30,
+          countInStock: 20,
+        },
+        {
+          numSize: 31,
+          countInStock: 25,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: 'Glow uni rex classic slip-on',
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/shoe-shop-6a8b1.appspot.com/o/Glow%20uni%20rex%20classic%20slip-on.png?alt=media&token=943fd5f1-aba9-45d4-9e9d-21b1303acfc4',
+      brand: 'Vans',
+      category: 'Kids',
+      description:
+        'First introduced in 1977, the Vans #98—now known as the Classic Slip-On—instantly became an icon in Southern California. Fast forward to today, and the Classic Slip-On is known worldwide for its comfortable silhouette, easy wearability, and beloved design. Featuring a partial dinosaur print offset by a neon pink checkerboard pattern, the Kids Glow Uni Rex Classic Slip-On is an everyday essential with true “Off The Wall” style. This iconic slip-on shoe also includes low profile canvas uppers, supportive padded collars, elastic side accents, and signature rubber wa',
+      price: 37,
+      oldPrice: 45,
+      sizeAndStock: [
+        {
+          numSize: 28,
+          countInStock: 20,
+        },
+        {
+          numSize: 29,
+          countInStock: 15,
+        },
+        {
+          numSize: 30,
+          countInStock: 20,
+        },
+        {
+          numSize: 31,
+          countInStock: 25,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: 'Cloud wash tri-lock',
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/shoe-shop-6a8b1.appspot.com/o/Cloud%20wash%20tri-lock.png?alt=media&token=2307ed7b-6673-4214-8bdb-8b614c7040ba',
+      brand: 'Vans',
+      category: 'Kids',
+      description:
+        'The Kids Cloud Wash Tri-Lock features premium textile and synthetic straps with graphic details and hook-and-loop adjustability, so you can find your perfect fit. Built on an UltraCush Lite footbed for all day comfort, this retro sandal also includes lateral synthetic leather overlays for protection and support, durable rubber outsoles with sawtooth tread, and water-based inks and glues.',
+      price: 35,
+      oldPrice: 42,
+      sizeAndStock: [
+        {
+          numSize: 28,
+          countInStock: 20,
+        },
+        {
+          numSize: 29,
+          countInStock: 15,
+        },
+        {
+          numSize: 30,
+          countInStock: 20,
+        },
+        {
+          numSize: 31,
+          countInStock: 25,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: 'Primary camo tri-lock',
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/shoe-shop-6a8b1.appspot.com/o/Primary%20camo%20tri-lock.png?alt=media&token=8c60b90f-c710-4ce1-9de0-879485f197e9',
+      brand: 'Vans',
+      category: 'Kids',
+      description:
+        'The Kids Primary Camo Tri-Lock features premium textile and synthetic straps with a camouflage print and hook-and-loop adjustability, so you can find your perfect fit. Built on an UltraCush Lite footbed for all day comfort, this retro sandal also includes lateral synthetic leather overlays for protection and support, durable rubber outsoles with sawtooth tread, and water-based inks and glues.',
+      price: 40,
+      oldPrice: 45,
+      sizeAndStock: [
+        {
+          numSize: 28,
+          countInStock: 20,
+        },
+        {
+          numSize: 29,
+          countInStock: 15,
+        },
+        {
+          numSize: 30,
+          countInStock: 20,
+        },
+        {
+          numSize: 31,
+          countInStock: 25,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: 'RS-DREAMER Basketball Shoes',
+      image:
+        'https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/193990/02/sv01/fnd/PNA/fmt/png/RS-DREAMER-Basketball-Shoes',
+      brand: 'Puma',
+      category: 'Men',
+      description:
+        'Don’t sleep on your dreams. They keep us grinding and thriving. To celebrate J. Cole and others’ drive to chase their dreams, we’re releasing new colorways of the RS-DREAMER. The bold elements of the RS series meet street and court ready design for a fully playable pair of kicks. As the DREAMER franchise continues to make strides as a service company for athletes and dreamers everywhere, we’re releasing this drop as a reminder to never stop striving for your highest potential.',
+      price: 125,
+      oldPrice: 130,
+      sizeAndStock: [
+        {
+          numSize: 39,
+          countInStock: 20,
+        },
+        {
+          numSize: 40,
+          countInStock: 15,
+        },
+        {
+          numSize: 41,
+          countInStock: 20,
+        },
+        {
+          numSize: 43,
+          countInStock: 25,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: "Suede Classic XXI Men's Sneakers",
+      image:
+        'https://i.pinimg.com/736x/e9/27/b0/e927b0c7c21c58718b2bf6f4d04a26d7.jpg',
+      brand: 'Puma',
+      category: 'Men',
+      description:
+        'The Suede hit the scene in 1968 and has been changing the game ever since. It’s been worn by the icons of every generation and it’s stayed classic through it all. This year, we relaunch the Suede with fresh colorways and subtle design updates. Classic as ever, for all-time.',
+      price: 70,
+      oldPrice: 75,
+      sizeAndStock: [
+        {
+          numSize: 39,
+          countInStock: 20,
+        },
+        {
+          numSize: 40,
+          countInStock: 15,
+        },
+        {
+          numSize: 41,
+          countInStock: 20,
+        },
+        {
+          numSize: 43,
+          countInStock: 25,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: 'GV Special+ Sneakers',
+      image:
+        'https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/366613/06/sv01/fnd/PNA/fmt/png/GV-Special+-Sneakers',
+      brand: 'Puma',
+      category: 'Men',
+      description:
+        'In the late 1970s, Argentinean tennis player Guillermo Vilas went on a title-winning rampage. Known for his one-handed backhand and off-the-court charm, he paired with PUMA to create a line of tennis shoes that matched his winning style. Among them? The GV Special. And much like the man behind the legend, it quickly secured its rank: Icon.',
+      price: 70,
+      oldPrice: 75,
+      sizeAndStock: [
+        {
+          numSize: 39,
+          countInStock: 20,
+        },
+        {
+          numSize: 40,
+          countInStock: 15,
+        },
+        {
+          numSize: 41,
+          countInStock: 20,
+        },
+        {
+          numSize: 43,
+          countInStock: 25,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: 'SpeedCat Sparco Trainers',
+      image:
+        'https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/339844/05/sv01/fnd/PNA/fmt/png/SpeedCat-Sparco-Trainers',
+      brand: 'Puma',
+      category: 'Men',
+      description:
+        'Motorsport maniacs, rejoice. The iconic motorsport-inspired lifestyle shoe that first hit the streets in 2000 is back: the SpeedCat Sparco.',
+      price: 100,
+      oldPrice: 107,
+      sizeAndStock: [
+        {
+          numSize: 39,
+          countInStock: 20,
+        },
+        {
+          numSize: 40,
+          countInStock: 15,
+        },
+        {
+          numSize: 41,
+          countInStock: 20,
+        },
+        {
+          numSize: 43,
+          countInStock: 25,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: 'RS-X³ Puzzle Sneakers',
+      image:
+        'https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/371570/05/sv01/fnd/PNA/fmt/png/RS-X%C2%B3-Puzzle-Sneakers',
+      brand: 'Puma',
+      category: 'Men',
+      description:
+        'X marks extreme. Exaggerated. Remixed.X³ takes things to a new level: cubed, enhanced, extra. We’ve taken the signature RS design and dialed it up to the third power. With amplified detailing on the upper, stronger material mixes, and bold color combinations, this kick is ready to step into a new dimension.',
+      price: 110,
+      oldPrice: 120,
+      sizeAndStock: [
+        {
+          numSize: 39,
+          countInStock: 20,
+        },
+        {
+          numSize: 40,
+          countInStock: 15,
+        },
+        {
+          numSize: 41,
+          countInStock: 20,
+        },
+        {
+          numSize: 43,
+          countInStock: 25,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: "RS-Fast Tie Dye Women's Sneakers",
+      image:
+        'https://assets.ajio.com/medias/sys_master/root/20210208/YGmI/60213a1faeb26969815f4611/-473Wx593H-460835786-pink-MODEL2.jpg',
+      brand: 'Puma',
+      category: 'Women',
+      description:
+        'Faster and fresher than any of our RS kicks yet. The RS-Fast is reinventing street style with a progressive design that combines early 2000s cues and futuristic vibes. This version packs on the retro vibes with a vibrant tie dye print and fresh pops of color.',
+      price: 110,
+      oldPrice: 120,
+      sizeAndStock: [
+        {
+          numSize: 38,
+          countInStock: 20,
+        },
+        {
+          numSize: 39,
+          countInStock: 15,
+        },
+        {
+          numSize: 40,
+          countInStock: 20,
+        },
+        {
+          numSize: 41,
+          countInStock: 25,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: "Suede Classic XXI Women's Sneakers",
+      image:
+        'https://kickz.akamaized.net/en/media/images/p/600/puma-Suede_Classic_XXI-Gray_Violet_Puma_White-1.jpg',
+      brand: 'Puma',
+      category: 'Women',
+      description:
+        'The Suede hit the scene in 1968 and has been changing the game ever since. It’s been worn by the icons of every generation and it’s stayed classic through it all. This year, we relaunch the Suede with fresh colorways and subtle design updates. Classic as ever, for all-time.',
+      price: 70,
+      oldPrice: 78,
+      sizeAndStock: [
+        {
+          numSize: 38,
+          countInStock: 20,
+        },
+        {
+          numSize: 39,
+          countInStock: 15,
+        },
+        {
+          numSize: 40,
+          countInStock: 20,
+        },
+        {
+          numSize: 41,
+          countInStock: 25,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: "Fierce 2 Women's Training Shoes",
+      image:
+        'https://fgl.scene7.com/is/image/FGLSportsLtd/FGL_333484984_01_a?bgColor=0,0,0,0&resMode=sharp2&op_sharpen=1&hei=520',
+      brand: 'Puma',
+      category: 'Women',
+      description:
+        "An eye-catching archival aesthetic but with a trend-setting 2021 update, the Fierce franchise is back and better than ever. Propelled to fame for its clean design and iconically extended collar, it's sure to be a striking addition to any sneakerhead’s wardrobe. Attention-seeking by nature, with a stretchy midfoot strap, bold branding and fresh feminine flair, plus comfortable cushioning for a relaxed ride, they're perfect for light training, dancing and casual cruising. Modern and monochromatic, these sleek training shoes will be your new go-to pair.",
+      price: 90,
+      oldPrice: 98,
+      sizeAndStock: [
+        {
+          numSize: 38,
+          countInStock: 20,
+        },
+        {
+          numSize: 39,
+          countInStock: 15,
+        },
+        {
+          numSize: 40,
+          countInStock: 20,
+        },
+        {
+          numSize: 41,
+          countInStock: 25,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: "Suede Classic Mono Iced Women's Sneakers",
+      image: 'https://www.thenextsole.com/storage/images/381588-01.png',
+      brand: 'Puma',
+      category: 'Women',
+      description:
+        'The Suede hit the scene in 1968 and has been changing the game ever since. It’s been worn by the icons of every generation – and it’s stayed classic through it all. Suede Classic Mono Iced doubles down on the monochromatic vibes with a tonal color palette, iced-out rubber sole and debossed detailing for a sleek addition.',
+      price: 40,
+      oldPrice: 45,
+      sizeAndStock: [
+        {
+          numSize: 38,
+          countInStock: 20,
+        },
+        {
+          numSize: 39,
+          countInStock: 15,
+        },
+        {
+          numSize: 40,
+          countInStock: 20,
+        },
+        {
+          numSize: 41,
+          countInStock: 25,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: "RS-X Airbrush Women's Sneakers",
+      image: 'https://www.thenextsole.com/storage/images/382762-01.png',
+      brand: 'Puma',
+      category: 'Women',
+      description:
+        'The RS family is getting wider with the new update with the RS-X. RS-X family stands for RE-IMAGINATION. AIRBRUSH is inspired by the t-shirt designs popularized on the boardwalks during summertime. Designs cues are illustrated on the formstripe with airbrush branding.',
+      price: 110,
+      oldPrice: 120,
+      sizeAndStock: [
+        {
+          numSize: 38,
+          countInStock: 20,
+        },
+        {
+          numSize: 39,
+          countInStock: 15,
+        },
+        {
+          numSize: 40,
+          countInStock: 20,
+        },
+        {
+          numSize: 41,
+          countInStock: 25,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: 'PUMA x HARIBO RS-X³ Sneakers',
+      image:
+        'https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_800,h_800/global/383415/01/sv01/fnd/PNA/fmt/png/PUMA-x-HARIBO-RS-X%C2%B3-Sneakers',
+      brand: 'Puma',
+      category: 'Women',
+      description:
+        "Step into the shoe that launched a sportswear dynasty with the latest additions to our RS, or Running System, family. Our RS-X³ HARIBO melds the sweet world of Haribo gummy bears with PUMA's edgy, street-savvy style to deliver a shoe that is pure performance wrapped in whimsical details, including a gummy bear chain detail and gold accent overlays to pay homage to the legendary confectionary brand.",
+      price: 120,
+      oldPrice: 130,
+      sizeAndStock: [
+        {
+          numSize: 38,
+          countInStock: 20,
+        },
+        {
+          numSize: 39,
+          countInStock: 15,
+        },
+        {
+          numSize: 40,
+          countInStock: 20,
+        },
+        {
+          numSize: 41,
+          countInStock: 25,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: "Cali Sport Roar Little Kids' Sneakers",
+      image:
+        'https://d2ob0iztsaxy5v.cloudfront.net/product/875005/8750051150_zm.jpg',
+      brand: 'Puma',
+      category: 'Kids',
+      description:
+        "Your little animal-loving warrior will love the Cali Sport Roar. We've taken the laid-back West Coast vibes of the California classic and added a rich mix of materials in animal prints and colours that reflect the beauty of the zebra or the leopard. We've used a hint of metallic in the iconic branding and stacked the sole for a fiercer look.",
+      price: 60,
+      oldPrice: 70,
+      sizeAndStock: [
+        {
+          numSize: 28,
+          countInStock: 20,
+        },
+        {
+          numSize: 29,
+          countInStock: 15,
+        },
+        {
+          numSize: 30,
+          countInStock: 20,
+        },
+        {
+          numSize: 31,
+          countInStock: 25,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: 'PUMA x HARIBO CA Pro Sneakers JR',
+      image:
+        'https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_800,h_800/global/383247/01/sv01/fnd/PNA/fmt/png/PUMA-x-HARIBO-CA-Pro-Sneakers-JR',
+      brand: 'Puma',
+      category: 'Kids',
+      description:
+        "Make a splash on the streets in the CA Pro Haribo, one of the latest members of the iconic '80s-inspired California family. Original detailing mixed with basketball elements is combined with a stacked midsole with rubber plugs, resulting in a progressive look inspired by the PUMA archives. The gold detailing reflects the original Haribo Goldbear, which kids and adults alike have loved since 1922.",
+      price: 65,
+      oldPrice: 70,
+      sizeAndStock: [
+        {
+          numSize: 28,
+          countInStock: 20,
+        },
+        {
+          numSize: 29,
+          countInStock: 15,
+        },
+        {
+          numSize: 30,
+          countInStock: 20,
+        },
+        {
+          numSize: 31,
+          countInStock: 25,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: "PUMA x RUGRATS Suede Little Kids' Sneakers",
+      image:
+        'https://res.cloudinary.com/shelflife-online/image/upload/c_fill,f_auto,q_auto:best,w_681/v1575961299/uploads/assets/c6f-PUMA-x-Rugrats-Suede-Toddler-38306601-side-7ad.jpg',
+      brand: 'Puma',
+      category: 'Kids',
+      description:
+        "Let your kids fall in love with classic PUMA and classic '90s TV. The Suede is one of our best-loved Sneakers and has been worn by icons of every generation over the decades. For this version, we've added branding depicting characters from Rugrats, one of our favourite TV shows.",
+      price: 50,
+      oldPrice: 55,
+      sizeAndStock: [
+        {
+          numSize: 28,
+          countInStock: 20,
+        },
+        {
+          numSize: 29,
+          countInStock: 15,
+        },
+        {
+          numSize: 30,
+          countInStock: 20,
+        },
+        {
+          numSize: 31,
+          countInStock: 25,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: "RS-X Airbrush Little Kids' Shoes",
+      image:
+        'https://cdn.laredoute.com/products/1200by1200/7/8/8/788c6f85c49152b48681595e7a8eb008.jpg',
+      brand: 'Puma',
+      category: 'Kids',
+      description:
+        'The RS family is getting wider with the new update with the RS-X. RS-X family stands for RE-IMAGINATION. AIRBRUSH is inspired by the t-shirt designs popularized on the boardwalks during summertime. Designs cues are illustrated on the formstripe with airbrush branding.',
+      price: 75,
+      oldPrice: 85,
+      sizeAndStock: [
+        {
+          numSize: 28,
+          countInStock: 20,
+        },
+        {
+          numSize: 29,
+          countInStock: 15,
+        },
+        {
+          numSize: 30,
+          countInStock: 20,
+        },
+        {
+          numSize: 31,
+          countInStock: 25,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: 'King Top FG Soccer Cleats',
+      image: 'https://www.thenextsole.com/storage/images/105607-01.png',
+      brand: 'Puma',
+      category: 'Sports',
+      description:
+        'The PUMA King is soccer royalty. It’s been in the game since 1968 and has been worn by soccer legends from Pele to Matthaus. Originally engineered in Italy, the King Top features a sleek leather upper and soft padded collar with a fold-over tongue. The lightweight studded outsole allows agile, versatile movement and optimal traction on the field.',
+      price: 140,
+      oldPrice: 160,
+      sizeAndStock: [
+        {
+          numSize: 39,
+          countInStock: 20,
+        },
+        {
+          numSize: 40,
+          countInStock: 15,
+        },
+        {
+          numSize: 41,
+          countInStock: 20,
+        },
+        {
+          numSize: 42,
+          countInStock: 25,
+        },
+        {
+          numSize: 43,
+          countInStock: 35,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: "King Top TT Men's Soccer Shoes",
+      image: 'https://www.thenextsole.com/storage/images/105734-02.png',
+      brand: 'Puma',
+      category: 'Sports',
+      description:
+        'The PUMA King is soccer royalty. It’s been in the game since 1968 and has been worn by soccer legends from Pele to Matthaus. Originally engineered in Italy, the King Top features a sleek leather upper and soft padded collar with a fold-over tongue. The low-profile rubber outsole features strategically placed studs for versatile movement and traction on the field.',
+      price: 140,
+      oldPrice: 160,
+      sizeAndStock: [
+        {
+          numSize: 39,
+          countInStock: 20,
+        },
+        {
+          numSize: 40,
+          countInStock: 15,
+        },
+        {
+          numSize: 41,
+          countInStock: 20,
+        },
+        {
+          numSize: 42,
+          countInStock: 25,
+        },
+        {
+          numSize: 43,
+          countInStock: 35,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: "BMW M Motorsport RS-Connect Men's Sneakers",
+      image: 'https://www.thenextsole.com/storage/images/306536-02.png',
+      brand: 'Puma',
+      category: 'Sports',
+      description:
+        'The energy of the track meets the future-retro style of RS in RS-Connect from BMW M Motorsport. Fusing art, streetwear and high-octane influence, this kick features a fluid, dynamic design with signature BMW M Motorsport colors and branding.',
+      price: 120,
+      oldPrice: 125,
+      sizeAndStock: [
+        {
+          numSize: 39,
+          countInStock: 20,
+        },
+        {
+          numSize: 40,
+          countInStock: 15,
+        },
+        {
+          numSize: 41,
+          countInStock: 20,
+        },
+        {
+          numSize: 42,
+          countInStock: 25,
+        },
+        {
+          numSize: 43,
+          countInStock: 35,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: "Ferrari IONF Men's Motorsport Shoes",
+      image: 'https://www.thenextsole.com/storage/images/306539-02.png',
+      brand: 'Puma',
+      category: 'Sports',
+      description:
+        'Embedded in our blood, the need to compete, to shift to the 12th dimension, to RACE. Introducing the FERRARI IONF, inspired by the components that make the fastest GT cars in the world. ​No compromises, no restraints, pure race.',
+      price: 630,
+      oldPrice: 650,
+      sizeAndStock: [
+        {
+          numSize: 39,
+          countInStock: 20,
+        },
+        {
+          numSize: 40,
+          countInStock: 15,
+        },
+        {
+          numSize: 41,
+          countInStock: 20,
+        },
+        {
+          numSize: 42,
+          countInStock: 25,
+        },
+        {
+          numSize: 43,
+          countInStock: 35,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: "Liberate NITRO Men's Running Shoes",
+      image:
+        'https://phabulus.com/wp-content/uploads/2021/03/Liberate-Nitro-Mens-Running-Shoes-6-800x800.jpg',
+      brand: 'Puma',
+      category: 'Sports',
+      description:
+        "Liberate NITRO keeps you light on your feet with an effortless ride. Form fit around PUMA's new performance last, Liberate NITRO offers a great fit executed in a sturdy mono-mesh. A one-piece, NITRO midsole delivers just-right cushioning with great responsiveness for tempo runs and competition. To keep you steady and seen, Liberate NITRO has a TPU heel piece providing proprioception, and strategically placed PUMAGRIP for all-surface traction.",
+      price: 110,
+      oldPrice: 120,
+      sizeAndStock: [
+        {
+          numSize: 39,
+          countInStock: 20,
+        },
+        {
+          numSize: 40,
+          countInStock: 15,
+        },
+        {
+          numSize: 41,
+          countInStock: 20,
+        },
+        {
+          numSize: 42,
+          countInStock: 25,
+        },
+        {
+          numSize: 43,
+          countInStock: 35,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: "UltraRide Men's Running Shoes",
+      image:
+        'https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/202007/31/00166969615211____6__640x640.jpg',
+      brand: 'Puma',
+      category: 'Sports',
+      description:
+        'Sometimes to reach extraordinary places, you have to remove excess boundaries. Built on the foundation of Reductionist Theory, UltraRide removes the limits with outsole cutaways to leave you with one basic running essential: cushioning and responsiveness for limitless potential. A light, airy upper and supportive midsole plate merge through a dynamic bridge design. Combined with PROFOAMLITE for cushioning and rubber surface area for power transfer at toe-off, UltraRide carries you to great. It’s that radically simple.',
+      price: 55,
+      oldPrice: 60,
+      sizeAndStock: [
+        {
+          numSize: 39,
+          countInStock: 20,
+        },
+        {
+          numSize: 40,
+          countInStock: 15,
+        },
+        {
+          numSize: 41,
+          countInStock: 20,
+        },
+        {
+          numSize: 42,
+          countInStock: 25,
+        },
+        {
+          numSize: 43,
+          countInStock: 35,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: 'Court Rider Basketball Shoes',
+      image:
+        'https://img01.ztat.net/article/spp-media-p1/86ae9ec9d773484f934412c66116a20a/c03e8ba81d6c4266a7151b02503566d6.jpg?imwidth=762',
+      brand: 'Puma',
+      category: 'Sports',
+      description:
+        'Sometimes to reach extraordinary places, you have to remove excess boundaries. Built on the foundation of Reductionist Theory, UltraRide removes the limits with outsole cutaways to leave you with one basic running essential: cushioning and responsiveness for limitless potential. A light, airy upper and supportive midsole plate merge through a dynamic bridge design. Combined with PROFOAMLITE for cushioning and rubber surface area for power transfer at toe-off, UltraRide carries you to great. It’s that radically simple.',
+      price: 100,
+      oldPrice: 120,
+      sizeAndStock: [
+        {
+          numSize: 39,
+          countInStock: 20,
+        },
+        {
+          numSize: 40,
+          countInStock: 15,
+        },
+        {
+          numSize: 41,
+          countInStock: 20,
+        },
+        {
+          numSize: 42,
+          countInStock: 25,
+        },
+        {
+          numSize: 43,
+          countInStock: 35,
+        },
+      ],
+      numSold: 0,
+      rating: 0,
+      numReviews: 0,
+    },
+    {
+      name: 'DISC Rebirth Basketball Shoes',
+      image:
+        'https://product.hstatic.net/1000284478/product/02_194812_2_6c1c80c5d0ef4948acd3c9cb1b162ac8_1024x1024.jpg',
+      brand: 'Puma',
+      category: 'Sports',
+      description:
+        'Lose the laces because PUMA Hoops is giving DISC a sleek redesign. Please welcome to the court, DISC Rebirth. DISC Rebirth isn’t just a fully playable basketball shoe, it’s a triple-double ready statement piece. Laceless style and performance click together for a pair of kicks that look and play like nothing else out there.',
+      price: 145,
+      oldPrice: 155,
+      sizeAndStock: [
+        {
+          numSize: 39,
+          countInStock: 20,
+        },
+        {
+          numSize: 40,
+          countInStock: 15,
+        },
+        {
+          numSize: 41,
+          countInStock: 20,
+        },
+        {
+          numSize: 42,
+          countInStock: 25,
+        },
+        {
+          numSize: 43,
+          countInStock: 35,
         },
       ],
       numSold: 0,

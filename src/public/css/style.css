@@ -898,7 +898,7 @@ li.ad-2-crt a {
 }
 
 li.ad-2-crt a:hover {
-    background: #fa5400;
+    background: #ffc107;
     color: #fff;
     border: none;
     transition: 0.5s all;
@@ -977,7 +977,7 @@ div#messages {
 .tab-nike>li.active>a:focus,
 .tab-nike>li.active>a:hover {
     color: #100b0b;
-    background-color: #A5E126;
+    background-color: #ffc107;
     border-radius: 0;
 }
 

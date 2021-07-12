@@ -49,12 +49,19 @@
                                 <h3 class="mb-2">
                                     <%= product.name %>
                                 </h3>
-                                <p class="mb-2">
-                                    <%= product.brand %>
-                                </p>
-                                <p class="mb-2">
-                                    Category: <%= product.category %>
-                                </p>
+                                <div class="d-flex mb-2">
+                                    <a href="/product/search?brand=<%= product.brand %>">
+                                        <p class="link-text">
+                                            <%= product.brand %>
+                                        </p>
+                                    </a>
+                                    <p class="mr-2 ml-2"> | </p>
+                                    <a href="/product/search?category=<%= product.category %>">
+                                        <p class="link-text">
+                                            <%= product.category %>
+                                        </p>
+                                    </a>
+                                </div>
                                 <h4 style="text-decoration: line-through; color: #888; font-size: 1.25rem;">
                                     $<%= product.oldPrice %>
                                 </h4>
@@ -170,9 +177,12 @@
                                     <div class="img-product"
                                         style="background-image: url('<%= productRecommend[i].image %>')">
                                     </div>
-                                    <div class="p-2">
-                                        <p class="name-product text-truncate" style="text-align: start;">
+                                    <div class="p-2"  style="text-align: start;">
+                                        <p class="name-product text-truncate">
                                             <%= productRecommend[i].name %>
+                                        </p>
+                                        <p class="name-brand text-truncate">
+                                            <%= productRecommend[i].brand %>
                                         </p>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div>
