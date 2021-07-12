@@ -93,7 +93,6 @@ productRouter.get('/search', async (req, res) => {
   };
   const isLogin = req.session.user ? true : false;
   const user = req.session.user ? req.session.user : {};
-  // console.log({ products });
   res.render('search', {
     isLogin,
     user,
@@ -110,9 +109,6 @@ productRouter.get('/detail/:id', async (req, res) => {
   const productRecommend = await Product.aggregate([
     { $sample: { size: 3 } },
   ]);
-  // const productRecommend = await Product.find({})
-  //   .sort({ numSold: -1 })
-  //   .limit(3);
   res.render('detail', { isLogin, user, product, productRecommend });
 });
 
