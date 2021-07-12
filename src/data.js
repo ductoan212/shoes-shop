@@ -81,7 +81,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -145,7 +145,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -177,7 +177,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -241,7 +241,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -273,7 +273,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -305,7 +305,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -337,7 +337,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -369,7 +369,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -401,7 +401,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -433,7 +433,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -465,7 +465,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -497,7 +497,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -529,7 +529,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -561,7 +561,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -593,7 +593,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -625,7 +625,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -657,7 +657,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -689,7 +689,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -721,7 +721,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -753,7 +753,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -785,7 +785,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -817,7 +817,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -849,7 +849,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -881,7 +881,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -913,7 +913,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -945,7 +945,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -976,7 +976,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1008,7 +1008,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1040,7 +1040,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1076,7 +1076,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1112,7 +1112,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1148,7 +1148,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1184,7 +1184,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1216,7 +1216,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1248,7 +1248,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1280,7 +1280,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1312,7 +1312,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1344,7 +1344,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1376,7 +1376,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1408,7 +1408,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1440,7 +1440,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1472,7 +1472,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1504,7 +1504,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1536,7 +1536,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1568,7 +1568,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1600,7 +1600,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1632,7 +1632,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1663,7 +1663,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1694,7 +1694,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1726,7 +1726,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1758,7 +1758,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1790,7 +1790,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1822,7 +1822,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1854,7 +1854,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1889,7 +1889,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1924,7 +1924,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1959,7 +1959,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -1994,7 +1994,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -2030,7 +2030,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -2066,7 +2066,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -2102,7 +2102,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
     {
@@ -2138,7 +2138,7 @@ const data = {
         },
       ],
       numSold: 0,
-      rating: 0,
+      rating: 4,
       numReviews: 0,
     },
   ],

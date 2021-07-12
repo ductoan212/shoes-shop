@@ -75,7 +75,7 @@
                                             aria-hidden="true"></i></a>
                                     <% } %>
                                         <% for(let i=0; i<(5 - product.rating) ;i++) { %>
-                                            <a href="#"><i class="fas fa-star" style="color: #ffc107;"
+                                            <a href="#"><i class="fas fa-star" style="color: #888;"
                                                     aria-hidden="true"></i></a>
                                             <% } %>
                             </div>
@@ -86,9 +86,9 @@
                                 <ul>
                                     <li class="qty">
                                         <h3>Size Chart</h3>
-                                        <select class="form-control siz-chrt">
+                                        <select id="size-select" class="form-control siz-chrt">
                                             <% for(let i=0; i<product.sizeAndStock.length;i++) { %>
-                                                <option>
+                                                <option value="<%= product.sizeAndStock[i].numSize %>">
                                                     <%= product.sizeAndStock[i].numSize %>
                                                 </option>
                                                 <% } %>
@@ -96,12 +96,12 @@
                                     </li>
                                     <li class="qty">
                                         <h4>QTY</h4>
-                                        <select class="form-control qnty-chrt">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
+                                        <select id="qty-select" class="form-control qnty-chrt ">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
                                         </select>
                                     </li>
                                 </ul>
@@ -109,8 +109,9 @@
                             </div>
                             <ul>
                                 <li class="ad-2-crt simpleCart_shelfItem">
-                                    <a class="btn item_add" href="#" role="button">Add To Cart</a>
-                                    <a class="btn" href="#" role="button">Buy Now</a>
+                                    <a id="btn-add-to-cart" class="btn item_add "
+                                        href="/cart/add/<%= product._id %>"" role=" button">Add To Cart</a>
+                                    <a id="btn-buy-now" class="btn " href="#" role="button">Buy Now</a>
                                 </li>
                             </ul>
                         </div>
@@ -177,7 +178,7 @@
                                     <div class="img-product"
                                         style="background-image: url('<%= productRecommend[i].image %>')">
                                     </div>
-                                    <div class="p-2"  style="text-align: start;">
+                                    <div class="p-2" style="text-align: start;">
                                         <p class="name-product text-truncate">
                                             <%= productRecommend[i].name %>
                                         </p>
@@ -204,6 +205,9 @@
             </div>
         </main>
 
+        <div class="contain-addSuccess">
+            <p class="addSuccess "><i class="fa fa-check-circle mr-2"></i>Add to cart success</p>
+        </div>
         <%- include('../partials/footer'); %>
 </body>
 

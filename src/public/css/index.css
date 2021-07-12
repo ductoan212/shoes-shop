@@ -58,6 +58,14 @@ body {
   margin-left: 20px;
 }
 
+.my-nav-link {
+  font-weight: bold;
+}
+.my-nav-link:hover {
+  color: #fcb045 !important;
+  font-weight: bold;
+}
+
 .search-input {
   width: 20rem;
   border: none;
@@ -404,6 +412,18 @@ a:hover {
   color: #ffffff !important;
 }
 
+/* ====================== BRANDS ====================== */
+.img-brand {
+  border: 2px solid #ffffff;
+  object-fit: contain;
+  height: 150px;
+  width: 150px;
+}
+
+.img-brand:hover {
+  border: 2px solid #fcb045;
+}
+
 /* ====================== Custume ====================== */
 
 .my-button-white {
@@ -473,6 +493,7 @@ button:hover {
   opacity: 0;
   display: none;
   /* transition: all 0.5s linear; */
+  z-index: 100;
 }
 
 .addSuccess {
@@ -487,6 +508,14 @@ button:hover {
 .show-contain-addSuccess {
   opacity: 1;
   display: flex;
+}
+
+.my-link {
+  color: #000000;
+}
+
+.my-link:hover {
+  color: #ffc107;
 }
 
 /* ====================== REPONSIVE ====================== */

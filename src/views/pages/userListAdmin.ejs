@@ -29,7 +29,7 @@
                 <% dateCreated=`${dateCreated.getDate()}-${dateCreated.getMonth()}-${dateCreated.getFullYear()}` %>
                   <tr>
                     <th scope="row">
-                      <%= i+1 %>
+                      <%= (page-1)*10 + i+1 %>
                     </th>
                     <td>
                       <%= users[i].username %>
