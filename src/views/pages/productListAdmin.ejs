@@ -17,7 +17,7 @@
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col" >Name</th>
+              <th scope="col">Name</th>
               <th scope="col">Brand</th>
               <th scope="col">Category</th>
               <th scope="col">Price</th>
@@ -31,10 +31,12 @@
             <% for(let i=0; i<products.length; i++) { %>
               <tr>
                 <th scope="row">
-                  <%= i+1 %>
+                  <%= (page-1)*10 + i+1 %>
                 </th>
                 <td style="word-wrap: break-word; max-width: 350px; ">
-                  <%= products[i].name %>
+                  <a href="/product/detail/<%= products[i]._id %>" class="my-link">
+                    <%= products[i].name %>
+                  </a>
                 </td>
                 <td>
                   <%= products[i].brand %>

@@ -60,7 +60,6 @@ for (let i = 0; i < btnOrder.length; i++) {
   btnOrder[i].addEventListener('click', (e) => {
     e.preventDefault();
     let href = btnOrder[i].href; // http:..../order/cart/add/:id
-    var _this = $(this);
     $.ajax(href, {
       Type: 'GET',
       success: function (result) {
@@ -72,3 +71,25 @@ for (let i = 0; i < btnOrder.length; i++) {
     });
   });
 }
+
+// Add to cart
+$('#btn-add-to-cart').click((e) => {
+  e.preventDefault();
+  let href = $('#btn-add-to-cart').attr('href');
+  const size = $('#size-select').val();
+  const qty = $('#qty-select').val();
+
+  href += `?size=${size}&&qty=${qty}`;
+  $.ajax(href, {
+    Type: 'GET',
+    success: function (result) {
+      $('.contain-addSuccess').addClass('show-contain-addSuccess');
+      setTimeout(function () {
+        $('.contain-addSuccess').removeClass('show-contain-addSuccess');
+      }, 1000);
+    },
+  });
+});
+
+//
+// btn-add-to-cart

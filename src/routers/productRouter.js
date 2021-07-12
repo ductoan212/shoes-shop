@@ -107,9 +107,12 @@ productRouter.get('/detail/:id', async (req, res) => {
   const user = req.session.user ? req.session.user : {};
   const id = req.params.id;
   const product = await Product.findById(id);
-  const productRecommend = await Product.find({})
-    .sort({ numSold: -1 })
-    .limit(3);
+  const productRecommend = await Product.aggregate([
+    { $sample: { size: 3 } },
+  ]);
+  // const productRecommend = await Product.find({})
+  //   .sort({ numSold: -1 })
+  //   .limit(3);
   res.render('detail', { isLogin, user, product, productRecommend });
 });
 

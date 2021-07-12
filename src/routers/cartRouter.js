@@ -19,7 +19,9 @@ cartRouter.get('/', async (req, res) => {
 cartRouter.get('/add/:id', async (req, res) => {
   const id = req.params.id;
   const product = await Product.findById(id);
-  // Lấy size cho giày
+  // Lấy sl và size cho giày
+  let qty = req.query.qty || 1;
+  qty = qty * 1;
   let size = product.sizeAndStock[0].numSize;
   for (let i = 1; i < product.sizeAndStock.length; i++) {
     if (product.sizeAndStock[i].numSize == req.query.size) {
@@ -37,8 +39,8 @@ cartRouter.get('/add/:id', async (req, res) => {
   let isExists = false;
   for (let i = 0; i < cartItems.length; i++) {
     if (cartItems[i].productId == product._id && cartItems[i].size == size) {
-      cartItems[i].quantity++;
-      cartItems[i].totalItem += product.price;
+      cartItems[i].quantity += qty;
+      cartItems[i].totalItem += qty * product.price;
       isExists = true;
       break;
     }
@@ -50,12 +52,12 @@ cartRouter.get('/add/:id', async (req, res) => {
       image: product.image,
       size: size,
       price: product.price,
-      quantity: 1,
-      totalItem: product.price,
+      quantity: qty,
+      totalItem: qty * product.price,
     });
   }
   req.session.cart.cartItems = [...cartItems];
-  req.session.cart.total += product.price;
+  req.session.cart.total += qty * product.price;
 
   res.redirect('/cart');
 });
@@ -83,7 +85,7 @@ cartRouter.get('/sub/:id', async (req, res) => {
       cartItems[i].quantity--;
       cartItems[i].totalItem -= product.price;
       if (cartItems[i].quantity == 0) {
-        res.redirect(`/cart/remove/${id}`);
+        res.redirect(`/cart/remove/${id}?size=${size}`);
         return;
       }
       isExists = true;

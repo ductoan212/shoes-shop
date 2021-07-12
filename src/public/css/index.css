@@ -44,7 +44,8 @@ body {
 }
 
 .logo {
-  background-image: url(https://i.pinimg.com/474x/f9/1a/a3/f91aa37eae15b0b16e6f0a5fb40f7732.jpg);
+  background-image: url(/images/logo.png);
+  /* background-image: url(https://i.pinimg.com/474x/f9/1a/a3/f91aa37eae15b0b16e6f0a5fb40f7732.jpg); */
   height: 4rem;
   width: 4rem;
   background-size: cover;
@@ -55,6 +56,14 @@ body {
 .nav-item {
   margin-right: 20px;
   margin-left: 20px;
+}
+
+.my-nav-link {
+  font-weight: bold;
+}
+.my-nav-link:hover {
+  color: #fcb045 !important;
+  font-weight: bold;
 }
 
 .search-input {
@@ -108,7 +117,8 @@ body {
 .product-item {
   width: 15rem;
   background-color: #88888817;
-  /* border: 1px solid #88888805; */
+  /* border: 1px solid #88888817; */
+  padding: 2px;
   cursor: pointer;
   margin: 1rem;
 }
@@ -127,8 +137,16 @@ body {
   font-weight: 600;
   font-size: 1.1rem;
   color: #343a40;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
+
+.name-brand {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #ffc107;
+  margin-bottom: 0rem;
+}
+
 .old-price-product {
   margin-bottom: 0px;
   text-decoration-line: line-through;
@@ -394,6 +412,18 @@ a:hover {
   color: #ffffff !important;
 }
 
+/* ====================== BRANDS ====================== */
+.img-brand {
+  border: 2px solid #ffffff;
+  object-fit: contain;
+  height: 150px;
+  width: 150px;
+}
+
+.img-brand:hover {
+  border: 2px solid #fcb045;
+}
+
 /* ====================== Custume ====================== */
 
 .my-button-white {
@@ -463,6 +493,7 @@ button:hover {
   opacity: 0;
   display: none;
   /* transition: all 0.5s linear; */
+  z-index: 100;
 }
 
 .addSuccess {
@@ -477,6 +508,14 @@ button:hover {
 .show-contain-addSuccess {
   opacity: 1;
   display: flex;
+}
+
+.my-link {
+  color: #000000;
+}
+
+.my-link:hover {
+  color: #ffc107;
 }
 
 /* ====================== REPONSIVE ====================== */
