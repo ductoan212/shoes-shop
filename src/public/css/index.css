@@ -1,8 +1,26 @@
+/*--fonts--*/
+
+@font-face {
+  font-family: 'Didact Gothic';
+  src: url(../fonts/Didact_Gothic/DidactGothic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Pathway Gothic One';
+  src: url(../fonts/Pathway_Gothic_One/PathwayGothicOne-Regular.ttf)
+    format('truetype');
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  font-family: 'Didact Gothic';
+}
+
+p {
+  font-size: 1.2rem;
 }
 
 ::-webkit-scrollbar {
@@ -462,6 +480,13 @@ button:hover {
 }
 
 /* ====================== REPONSIVE ====================== */
+@media only screen and (max-width: 1140px) {
+  .responsive-detail {
+    flex-direction: column !important;
+    align-items: center;
+  }
+}
+
 @media only screen and (max-width: 1200px) {
   .reponsive-about-us {
     flex-direction: column !important;
