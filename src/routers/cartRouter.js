@@ -57,9 +57,11 @@ cartRouter.get('/add/:id', async (req, res) => {
     });
   }
   req.session.cart.cartItems = [...cartItems];
-  req.session.cart.total += qty * product.price;
+  // req.session.cart.total += qty * product.price;
+  req.session.cart.total = calTotal(req.session.cart.cartItems);
 
   res.redirect('/cart');
+  // res.json({ abc: "ahih" })
 });
 
 cartRouter.get('/sub/:id', async (req, res) => {
@@ -82,8 +84,9 @@ cartRouter.get('/sub/:id', async (req, res) => {
   let isExists = false;
   for (let i = 0; i < cartItems.length; i++) {
     if (cartItems[i].productId == product._id && cartItems[i].size == size) {
-      cartItems[i].quantity--;
-      cartItems[i].totalItem -= product.price;
+      cartItems[i].quantity -= 1;
+      // cartItems[i].totalItem -= product.price;
+      req.session.cart.total = calTotal(req.session.cart.cartItems);
       if (cartItems[i].quantity == 0) {
         res.redirect(`/cart/remove/${id}?size=${size}`);
         return;
@@ -94,9 +97,9 @@ cartRouter.get('/sub/:id', async (req, res) => {
   }
   if (isExists) {
     req.session.cart.cartItems = [...cartItems];
-    req.session.cart.total -= product.price;
+    // req.session.cart.total -= product.price;
   }
-
+  req.session.cart.total = calTotal(req.session.cart.cartItems);
   res.redirect('/cart');
 });
 
@@ -121,8 +124,18 @@ cartRouter.get('/remove/:id', async (req, res) => {
     ...cartItems.slice(0, index),
     ...cartItems.slice(index + 1),
   ];
+  req.session.cart.total = calTotal(req.session.cart.cartItems);
   // res.json({ items: req.session.cart.cartItems });
   res.redirect('/cart');
 });
+
+
+const calTotal = (cartItems) => {
+  let total = 0;
+  for (let i = 0; i < cartItems.length; i++) {
+    total += cartItems[i].quantity * cartItems[i].price
+  }
+  return total;
+}
 
 module.exports = cartRouter;

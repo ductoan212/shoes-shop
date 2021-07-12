@@ -424,6 +424,23 @@ a:hover {
   border: 2px solid #fcb045;
 }
 
+/* ====================== CART ====================== */
+.btn-qty {
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  border: 1px solid #212529;
+}
+
+.btn-remove {
+  padding: 0.5rem;
+}
+
+.btn-remove:hover {
+  background-color: #e02f47;
+  color: #ffffff;
+}
+
 /* ====================== Custume ====================== */
 
 .my-button-white {
