@@ -8,9 +8,22 @@ const orderRouter = express.Router();
 
 //============================= ORDER FOR ADMIN =============================
 orderRouter.get('/', isAdmin, async (req, res) => {
-  const isLogin = req.session.user ? true : false;
-  const user = req.session.user ? req.session.user : {};
-  res.render('orderListAdmin', { isLogin, user });
+  const pageSize = 10;
+  const page = Number(req.query.pageNumber) || 1;
+  const user = req.session.user;
+  const count = await Order.countDocuments({});
+  const orders = await Order.find({})
+    .skip(pageSize * (page - 1))
+    .sort({ createdAt: -1 })
+    .limit(pageSize);
+
+  res.render('orderListAdmin', {
+    isLogin: true,
+    user,
+    orders,
+    page,
+    pages: Math.ceil(count / pageSize),
+  });
 });
 
 orderRouter.get('/id/:id', isAdmin, async (req, res) => {
@@ -21,11 +34,55 @@ orderRouter.get('/id/:id', isAdmin, async (req, res) => {
   // res.render('orderListAdmin', { isLogin: true, user });
 });
 
+orderRouter.get('/confirmed/:id', isAdmin, async (req, res) => {
+  const id = req.params.id;
+  const order = await Order.findById(id);
+  if (order) {
+    order.isConfirm = true;
+    const confirmOrder = await order.save();
+  }
+  res.redirect('/order');
+});
+
+orderRouter.get('/delivered/:id', isAdmin, async (req, res) => {
+  const id = req.params.id;
+  const order = await Order.findById(id);
+  if (order) {
+    order.isDelivered = true;
+    order.deliveredAt = Date.now();
+    const confirmOrder = await order.save();
+  }
+  res.redirect('/order/user');
+});
+
+orderRouter.get('/delete/:id', isLogin, async (req, res) => {
+  const id = req.params.id;
+  const redirect = req.query.redirect;
+  const order = await Order.findById(id);
+  if (order) {
+    const deletedOrder = await order.remove();
+  }
+  res.redirect(redirect);
+});
+
 //============================= ORDER FOR USER =============================
 orderRouter.get('/user', isLogin, async (req, res) => {
+  const pageSize = 10;
+  const page = Number(req.query.pageNumber) || 1;
   const user = req.session.user;
-  const ordersOfUser = await Order.find({ userId: user._id });
-  res.json({ userId: user._id, ordersOfUser });
+  const count = await Order.countDocuments({ userId: user._id });
+  const ordersOfUser = await Order.find({ userId: user._id })
+    .skip(pageSize * (page - 1))
+    .sort({ createdAt: -1 })
+    .limit(pageSize);
+
+  res.render('orderListUser', {
+    isLogin: true,
+    user,
+    ordersOfUser,
+    page,
+    pages: Math.ceil(count / pageSize),
+  });
 });
 
 orderRouter.get('/user/id/:id', isLogin, async (req, res) => {
@@ -33,6 +90,32 @@ orderRouter.get('/user/id/:id', isLogin, async (req, res) => {
   const id = req.params.id;
   const ordersOfId = await Order.findById(id);
   res.json({ ordersOfId });
+});
+
+orderRouter.get('/checkout', isLogin, async (req, res) => {
+  const user = req.session.user;
+  const { cartItems, total } = req.session.cart;
+  if (cartItems.length <= 0 || total <= 0) {
+    res.redirect('/cart');
+    return;
+  }
+  const order = new Order({
+    items: [...req.session.cart.cartItems],
+    total: req.session.cart.total,
+    userId: user._id,
+    userInfo: {
+      ...user,
+    },
+    isConfirm: false,
+    isDelivered: false,
+  });
+  const createOrder = await order.save();
+  if (createOrder) {
+    req.session.cart.cartItems = [];
+    req.session.cart.total = 0;
+  }
+  // res.json({ cartItems, total });
+  res.redirect('/order/user');
 });
 
 module.exports = orderRouter;

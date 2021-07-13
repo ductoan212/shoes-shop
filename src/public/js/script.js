@@ -48,13 +48,21 @@ function gotoDescription(e) {
 
 // Comfirm when delete
 const confirmDeleteItem = (name) => {
-  console.log(name);
-  if (confirm(`Do you want to delete product "${name}"?`)) {
+  if (confirm(`Do you want to delete "${name}"?`)) {
     return true;
   }
   return false;
 };
 
+// Comfirm when delete
+const confirmLink = (name, messagse) => {
+  if (confirm(`${messagse} "${name}"?`)) {
+    return true;
+  }
+  return false;
+};
+
+const delayTime = 500;
 var btnOrder = document.getElementsByClassName('order-product');
 for (let i = 0; i < btnOrder.length; i++) {
   btnOrder[i].addEventListener('click', (e) => {
@@ -66,7 +74,7 @@ for (let i = 0; i < btnOrder.length; i++) {
         $('.contain-addSuccess').addClass('show-contain-addSuccess');
         setTimeout(function () {
           $('.contain-addSuccess').removeClass('show-contain-addSuccess');
-        }, 1000);
+        }, delayTime);
       },
     });
   });
@@ -86,7 +94,7 @@ $('#btn-add-to-cart').click((e) => {
       $('.contain-addSuccess').addClass('show-contain-addSuccess');
       setTimeout(function () {
         $('.contain-addSuccess').removeClass('show-contain-addSuccess');
-      }, 1000);
+      }, delayTime);
     },
   });
 });

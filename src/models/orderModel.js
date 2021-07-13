@@ -24,9 +24,10 @@ const orderShema = new mongoose.Schema(
       require: true,
     },
     userInfo: {
+      username: { type: String, require: true },
       fullname: { type: String, require: true },
       email: { type: String, require: true },
-      phoneNumber: { type: Number, require: true },
+      phoneNumber: { type: String, require: true },
       address: { type: String, require: true },
     },
     isConfirm: { type: Boolean, default: false },

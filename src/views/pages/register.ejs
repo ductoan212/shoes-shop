@@ -33,12 +33,12 @@
           reiciendis!
         </h6>
       </div>
-      <% if(error) { %> 
+      <% if(error) { %>
         <div class="alert alert-error" role="alert">
-          <%= error %> 
-      </div>
-      <% } %> 
-      <div class="
+          <%= error %>
+        </div>
+        <% } %>
+          <div class="
             login-form-container
             d-flex
             justify-content-between
@@ -46,7 +46,7 @@
             flex-wrap
             w-100
           ">
-        <form class="
+            <form class="
               login-with-account
               flex-grow-1 flex-shrink-1
               d-flex
@@ -54,34 +54,52 @@
               justify-content-center
               align-items-center
             " method="POST" action="/user/register">
-          <div>
-            <input type="text" id="username" name="username" placeholder="Username"  required/>
-            <input type="password" id="password" name="password" placeholder="Password" required/>
-          </div>
-          <div>
-            <input type="text" id="fullname" name="fullname" placeholder="Full name" required/>
-            <input type="email" id="email" name="email" placeholder="Email" required/>
-          </div>
-          <div>
-            <input type="text" id="phonenumber" name="phonenumber" placeholder="Phone number" required/>
-            <input type="text" id="address" name="address" placeholder="Your address" required/>
-          </div>
-          <div>
-            <button type="submit" class="
+              <div class="d-flex">
+                <div class="d-flex flex-column align-items-start">
+                  <label for="username" class="ml-3 mb-0">Username</label>
+                  <input class="mt-1" type="text" id="username" name="username" placeholder="Username" required />
+                </div>
+                <div class="d-flex flex-column align-items-start">
+                  <label for="password" class="ml-3 mb-0">Password</label>
+                  <input class="mt-1" type="password" id="password" name="password" placeholder="Password" required />
+                </div>
+              </div>
+              <div class="d-flex">
+                <div class="d-flex flex-column align-items-start">
+                  <label for="fullname" class="ml-3 mb-0">Full name</label>
+                  <input class="mt-1" type="text" id="fullname" name="fullname" placeholder="Full name" required />
+                </div>
+                <div class="d-flex flex-column align-items-start">
+                  <label for="email" class="ml-3 mb-0">Email</label>
+                  <input class="mt-1" type="email" id="email" name="email" placeholder="Email" required />
+                </div>
+              </div>
+              <div class="d-flex">
+                <div class="d-flex flex-column align-items-start">
+                  <label for="phoneNumber" class="ml-3 mb-0">Phonenumber</label>
+                  <input class="mt-1" type="text" id="phoneNumber" name="phoneNumber" placeholder="Phone number" required />
+                </div>
+                <div class="d-flex flex-column align-items-start">
+                  <label for="address" class="ml-3 mb-0">Address</label>
+                  <input class="mt-1" type="text" id="address" name="address" placeholder="Your address" required />
+                </div>
+              </div>
+              <div>
+                <button type="submit" class="
                       btn-my-style
                       d-flex
                       justify-content-between
                       align-items-center
                     ">
-              Register an Account
-              <i class="fa fa-sign-in-alt"></i>
-            </button>
+                  Register an Account
+                  <i class="fa fa-sign-in-alt"></i>
+                </button>
+              </div>
+              </table>
+            </form>
           </div>
-          </table>
-        </form>
-      </div>
-      <a href="./login" class="h5" style="color: rgba(252, 176, 69, 1)">Login with your account...</a>
-      <div class="login-footer m-5">&copy Copyright by ShoesShop</div>
+          <a href="./login" class="h5" style="color: rgba(252, 176, 69, 1)">Login with your account...</a>
+          <div class="login-footer m-5">&copy Copyright by ShoesShop</div>
     </div>
   </main>
 

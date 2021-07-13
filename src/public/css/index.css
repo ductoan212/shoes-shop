@@ -143,7 +143,7 @@ body {
 .name-brand {
   font-weight: 600;
   font-size: 1.1rem;
-  color: #ffc107;
+  color: #888888;
   margin-bottom: 0rem;
 }
 
@@ -151,9 +151,10 @@ body {
   margin-bottom: 0px;
   text-decoration-line: line-through;
   color: #343a4094;
+  font-size: 1rem;
 }
 .new-price-product {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
 }
 
 /* ====================== CATEGORY ITEM ====================== */
@@ -414,14 +415,16 @@ a:hover {
 
 /* ====================== BRANDS ====================== */
 .img-brand {
-  border: 2px solid #ffffff;
+  /* border: 2px solid #ffffff; */
   object-fit: contain;
   height: 150px;
   width: 150px;
+  transition: all 0.5s ease;
 }
 
 .img-brand:hover {
-  border: 2px solid #fcb045;
+  /* border: 2px solid #fcb045; */
+  transform: scale(1.5);
 }
 
 /* ====================== CART ====================== */
@@ -529,6 +532,7 @@ button:hover {
 
 .my-link {
   color: #000000;
+  transition-duration: 0.1s !important;
 }
 
 .my-link:hover {

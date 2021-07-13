@@ -103,9 +103,9 @@
                         <p class="name-product text-truncate">
                           <%= products[i].name %>
                         </p>
-                        <p class="name-brand text-truncate">
+                        <a href="/product/search?brand=<%= products[i].brand %>" class="name-brand text-truncate">
                           <%= products[i].brand %>
-                        </p>
+                        </a>
                         <div class="d-flex justify-content-between align-items-center">
                           <div>
                             <p class="old-price-product">$<%= products[i].oldPrice %>

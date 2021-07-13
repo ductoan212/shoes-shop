@@ -6,7 +6,7 @@ var data = require('../data.js');
 const userRouter = express.Router();
 
 userRouter.get('/', isAdmin, async (req, res) => {
-  const pageSize = 3;
+  const pageSize = 10;
   const page = Number(req.query.pageNumber) || 1;
   const count = await User.countDocuments({});
   const users = await User.find({})
@@ -59,7 +59,7 @@ userRouter.post('/login', async (req, res) => {
         fullname: user.fullname,
         email: user.email,
         address: user.address,
-        phonenumber: user.phonenumber,
+        phoneNumber: user.phoneNumber,
         isAdmin: user.isAdmin,
       };
       res.redirect('/');
@@ -82,7 +82,7 @@ userRouter.post('/register', async (req, res) => {
     password: req.body.password,
     fullname: req.body.fullname,
     email: req.body.email,
-    phonenumber: req.body.phonenumber,
+    phoneNumber: req.body.phoneNumber,
     address: req.body.address,
   });
   // await User.remove({});
@@ -93,7 +93,7 @@ userRouter.post('/register', async (req, res) => {
     fullname: user.name,
     email: user.email,
     address: user.address,
-    phonenumber: user.phonenumber,
+    phoneNumber: user.phoneNumber,
     isAdmin: user.isAdmin,
   };
   res.redirect('/');
@@ -107,6 +107,15 @@ userRouter.get('/logout', (req, res) => {
 userRouter.get('/profile', isLogin, async (req, res) => {
   const user = req.session.user;
   res.json({ user });
+});
+
+userRouter.get('/delete/:id', isAdmin, async (req, res) => {
+  const id = req.params.id;
+  const user = await User.findById(id);
+  if (user) {
+    const deleteUser = await user.remove();
+  }
+  res.redirect('/user');
 });
 
 module.exports = userRouter;

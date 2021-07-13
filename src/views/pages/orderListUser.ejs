@@ -9,55 +9,97 @@
 
     <main class="d-flex flex-column" style="padding-top: 6rem !important;">
       <section class="p-3">
-        <h1>List orders</h1>
+        <h1>List all ordersOfUser</h1>
         <table class="table table-striped">
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
+              <th scope="col">Order ID</th>
+              <th scope="col">Phone number</th>
+              <th scope="col">Email</th>
+              <th scope="col">Address</th>
+              <th scope="col">Created at</th>
+              <th scope="col">Total</th>
+              <th scope="col">Is confirm</th>
+              <th scope="col">Delivered</th>
+              <th scope="col">Method</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
+            <% for(let i=0; i<ordersOfUser.length; i++) { %>
+              <% let dateCreated=ordersOfUser[i].createdAt %>
+                <% dateCreated=`${dateCreated.getDate()}-${dateCreated.getMonth()}-${dateCreated.getFullYear()}` %>
+                  <tr class="h5">
+                    <th scope="row" class="align-middle">
+                      <%= (page-1)*10 + i+1 %>
+                    </th>
+                    <td class="align-middle">
+                      <%= ordersOfUser[i]._id %>
+                    </td class="align-middle">
+                    <td class="align-middle">
+                      <%= ordersOfUser[i].userInfo.phoneNumber %>
+                    </td>
+                    <td class="align-middle">
+                      <%= ordersOfUser[i].userInfo.email %>
+                    </td>
+                    <td class="align-middle">
+                      <%= ordersOfUser[i].userInfo.address %>
+                    </td class="align-middle">
+                    <td class="align-middle">
+                      <%= dateCreated %>
+                    </td>
+                    <td class="align-middle">
+                      $<%= ordersOfUser[i].total %>
+                    </td>
+                    <% if(!ordersOfUser[i].isConfirm) { %>
+                      <td class="align-middle">
+                        <button class="btn btn-outline-danger" disabled>Not yet</button>
+                      </td>
+                      <td></td>
+                      <% } else { %>
+                        <td class="align-middle">
+                          <button class="btn btn-outline-primary" disabled>Confirmed</button>
+                        </td>
+                        <td class="align-middle">
+                          <% if(ordersOfUser[i].isDelivered) { %>
+                            <% let dateDelivered=ordersOfUser[i].deliveredAt %>
+                              <% dateDelivered=`${dateDelivered.getDate()}-${dateDelivered.getMonth()}-${dateDelivered.getFullYear()}`
+                                %>
+                                <%= dateDelivered %>
+                                  <% } else { %>
+                                    <a onclick="return confirmLink('<%= ordersOfUser[i]._id %>', 'Did you get your order')"
+                                      href="/order/delivered/<%= ordersOfUser[i]._id %>"><button
+                                        class="btn btn-outline-primary">Delivered</button></a>
+                                    <% } %>
+                        </td>
+                        <% } %>
+
+                          <td class="align-middle">
+                            <a href="#" class="btn btn-info">Detail</a>
+                            <% if(!ordersOfUser[i].isConfirm) { %>
+                              <a onclick="return confirmDeleteItem('<%= ordersOfUser[i]._id %>')"
+                                href="/order/delete/<%= ordersOfUser[i]._id %>?redirect=/order/user"
+                                class="btn btn-danger">Delete</a>
+                              <% } %>
+
+                          </td>
+                  </tr>
+                  <% } %>
+
           </tbody>
         </table>
         <div class="d-flex align-items-center justify-content-center">
           <ul class="style-type-none filter d-flex">
-            <li>
-              <a>1</a>
-            </li>
-            <li>
-              <a class="filter-active">2</a>
-            </li>
-            <li>
-              <a>3</a>
-            </li>
-            <li>
-              <a>4</a>
-            </li>
+            <% for(let i=1; i<=pages; i++) { let classs="" ; if(i==page) classs="filter-active" ; %>
+              <li>
+                <a class="<%= classs %>" href="/user?pageNumber=<%= i %>">
+                  <%= i %>
+                </a>
+              </li>
+              <% } %>
           </ul>
         </div>
       </section>
-
     </main>
 
     <%- include('../partials/footer'); %>

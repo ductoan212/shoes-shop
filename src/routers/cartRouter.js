@@ -40,7 +40,7 @@ cartRouter.get('/add/:id', async (req, res) => {
   for (let i = 0; i < cartItems.length; i++) {
     if (cartItems[i].productId == product._id && cartItems[i].size == size) {
       cartItems[i].quantity += qty;
-      cartItems[i].totalItem += qty * product.price;
+      cartItems[i].totalItem = cartItems[i].quantity * product.price;
       isExists = true;
       break;
     }
@@ -85,8 +85,8 @@ cartRouter.get('/sub/:id', async (req, res) => {
   for (let i = 0; i < cartItems.length; i++) {
     if (cartItems[i].productId == product._id && cartItems[i].size == size) {
       cartItems[i].quantity -= 1;
-      // cartItems[i].totalItem -= product.price;
-      req.session.cart.total = calTotal(req.session.cart.cartItems);
+      cartItems[i].totalItem -= product.price;
+      // req.session.cart.total = calTotal(req.session.cart.cartItems);
       if (cartItems[i].quantity == 0) {
         res.redirect(`/cart/remove/${id}?size=${size}`);
         return;
