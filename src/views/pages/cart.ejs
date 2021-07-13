@@ -78,8 +78,16 @@
                                                         class="btn-qty"><b>+</b></button></a>
                                             </div>
                                         </td>
+<<<<<<< HEAD
                                         <td class="align-middle h5">
                                             <%= cartItems[i].size %>
+=======
+                                        <td class="quantity">
+                                            <div class="product-right">
+                                                <% var a = i ;%>
+                                                    <input min="1" type="number" id="<%= i%>" name="quantity" value="<%= cartItems[i].items.quantity %>" class="form-control input-small" onchange="updateTotalOne(a)">
+                                            </div>
+>>>>>>> f71c2d17552a704050d14ec1b82c59076042a440
                                         </td>
                                         <td class="align-middle h5">
                                             <%= cartItems[i].price %>
@@ -120,9 +128,9 @@
             </div>
 
             <script>
-                function updateTotalOne() {
-                    var x = document.getElementById("quantity").value;
-                    document.getElementById("demo").innerHTML(x);
+                function updateTotalOne(i) {
+                    var x = document.getElementById("i").value;
+                    document.getElementById("i").innerHTML(x);
                 }
             </script>
         </main>
