@@ -44,7 +44,7 @@ orderRouter.get('/confirmed/:id', isAdmin, async (req, res) => {
   res.redirect('/order');
 });
 
-orderRouter.get('/delivered/:id', isAdmin, async (req, res) => {
+orderRouter.get('/delivered/:id', isLogin, async (req, res) => {
   const id = req.params.id;
   const order = await Order.findById(id);
   if (order) {
@@ -63,6 +63,25 @@ orderRouter.get('/delete/:id', isLogin, async (req, res) => {
     const deletedOrder = await order.remove();
   }
   res.redirect(redirect);
+});
+
+orderRouter.get('/detail/:id', isLogin, async (req, res) => {
+  const user = req.session.user;
+  const id = req.params.id;
+  const ordersOfId = await Order.findById(id);
+  const { _id, items, total, userInfo, isConfirm, isDelivered, deliveredAt } =
+    ordersOfId;
+  res.render('detailOrder', {
+    isLogin: true,
+    user,
+    _id,
+    items,
+    total,
+    userInfo,
+    isConfirm,
+    isDelivered,
+    deliveredAt,
+  });
 });
 
 //============================= ORDER FOR USER =============================

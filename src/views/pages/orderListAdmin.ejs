@@ -70,7 +70,7 @@
                               <% } %>
                     </td>
                     <td class="align-middle">
-                      <a href="#" class="btn btn-info">Detail</a>
+                      <a href="/order/detail/<%= orders[i]._id %>" class="btn btn-info">Detail</a>
                       <a onclick="return confirmDeleteItem('<%= orders[i]._id %>')"
                         href="/order/delete/<%= orders[i]._id %>?redirect=/order"
                         class="btn btn-danger">Delete</a>
@@ -84,7 +84,7 @@
           <ul class="style-type-none filter d-flex">
             <% for(let i=1; i<=pages; i++) { let classs="" ; if(i==page) classs="filter-active" ; %>
               <li>
-                <a class="<%= classs %>" href="/user?pageNumber=<%= i %>">
+                <a class="<%= classs %>" href="/order?pageNumber=<%= i %>">
                   <%= i %>
                 </a>
               </li>

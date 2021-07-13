@@ -75,7 +75,7 @@
                         <% } %>
 
                           <td class="align-middle">
-                            <a href="#" class="btn btn-info">Detail</a>
+                            <a href="/order/detail/<%= ordersOfUser[i]._id %>" class="btn btn-info">Detail</a>
                             <% if(!ordersOfUser[i].isConfirm) { %>
                               <a onclick="return confirmDeleteItem('<%= ordersOfUser[i]._id %>')"
                                 href="/order/delete/<%= ordersOfUser[i]._id %>?redirect=/order/user"
