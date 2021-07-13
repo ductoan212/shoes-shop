@@ -96,7 +96,8 @@
                                         </td>
                                         <td class="quantity">
                                             <div class="product-right">
-                                                <input min="1" type="number" id="<%= i%>" name="quantity" value="<%= cartItems[i].items.quantity %>" class="form-control input-small" onchange="updateTotalOne()">
+                                                <% var a = i ;%>
+                                                    <input min="1" type="number" id="<%= i%>" name="quantity" value="<%= cartItems[i].items.quantity %>" class="form-control input-small" onchange="updateTotalOne(a)">
                                             </div>
                                         </td>
                                         <td>
@@ -173,9 +174,9 @@
                 <p>© 2016 Flat Cart Widget. All rights reserved | Template by <a href="http://w3layouts.com/" target="_blank">  W3layouts </a></p>
             </div>
             <script>
-                function updateTotalOne() {
-                    var x = document.getElementById("quantity").value;
-                    document.getElementById("demo").innerHTML(x);
+                function updateTotalOne(i) {
+                    var x = document.getElementById("i").value;
+                    document.getElementById("i").innerHTML(x);
                 }
             </script>
         </main>
