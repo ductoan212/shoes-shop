@@ -8,129 +8,137 @@
 <body>
     <%- include('../partials/header'); %>
 
-        <main style="top: 0px" style="z-index: 0">
+        <main class="d-flex flex-column" style="padding-top: 6rem !important;">
             <div class="container light-style flex-grow-1 container-p-y mb-5">
 
                 <h4 class="font-weight-bold py-3 mb-4">
                     Account settings
                 </h4>
+                <% if(error) { %>
+                    <div class="alert alert-danger" role="alert">
+                        <%= error %> 
+                    </div>
+                    <% } %>
+                        <% if(success) { %>
+                            <div class="alert alert-primary" role="alert">
+                                <%= success %>
+                            </div>
+                            <% } %>
 
-                <div class="card overflow-hidden">
-                    <div class="row no-gutters row-bordered row-border-light">
+                                <form method="POST" action="/user/update">
+                                    <div class="card overflow-hidden">
+                                        <div class="row no-gutters row-bordered row-border-light">
 
-                        <div class="list-group list-group-flush account-settings-links col-md-3 pt-0" id="account-tab">
-                            <a class="list-group-item list-group-item-action active" id="general" onclick="openCity('general','account-general')">General</a>
-                            <a class="list-group-item list-group-item-action" id="password" onclick="openCity('password','account-change-password')">Change password</a>
-                            <a class="list-group-item list-group-item-action" id="info" onclick="openCity('info','account-info')">Info</a>
-                        </div>
+                                            <div class="list-group list-group-flush account-settings-links col-md-3 pt-0"
+                                                id="account-tab">
+                                                <a class="btn list-group-item list-group-item-action active"
+                                                    id="general"
+                                                    onclick="openCity('general','account-general')">General</a>
+                                                <a class="btn list-group-item list-group-item-action" id="password"
+                                                    onclick="openCity('password','account-change-password')">Change
+                                                    password</a>
+                                                <a class="btn list-group-item list-group-item-action" id="info"
+                                                    onclick="openCity('info','account-info')">Info</a>
+                                            </div>
 
-                        <div class="tab-content col-md-9" id="account-tabContent">
-                            <div class="tab-pane fade active show" id="account-general" role="tabpanel" style="display: block;">
+                                            <div class="tab-content col-md-9" id="account-tabContent">
+                                                <div class="tab-pane fade active show" id="account-general"
+                                                    role="tabpanel" style="display: block;">
 
-                                <div class="card-body media align-items-center">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="d-block ui-w-80">
-                                    <div class="media-body ml-4">
-                                        <label class="btn btn-outline-primary">
-                            Upload new photo
-                            <input type="file" class="account-settings-fileinput">
-                            </label> &nbsp;
-                                        <button type="button" class="btn btn-default md-btn-flat">Reset</button>
+                                                    <div class="card-body media align-items-center">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                                                            alt="" class="d-block ui-w-80">
+                                                        <% if(user.isAdmin) {%>
+                                                            <h5 class="p-0 m-3 text-danger font-weight-bold">ADMIN</h5>
+                                                            <% } %>
+                                                    </div>
+                                                    <hr class="border-light m-0">
+                                                    <div class="card-body">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Username</label>
+                                                            <input name="username" type="text" class="form-control mb-1"
+                                                                value="<%= user.username %>" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="form-label">Name</label>
+                                                            <input name="fullname" type="text" class="form-control"
+                                                                value="<%= user.fullname %>" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="form-label">E-mail</label>
+                                                            <input name="email" type="email" class="form-control mb-1"
+                                                                value="<%= user.email %>" required>
+                                                        </div>
+                                                    </div>
 
-                                        <div class="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div>
-                                    </div>
-                                </div>
-                                <hr class="border-light m-0">
+                                                </div>
+                                                <div class="tab-pane fade active show" id="account-change-password"
+                                                    role="tabpanel" style="display: none;">
+                                                    <div class="card-body pb-2">
 
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <label class="form-label">Username</label>
-                                        <input type="text" class="form-control mb-1" value="nmaxwell">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">Name</label>
-                                        <input type="text" class="form-control" value="Nelle Maxwell">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">E-mail</label>
-                                        <input type="text" class="form-control mb-1" value="nmaxwell@mail.com">
-                                        <div class="alert alert-warning mt-3">
-                                            Your email is not confirmed. Please check your inbox.<br>
-                                            <a href="javascript:void(0)">Resend confirmation</a>
+                                                        <div class="form-group">
+                                                            <label class="form-label">Current password</label>
+                                                            <input name="currentPassword" type="password"
+                                                                class="form-control">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="form-label">New password</label>
+                                                            <input name="newPassword" type="password"
+                                                                class="form-control">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="form-label">Repeat new password</label>
+                                                            <input name="newPasswordRepeat" type="password"
+                                                                class="form-control">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade active show" id="account-info" role="tabpanel"
+                                                    style="display: none;">
+                                                    <div class="card-body pb-2">
+
+                                                        <div class="form-group">
+                                                            <label class="form-label">Bio</label>
+                                                            <textarea class="form-control"
+                                                                rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nunc arcu, dignissim sit amet sollicitudin iaculis, vehicula id urna. Sed luctus urna nunc. Donec fermentum, magna sit amet rutrum pretium, turpis dolor molestie diam, ut lacinia diam risus eleifend sapien. Curabitur ac nibh nulla. Maecenas nec augue placerat, viverra tellus non, pulvinar risus.</textarea>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="form-label">Birthday</label>
+                                                            <input type="text" class="form-control" value="May 3, 1995">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="form-label">Address</label>
+                                                            <input name="address" type="text" class="form-control"
+                                                                value="<%= user.address %>" required>
+                                                        </div>
+                                                    </div>
+                                                    <hr class="border-light m-0">
+                                                    <div class="card-body pb-2">
+
+                                                        <h6 class="mb-4">Contacts</h6>
+                                                        <div class="form-group">
+                                                            <label class="form-label">Phone</label>
+                                                            <input name="phoneNumber" type="text" class="form-control"
+                                                                value="<%= user.phoneNumber %>" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="form-label">Website</label>
+                                                            <input type="text" class="form-control" value="">
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-right mt-3" style="padding-right: 20px; padding-bottom: 20px;">
+                                            <button type="submit" class="btn btn-primary">Save changes</button>&nbsp;
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="form-label">Company</label>
-                                        <input type="text" class="form-control" value="Company Ltd.">
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="tab-pane fade active show" id="account-change-password" role="tabpanel" style="display: none;">
-                                <div class="card-body pb-2">
-
-                                    <div class="form-group">
-                                        <label class="form-label">Current password</label>
-                                        <input type="password" class="form-control">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="form-label">New password</label>
-                                        <input type="password" class="form-control">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="form-label">Repeat new password</label>
-                                        <input type="password" class="form-control">
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="tab-pane fade active show" id="account-info" role="tabpanel" style="display: none;">
-                                <div class="card-body pb-2">
-
-                                    <div class="form-group">
-                                        <label class="form-label">Bio</label>
-                                        <textarea class="form-control" rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nunc arcu, dignissim sit amet sollicitudin iaculis, vehicula id urna. Sed luctus urna nunc. Donec fermentum, magna sit amet rutrum pretium, turpis dolor molestie diam, ut lacinia diam risus eleifend sapien. Curabitur ac nibh nulla. Maecenas nec augue placerat, viverra tellus non, pulvinar risus.</textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">Birthday</label>
-                                        <input type="text" class="form-control" value="May 3, 1995">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">Country</label>
-                                        <select class="custom-select">
-                                                <option>USA</option>
-                                                <option selected="">Canada</option>
-                                                <option>UK</option>
-                                                <option>Germany</option>
-                                                <option>France</option>
-                                            </select>
-                                    </div>
-                                </div>
-                                <hr class="border-light m-0">
-                                <div class="card-body pb-2">
-
-                                    <h6 class="mb-4">Contacts</h6>
-                                    <div class="form-group">
-                                        <label class="form-label">Phone</label>
-                                        <input type="text" class="form-control" value="+0 (123) 456 7891">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">Website</label>
-                                        <input type="text" class="form-control" value="">
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-right mt-3" style="padding-right: 20px; padding-bottom: 20px;">
-                        <button type="button" class="btn btn-primary">Save changes</button>&nbsp;
-                        <button type="button" class="btn btn-default">Cancel</button>
-                    </div>
-                </div>
-
+                                </form>
             </div>
 
 

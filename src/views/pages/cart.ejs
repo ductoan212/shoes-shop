@@ -29,11 +29,10 @@
     <%- include('../partials/header'); %>
 
         <main class="d-flex flex-column" style="padding-top: 6rem !important;">
-
             <div class="cart" style="border: 2px solid #0c517d;">
                 <div class="cart-top">
-                    <div class="cart-experience">
-                        <h4>TVT ShoeShop</h4>
+                    <div class="cart-experience w-100">
+                        <h4 class="text-center">CART ITEMS</h4>
                     </div>
                     <div class="clear"> </div>
                 </div>
@@ -78,16 +77,8 @@
                                                         class="btn-qty"><b>+</b></button></a>
                                             </div>
                                         </td>
-<<<<<<< HEAD
                                         <td class="align-middle h5">
                                             <%= cartItems[i].size %>
-=======
-                                        <td class="quantity">
-                                            <div class="product-right">
-                                                <% var a = i ;%>
-                                                    <input min="1" type="number" id="<%= i%>" name="quantity" value="<%= cartItems[i].items.quantity %>" class="form-control input-small" onchange="updateTotalOne(a)">
-                                            </div>
->>>>>>> f71c2d17552a704050d14ec1b82c59076042a440
                                         </td>
                                         <td class="align-middle h5">
                                             <%= cartItems[i].price %>

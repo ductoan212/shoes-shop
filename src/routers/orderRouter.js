@@ -65,7 +65,7 @@ orderRouter.get('/confirmed/:id', isAdmin, async (req, res) => {
   if (order) {
     order.isConfirm = true;
     const confirmOrder = await order.save();
-    const content = "templateMail(dhCreated)";
+    const content = 'templateMail(dhCreated)';
     sendMail(
       confirmOrder.userInfo.email,
       `[Order ${confirmOrder._id}] (${confirmOrder.createdAt
@@ -76,7 +76,6 @@ orderRouter.get('/confirmed/:id', isAdmin, async (req, res) => {
   }
   res.redirect('/order');
 });
-
 
 orderRouter.get('/delivered/:id', isLogin, async (req, res) => {
   const id = req.params.id;
@@ -145,13 +144,16 @@ orderRouter.get('/user/id/:id', isLogin, async (req, res) => {
   res.json({ ordersOfId });
 });
 
-orderRouter.get('/checkout', isLogin, async (req, res) => {
-  const user = req.session.user;
+orderRouter.get('/checkout', async (req, res) => {
   const { cartItems, total } = req.session.cart;
   if (cartItems.length <= 0 || total <= 0) {
     res.redirect('/cart');
     return;
   }
+  if (!req.session.user) {
+    res.redirect('/user/login?redirect=/cart');
+  }
+  const user = req.session.user;
   const order = new Order({
     items: [...req.session.cart.cartItems],
     total: req.session.cart.total,

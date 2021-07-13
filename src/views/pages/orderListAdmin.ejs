@@ -28,7 +28,7 @@
           <tbody>
             <% for(let i=0; i<orders.length; i++) { %>
               <% let dateCreated=orders[i].createdAt %>
-                <% dateCreated=`${dateCreated.getDate()}-${dateCreated.getMonth()}-${dateCreated.getFullYear()}` %>
+                <% dateCreated=`${dateCreated.getDate()}-${dateCreated.getMonth()+1}-${dateCreated.getFullYear()}` %>
                   <tr class="h5">
                     <th scope="row" class="align-middle">
                       <%= (page-1)*10 + i+1 %>
@@ -64,7 +64,7 @@
                     <td class="align-middle">
                       <% if(orders[i].isDelivered) { %>
                         <% let dateDelivered=orders[i].deliveredAt %>
-                          <% dateDelivered=`${dateDelivered.getDate()}-${dateDelivered.getMonth()}-${dateDelivered.getFullYear()}`
+                          <% dateDelivered=`${dateDelivered.getDate()}-${dateDelivered.getMonth()+1}-${dateDelivered.getFullYear()}`
                             %>
                             <%= dateDelivered %>
                               <% } %>
