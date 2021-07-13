@@ -18,7 +18,7 @@ var app = express();
 // Middleware
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 app.use(morgan('tiny'));
 
 // Session
@@ -43,7 +43,7 @@ app.use(fileUpload());
 
 // connect to mongodb cloud
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost:27017/shoe_shop',
+  'mongodb://localhost:27017/shoe_shop',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

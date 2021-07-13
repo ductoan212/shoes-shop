@@ -1,4 +1,5 @@
 var express = require('express');
+const nodemailer = require('nodemailer');
 const Order = require('../models/orderModel.js');
 const Product = require('../models/productModel.js');
 const User = require('../models/userModel.js');
@@ -6,6 +7,30 @@ var { isAdmin, isLogin } = require('../utils.js');
 
 const orderRouter = express.Router();
 
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'flowershop212@gmail.com',
+    pass: 'Flowershop212@',
+  },
+});
+
+function sendMail(reciver, subject, content) {
+  var mailOptions = {
+    from: '"TVT ShoeShop" <foo@example.com>',
+    to: reciver,
+    subject: subject,
+    html: content,
+  };
+
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log(`Mail sent: ${info.response}`);
+    }
+  });
+}
 //============================= ORDER FOR ADMIN =============================
 orderRouter.get('/', isAdmin, async (req, res) => {
   const pageSize = 10;
@@ -40,9 +65,18 @@ orderRouter.get('/confirmed/:id', isAdmin, async (req, res) => {
   if (order) {
     order.isConfirm = true;
     const confirmOrder = await order.save();
+    const content = "templateMail(dhCreated)";
+    sendMail(
+      confirmOrder.userInfo.email,
+      `[Order ${confirmOrder._id}] (${confirmOrder.createdAt
+        .toString()
+        .substring(0, 10)})`,
+      content
+    );
   }
   res.redirect('/order');
 });
+
 
 orderRouter.get('/delivered/:id', isLogin, async (req, res) => {
   const id = req.params.id;
