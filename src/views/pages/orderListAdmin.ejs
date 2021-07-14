@@ -70,10 +70,10 @@
                               <% } %>
                     </td>
                     <td class="align-middle">
-                      <a href="/order/detail/<%= orders[i]._id %>" class="btn btn-info">Detail</a>
+                      <a href="/order/detail/<%= orders[i]._id %>" class="btn btn-outline-info">Detail</a>
                       <a onclick="return confirmDeleteItem('<%= orders[i]._id %>')"
                         href="/order/delete/<%= orders[i]._id %>?redirect=/order"
-                        class="btn btn-danger">Delete</a>
+                        class="btn btn-outline-danger">Delete</a>
                     </td>
                   </tr>
                   <% } %>

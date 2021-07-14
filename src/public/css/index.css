@@ -470,6 +470,20 @@ a:hover {
   background-color: #343a40;
 }
 
+.my-button-checkout {
+  border-radius: 0;
+  border: 2px solid #0c517d;
+  font-size: 1.2rem;
+  color: #ffffff;
+  background-color: #0c517d;
+}
+
+.my-button-checkout:hover {
+  color: #ffffff;
+  border: 2px solid #0c517d;
+  background-color: #062b42;
+}
+
 button:hover {
   filter: contrast(150%);
 }
@@ -537,6 +551,12 @@ button:hover {
 
 .my-link:hover {
   color: #ffc107;
+}
+
+.my-grow-shrink {
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 50%;
 }
 
 /* ====================== REPONSIVE ====================== */

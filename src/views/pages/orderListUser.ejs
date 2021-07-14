@@ -9,7 +9,7 @@
 
     <main class="d-flex flex-column" style="padding-top: 6rem !important;">
       <section class="p-3">
-        <h1>List all ordersOfUser</h1>
+        <h1>All your orders</h1>
         <table class="table table-striped">
           <thead>
             <tr>
@@ -69,17 +69,17 @@
                                   <% } else { %>
                                     <a onclick="return confirmLink('<%= ordersOfUser[i]._id %>', 'Did you get your order')"
                                       href="/order/delivered/<%= ordersOfUser[i]._id %>"><button
-                                        class="btn btn-outline-primary">Delivered</button></a>
+                                        class="btn btn-primary">Delivered</button></a>
                                     <% } %>
                         </td>
                         <% } %>
 
                           <td class="align-middle">
-                            <a href="/order/detail/<%= ordersOfUser[i]._id %>" class="btn btn-info">Detail</a>
+                            <a href="/order/detail/<%= ordersOfUser[i]._id %>" class="btn btn-outline-info">Detail</a>
                             <% if(!ordersOfUser[i].isConfirm) { %>
                               <a onclick="return confirmDeleteItem('<%= ordersOfUser[i]._id %>')"
                                 href="/order/delete/<%= ordersOfUser[i]._id %>?redirect=/order/user"
-                                class="btn btn-danger">Delete</a>
+                                class="btn btn-outline-danger">Delete</a>
                               <% } %>
 
                           </td>

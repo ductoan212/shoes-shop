@@ -10,13 +10,10 @@
 
         <main class="d-flex flex-column" style="padding-top: 6rem !important;">
             <div class="container light-style flex-grow-1 container-p-y mb-5">
-
-                <h4 class="font-weight-bold py-3 mb-4">
-                    Account settings
-                </h4>
+                
                 <% if(error) { %>
                     <div class="alert alert-danger" role="alert">
-                        <%= error %> 
+                        <%= error %>
                     </div>
                     <% } %>
                         <% if(success) { %>
@@ -26,19 +23,27 @@
                             <% } %>
 
                                 <form method="POST" action="/user/update">
-                                    <div class="card overflow-hidden">
+                                    <div class="card overflow-hidden border-0" style="border-radius: 0px;">
+                                        <div class="bg-profile">
+                                            <h1 class="font-weight-bold py-3 text-center">
+                                                Account settings
+                                            </h1>
+                                        </div>
                                         <div class="row no-gutters row-bordered row-border-light">
 
                                             <div class="list-group list-group-flush account-settings-links col-md-3 pt-0"
                                                 id="account-tab">
                                                 <a class="btn list-group-item list-group-item-action active"
-                                                    id="general"
-                                                    onclick="openCity('general','account-general')">General</a>
+                                                    id="general" onclick="openCity('general','account-general')">
+                                                    <i class="fas fa-user fa-lg mr-2"></i>
+                                                    General</a>
                                                 <a class="btn list-group-item list-group-item-action" id="password"
-                                                    onclick="openCity('password','account-change-password')">Change
+                                                    onclick="openCity('password','account-change-password')">
+                                                    <i class="fas fa-lock fa-lg mr-2"></i>Change
                                                     password</a>
                                                 <a class="btn list-group-item list-group-item-action" id="info"
-                                                    onclick="openCity('info','account-info')">Info</a>
+                                                    onclick="openCity('info','account-info')">
+                                                    <i class="fas fa-info-circle fa-lg mr-2"></i>Info</a>
                                             </div>
 
                                             <div class="tab-content col-md-9" id="account-tabContent">
@@ -55,17 +60,17 @@
                                                     <hr class="border-light m-0">
                                                     <div class="card-body">
                                                         <div class="form-group">
-                                                            <label class="form-label">Username</label>
+                                                            <label class="form-label font-weight-bold">Username</label>
                                                             <input name="username" type="text" class="form-control mb-1"
                                                                 value="<%= user.username %>" required>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="form-label">Name</label>
+                                                            <label class="form-label font-weight-bold">Name</label>
                                                             <input name="fullname" type="text" class="form-control"
                                                                 value="<%= user.fullname %>" required>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="form-label">E-mail</label>
+                                                            <label class="form-label font-weight-bold">E-mail</label>
                                                             <input name="email" type="email" class="form-control mb-1"
                                                                 value="<%= user.email %>" required>
                                                         </div>
@@ -77,19 +82,22 @@
                                                     <div class="card-body pb-2">
 
                                                         <div class="form-group">
-                                                            <label class="form-label">Current password</label>
+                                                            <label class="form-label font-weight-bold">Current
+                                                                password</label>
                                                             <input name="currentPassword" type="password"
                                                                 class="form-control">
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label class="form-label">New password</label>
+                                                            <label class="form-label font-weight-bold">New
+                                                                password</label>
                                                             <input name="newPassword" type="password"
                                                                 class="form-control">
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label class="form-label">Repeat new password</label>
+                                                            <label class="form-label font-weight-bold">Repeat new
+                                                                password</label>
                                                             <input name="newPasswordRepeat" type="password"
                                                                 class="form-control">
                                                         </div>
@@ -101,16 +109,16 @@
                                                     <div class="card-body pb-2">
 
                                                         <div class="form-group">
-                                                            <label class="form-label">Bio</label>
+                                                            <label class="form-label font-weight-bold">Bio</label>
                                                             <textarea class="form-control"
                                                                 rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nunc arcu, dignissim sit amet sollicitudin iaculis, vehicula id urna. Sed luctus urna nunc. Donec fermentum, magna sit amet rutrum pretium, turpis dolor molestie diam, ut lacinia diam risus eleifend sapien. Curabitur ac nibh nulla. Maecenas nec augue placerat, viverra tellus non, pulvinar risus.</textarea>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="form-label">Birthday</label>
+                                                            <label class="form-label font-weight-bold">Birthday</label>
                                                             <input type="text" class="form-control" value="May 3, 1995">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="form-label">Address</label>
+                                                            <label class="form-label font-weight-bold">Address</label>
                                                             <input name="address" type="text" class="form-control"
                                                                 value="<%= user.address %>" required>
                                                         </div>
@@ -118,14 +126,14 @@
                                                     <hr class="border-light m-0">
                                                     <div class="card-body pb-2">
 
-                                                        <h6 class="mb-4">Contacts</h6>
+                                                        <h3 class="mb-4 font-weight-bold">Contacts</h3>
                                                         <div class="form-group">
-                                                            <label class="form-label">Phone</label>
+                                                            <label class="form-label font-weight-bold">Phone</label>
                                                             <input name="phoneNumber" type="text" class="form-control"
                                                                 value="<%= user.phoneNumber %>" required>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="form-label">Website</label>
+                                                            <label class="form-label font-weight-bold">Website</label>
                                                             <input type="text" class="form-control" value="">
                                                         </div>
 
@@ -135,7 +143,8 @@
                                             </div>
                                         </div>
                                         <div class="text-right mt-3" style="padding-right: 20px; padding-bottom: 20px;">
-                                            <button type="submit" class="btn btn-primary">Save changes</button>&nbsp;
+                                            <button type="submit" class="btn my-button-checkout">Save
+                                                changes</button>&nbsp;
                                         </div>
                                     </div>
                                 </form>
