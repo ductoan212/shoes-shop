@@ -44,13 +44,14 @@ body {
 }
 
 .logo {
-  background-image: url(/images/logo.png);
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/shoe-shop-6a8b1.appspot.com/o/logo%2Flogo.png?alt=media&token=530c4454-b7dd-4d27-847b-d5d7613fb367);
   /* background-image: url(https://i.pinimg.com/474x/f9/1a/a3/f91aa37eae15b0b16e6f0a5fb40f7732.jpg); */
   height: 4rem;
   width: 4rem;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  background-color: #ffffff;
 }
 
 .nav-item {

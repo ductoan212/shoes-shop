@@ -1,60 +1,4 @@
-module.exports.isAdmin = (req, res, next) => {
-  if (req.session.user && req.session.user.isAdmin) {
-    next();
-  } else {
-    // res.status(401).send({ message: 'Invalid Admin Token' });
-    res.redirect('/');
-  }
-};
-
-module.exports.isLogin = (req, res, next) => {
-  if (req.session.user) {
-    next();
-  } else {
-    res.redirect('/');
-  }
-};
-
-module.exports.mailTemplate = (order) => {
-  var orderItems = '';
-  for (let i = 0; i < order.items.length; i++) {
-    let item = order.items[i];
-    orderItems += `
-    <tr>
-                                    <td>
-                                        <table style="float:left">
-                                            <tr>
-                                                <td style="width:180px" align="center">
-                                                    <img src="${item.image}"
-                                                        width="125">
-                                                </td>
-                                            </tr>
-                                        </table>
-                                        <table align="right" style="border-spacing:0px; width: 400px;">
-                                            <tr>
-                                                <td style="padding:0;Margin:5px">
-                                                    <p style="Margin:0;font-size:14px"><br></p>
-                                                    <table style="border-spacing:0px;width:100%">
-                                                        <tr>
-                                                            <td style="padding:0;Margin:0; color: #000000 !important;">${item.name} - size ${item.size}</td>
-                                                            <td style="padding:0;Margin:0;width:60px;text-align:left; color: #000000 !important;">${item.quantity}
-                                                            </td>
-                                                            <td style="padding:0;Margin:0;width:100px;text-align:left; color: #000000 !important;">
-                                                                $${item.price}</td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding:0;Margin:0;border-bottom:3px solid #efefef"></td>
-                                </tr>
-    `;
-  }
- return `
- <!DOCTYPE>
+<!DOCTYPE>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office"
     style="width:100%;font-family:arial, 'helvetica neue', helvetica, sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0">
 
@@ -368,9 +312,7 @@ module.exports.mailTemplate = (order) => {
                     </tr>
                     <tr style="border-collapse:collapse">
                         <td align="center" style="padding-bottom:10px;padding-top:15px"><span
-                                class="es-button-border"><a href="http://localhost:3000/order/detail/${
-                                  order._id
-                                }"
+                                class="es-button-border"><a href="http://localhost:3000/order/detail/${order._id}"
                                     class="es-button" target="_blank"
                                     style="color:#FFFFFF;font-size:20px;border-style:solid;border-color:#d48344;border-width:10px 20px 10px 20px;display:inline-block;background:#d48344;border-radius:5px">View
                                     order status</a></span></td>
@@ -395,24 +337,18 @@ module.exports.mailTemplate = (order) => {
                                             style="padding:0;Margin:0;padding-bottom:20px;padding-left:20px;padding-right:20px">
                                             <div><span style="font-size:17px;line-height:21px; font-weight: bold;">Order
                                                     #:</span>
-                                                <span style="font-size:17px;line-height:21px">${
-                                                  order._id
-                                                }</span>
+                                                <span style="font-size:17px;line-height:21px">${order._id}</span>
                                                 <br>
                                                 <span
                                                     style="font-size:17px;line-height:21px; font-weight: bold; color: #000000 !important;">Order
                                                     Date:</span>
                                                 <span
-                                                    style="font-size:17px;line-height:21px; color: #000000 !important;">${order.createdAt
-                                                      .toString()
-                                                      .slice(0, 15)}</span>
+                                                    style="font-size:17px;line-height:21px; color: #000000 !important;">${order.createdAt.toString().slice(0,15)}</span>
                                                 <br>
 
                                                 <span style="font-size:17px;line-height:21px; font-weight: bold;; color: #000000 !important;">Order
                                                     Total:</span>
-                                                <span style="font-size:17px;line-height:21px; color: #000000 !important;">$${
-                                                  order.total
-                                                }</span>
+                                                <span style="font-size:17px;line-height:21px; color: #000000 !important;">$${order.total}</span>
                                             </div>
 
                                         </td>
@@ -439,26 +375,17 @@ module.exports.mailTemplate = (order) => {
                                             <table style="border-spacing:0px;width:100%">
                                                 <tr>
                                                     <td><span
-                                                            style="font-size:17px;line-height:21px; color: #000000 !important;">${
-                                                              order.userInfo
-                                                                .fullname
-                                                            }</span>
+                                                            style="font-size:17px;line-height:21px; color: #000000 !important;">${order.userInfo.fullname}</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td><span
-                                                            style="font-size:17px;line-height:21px; color: #000000 !important;">${
-                                                              order.userInfo
-                                                                .phoneNumber
-                                                            }</span>
+                                                            style="font-size:17px;line-height:21px; color: #000000 !important;">${order.userInfo.phoneNumber}</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td><span
-                                                            style="font-size:17px;line-height:21px; color: #000000 !important;">${
-                                                              order.userInfo
-                                                                .address
-                                                            }</span>
+                                                            style="font-size:17px;line-height:21px; color: #000000 !important;">${order.userInfo.address}</span>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -534,9 +461,7 @@ module.exports.mailTemplate = (order) => {
                                                 </td>
                                                 <td
                                                     style="text-align:right;font-size:18px;line-height:27px;color:#d48344">
-                                                    <strong>$${
-                                                      order.total
-                                                    }</strong>
+                                                    <strong>$${order.total}</strong>
                                                 </td>
                                             </tr>
                                         </table>
@@ -553,5 +478,3 @@ module.exports.mailTemplate = (order) => {
 </body>
 
 </html>
- `;
-};
