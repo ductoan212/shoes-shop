@@ -106,7 +106,6 @@ a:hover {
   width: 75%;
   margin: 3em auto 2em;
   background-color: #094e7a;
-  border-radius: 10px;
 }
 .cart-experience {
   float: left;
@@ -138,7 +137,6 @@ a:hover {
 .cart-bottom {
   background: #fff;
   padding: 2em 2em;
-  border-radius: 0px 0px 10px 10px;
 }
 .single-grid #quantity {
   width: 50px;

@@ -1,0 +1,142 @@
+body {
+  background: #f5f5f5;
+  margin-top: 20px;
+}
+
+.ui-w-80 {
+  width: 80px !important;
+  height: auto;
+}
+
+.btn-default {
+  border-color: rgba(24, 28, 33, 0.1);
+  background: rgba(0, 0, 0, 0);
+  color: #4e5155;
+}
+
+label.btn {
+  margin-bottom: 0;
+}
+
+.btn-outline-primary {
+  border-color: #26b4ff;
+  background: transparent;
+  color: #26b4ff;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.text-light {
+  color: #babbbc !important;
+}
+
+.btn-facebook {
+  border-color: rgba(0, 0, 0, 0);
+  background: #3b5998;
+  color: #fff;
+}
+
+.btn-instagram {
+  border-color: rgba(0, 0, 0, 0);
+  background: #000;
+  color: #fff;
+}
+
+.card {
+  background-clip: padding-box;
+  box-shadow: 0 1px 4px rgba(24, 28, 33, 0.012);
+}
+
+.row-bordered {
+  overflow: hidden;
+}
+
+.account-settings-fileinput {
+  position: absolute;
+  visibility: hidden;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.account-settings-links .list-group-item {
+  font-weight: bold !important;
+  color: #0c527dbb !important;
+  background-color: #ffffff !important;
+  border-radius: 0px !important;
+}
+
+.account-settings-links .list-group-item:hover {
+  font-weight: bold !important;
+  color: #ffffff !important;
+  background-color: #0c527dbb !important;
+  border-radius: 0px !important;
+}
+
+.account-settings-links .list-group-item.active {
+  font-weight: bold !important;
+  color: #ffffff !important;
+  background-color: #0c517d !important;
+  border-radius: 0px;
+}
+
+html:not(.dark-style) .account-settings-links .list-group-item.active {
+  /* background: transparent !important; */
+}
+
+.account-settings-multiselect ~ .select2-container {
+  width: 100% !important;
+}
+
+.light-style .account-settings-links .list-group-item {
+  padding: 0.85rem 1.5rem;
+  border-color: rgba(24, 28, 33, 0.03) !important;
+}
+
+.light-style .account-settings-links .list-group-item.active {
+  /* color: #4e5155 !important; */
+}
+
+.material-style .account-settings-links .list-group-item {
+  padding: 0.85rem 1.5rem;
+  border-color: rgba(24, 28, 33, 0.03) !important;
+}
+
+.material-style .account-settings-links .list-group-item.active {
+  color: #4e5155 !important;
+}
+
+.dark-style .account-settings-links .list-group-item {
+  padding: 0.85rem 1.5rem;
+  border-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+.dark-style .account-settings-links .list-group-item.active {
+  color: #fff !important;
+}
+
+.light-style .account-settings-links .list-group-item.active {
+  /* color: #4E5155 !important; */
+}
+
+.light-style .account-settings-links .list-group-item {
+  padding: 0.85rem 1.5rem;
+  border-color: rgba(24, 28, 33, 0.03) !important;
+}
+
+.bg-profile {
+  width: 100%;
+  height: 200px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #00000015, #0000007a, #00000015),
+    url('https://images.unsplash.com/photo-1555378322-a8e1515568e4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+  /* url('https://t3.ftcdn.net/jpg/02/74/05/62/360_F_274056256_3I7cvSpoxRzMmnHVgeXZ8zLt58wN75Y0.jpg'); */
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

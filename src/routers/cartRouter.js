@@ -129,13 +129,12 @@ cartRouter.get('/remove/:id', async (req, res) => {
   res.redirect('/cart');
 });
 
-
 const calTotal = (cartItems) => {
   let total = 0;
   for (let i = 0; i < cartItems.length; i++) {
-    total += cartItems[i].quantity * cartItems[i].price
+    total += cartItems[i].quantity * cartItems[i].price;
   }
   return total;
-}
+};
 
 module.exports = cartRouter;

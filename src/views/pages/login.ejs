@@ -53,7 +53,7 @@
               flex-column
               justify-content-center
               align-items-center
-            " method="POST" action="/user/login">
+            " method="POST" action="/user/login?redirect=<%= redirect  %>">
           <input type="text" id="username" name="username" placeholder="Username" />
           <input type="password" id="password" name="password" placeholder="Password" />
           <button type="submit" class="

@@ -1,11 +1,36 @@
 var express = require('express');
+const nodemailer = require('nodemailer');
 const Order = require('../models/orderModel.js');
 const Product = require('../models/productModel.js');
 const User = require('../models/userModel.js');
-var { isAdmin, isLogin } = require('../utils.js');
+var { isAdmin, isLogin, mailTemplate } = require('../utils.js');
 
 const orderRouter = express.Router();
 
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'flowershop212@gmail.com',
+    pass: 'Flowershop212@',
+  },
+});
+
+function sendMail(reciver, subject, content) {
+  var mailOptions = {
+    from: '"TVT ShoeShop" <foo@example.com>',
+    to: reciver,
+    subject: subject,
+    html: content,
+  };
+
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log(`Mail sent: ${info.response}`);
+    }
+  });
+}
 //============================= ORDER FOR ADMIN =============================
 orderRouter.get('/', isAdmin, async (req, res) => {
   const pageSize = 10;
@@ -40,6 +65,14 @@ orderRouter.get('/confirmed/:id', isAdmin, async (req, res) => {
   if (order) {
     order.isConfirm = true;
     const confirmOrder = await order.save();
+    const content = mailTemplate(confirmOrder);
+    sendMail(
+      confirmOrder.userInfo.email,
+      `[Order ${confirmOrder._id}] (${confirmOrder.createdAt
+        .toString()
+        .substring(0, 10)})`,
+      content
+    );
   }
   res.redirect('/order');
 });
@@ -111,19 +144,42 @@ orderRouter.get('/user/id/:id', isLogin, async (req, res) => {
   res.json({ ordersOfId });
 });
 
-orderRouter.get('/checkout', isLogin, async (req, res) => {
-  const user = req.session.user;
+orderRouter.get('/shipping', async (req, res) => {
+  if (!req.session.cart) {
+    res.redirect('/cart');
+  }
   const { cartItems, total } = req.session.cart;
   if (cartItems.length <= 0 || total <= 0) {
     res.redirect('/cart');
     return;
   }
+  if (!req.session.user) {
+    res.redirect('/user/login?redirect=/cart');
+    return;
+  }
+  const user = req.session.user;
+  res.render('shipping', { isLogin: true, user });
+});
+
+orderRouter.post('/checkout', async (req, res) => {
+  const { cartItems, total } = req.session.cart;
+  if (cartItems.length <= 0 || total <= 0) {
+    res.redirect('/cart');
+    return;
+  }
+  if (!req.session.user) {
+    res.redirect('/user/login?redirect=/cart');
+    return;
+  }
+  const shippingInfo = req.body;
+  const user = req.session.user;
+  shippingInfo.username = user.username;
   const order = new Order({
     items: [...req.session.cart.cartItems],
     total: req.session.cart.total,
     userId: user._id,
     userInfo: {
-      ...user,
+      ...shippingInfo,
     },
     isConfirm: false,
     isDelivered: false,
@@ -133,7 +189,6 @@ orderRouter.get('/checkout', isLogin, async (req, res) => {
     req.session.cart.cartItems = [];
     req.session.cart.total = 0;
   }
-  // res.json({ cartItems, total });
   res.redirect('/order/user');
 });
 

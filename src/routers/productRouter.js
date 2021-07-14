@@ -32,7 +32,7 @@ productRouter.get('/seed', async (req, res) => {
 });
 
 productRouter.get('/search', async (req, res) => {
-  const pageSize = 8;
+  const pageSize = 9;
   const page = Number(req.query.pageNumber) || 1;
   const name = req.query.name || '';
   const brand = req.query.brand || '';

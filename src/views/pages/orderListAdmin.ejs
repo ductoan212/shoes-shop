@@ -28,12 +28,12 @@
           <tbody>
             <% for(let i=0; i<orders.length; i++) { %>
               <% let dateCreated=orders[i].createdAt %>
-                <% dateCreated=`${dateCreated.getDate()}-${dateCreated.getMonth()}-${dateCreated.getFullYear()}` %>
+                <% dateCreated=`${dateCreated.getDate()}-${dateCreated.getMonth()+1}-${dateCreated.getFullYear()}` %>
                   <tr class="h5">
                     <th scope="row" class="align-middle">
                       <%= (page-1)*10 + i+1 %>
                     </th>
-                    <td class="align-middle">
+                    <td class="align-middle text-truncate" style="max-width: 150px">
                       <%= orders[i]._id %>
                     </td class="align-middle">
                     <td class="align-middle">
@@ -42,7 +42,7 @@
                     <td class="align-middle">
                       <%= orders[i].userInfo.phoneNumber %>
                     </td>
-                    <td class="align-middle">
+                    <td class="align-middle text-truncate" style="max-width: 150px">
                       <%= orders[i].userInfo.address %>
                     </td class="align-middle">
                     <td class="align-middle">
@@ -64,16 +64,16 @@
                     <td class="align-middle">
                       <% if(orders[i].isDelivered) { %>
                         <% let dateDelivered=orders[i].deliveredAt %>
-                          <% dateDelivered=`${dateDelivered.getDate()}-${dateDelivered.getMonth()}-${dateDelivered.getFullYear()}`
+                          <% dateDelivered=`${dateDelivered.getDate()}-${dateDelivered.getMonth()+1}-${dateDelivered.getFullYear()}`
                             %>
                             <%= dateDelivered %>
                               <% } %>
                     </td>
                     <td class="align-middle">
-                      <a href="/order/detail/<%= orders[i]._id %>" class="btn btn-info">Detail</a>
+                      <a href="/order/detail/<%= orders[i]._id %>" class="btn btn-outline-info">Detail</a>
                       <a onclick="return confirmDeleteItem('<%= orders[i]._id %>')"
                         href="/order/delete/<%= orders[i]._id %>?redirect=/order"
-                        class="btn btn-danger">Delete</a>
+                        class="btn btn-outline-danger">Delete</a>
                     </td>
                   </tr>
                   <% } %>

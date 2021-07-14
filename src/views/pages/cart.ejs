@@ -29,11 +29,10 @@
     <%- include('../partials/header'); %>
 
         <main class="d-flex flex-column" style="padding-top: 6rem !important;">
-
             <div class="cart" style="border: 2px solid #0c517d;">
                 <div class="cart-top">
-                    <div class="cart-experience">
-                        <h4>TVT ShoeShop</h4>
+                    <div class="cart-experience w-100">
+                        <h4 class="text-center">CART ITEMS</h4>
                     </div>
                     <div class="clear"> </div>
                 </div>
@@ -43,7 +42,7 @@
                             <tbody>
                                 <tr class="main-heading">
                                     <th>Images</th>
-                                    <th class="long-txt">Product Description</th>
+                                    <th class="long-txt">Product Name</th>
                                     <th>Quantity</th>
                                     <th>Size</th>
                                     <th>Price</th>
@@ -82,10 +81,10 @@
                                             <%= cartItems[i].size %>
                                         </td>
                                         <td class="align-middle h5">
-                                            <%= cartItems[i].price %>
+                                            $<%= cartItems[i].price %>
                                         </td>
                                         <td class="align-middle h4">
-                                            <%= cartItems[i].totalItem %>
+                                            $<%= cartItems[i].totalItem %>
                                         </td>
                                         <td class="align-middle">
                                             <a
@@ -99,7 +98,7 @@
                                 <tr>
                                     <th colspan="5" class="text-right align-middle">Total:</th>
                                     <th class="align-middle h4">
-                                        <%= total %>
+                                        $<%= total %>
                                     </th>
                                     <th></th>
                                 </tr>
@@ -110,8 +109,8 @@
                         <div class="dis-total">
 
                             <div class="tot-btn">
-                                <a class="shop h5" href="/product/search">Back to Shop</a>
-                                <a class="check" href="/order/checkout">Continue to Checkout</a>
+                                <a class="my-button-dark p-2" href="/product/search">Back to Shop</a>
+                                <a class="my-button-checkout p-2" href="/order/shipping">Continue to Checkout</a>
                             </div>
                         </div>
                         <div class="clear"> </div>
@@ -120,9 +119,9 @@
             </div>
 
             <script>
-                function updateTotalOne() {
-                    var x = document.getElementById("quantity").value;
-                    document.getElementById("demo").innerHTML(x);
+                function updateTotalOne(i) {
+                    var x = document.getElementById("i").value;
+                    document.getElementById("i").innerHTML(x);
                 }
             </script>
         </main>

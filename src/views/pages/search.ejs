@@ -7,7 +7,7 @@
 <body>
   <%- include('../partials/header'); %>
 
-    <main class="d-flex flex-column" style="padding-top: 6rem !important;">
+    <main class="d-flex flex-column" style="padding-top: 6rem !important; width: 80%; margin: auto;">
       <div class="d-flex justify-content-between p-3 mb-1 align-items-center">
         <div class="d-flex flex align-items-center justify-content-center">
           <b class="mr-5">
@@ -94,7 +94,7 @@
             <div class="no-resutls">
             </div>
             <% } %>
-              <div class="w-100 d-flex flex-wrap justify-content-around align-items-center">
+              <div class="w-100 d-flex flex-wrap justify-content-between align-items-center">
                 <% for(let i=0; i<products.length; i++) { %>
                   <div class="product-item">
                     <a href="/product/detail/<%= products[i]._id %>">
