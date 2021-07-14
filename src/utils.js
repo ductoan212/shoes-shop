@@ -14,3 +14,7 @@ module.exports.isLogin = (req, res, next) => {
     res.redirect('/');
   }
 };
+
+module.exports.mailTemplate = (order) => {
+  return ``;
+}

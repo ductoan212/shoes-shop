@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 const Order = require('../models/orderModel.js');
 const Product = require('../models/productModel.js');
 const User = require('../models/userModel.js');
-var { isAdmin, isLogin } = require('../utils.js');
+var { isAdmin, isLogin, mailTemplate } = require('../utils.js');
 
 const orderRouter = express.Router();
 
@@ -65,7 +65,7 @@ orderRouter.get('/confirmed/:id', isAdmin, async (req, res) => {
   if (order) {
     order.isConfirm = true;
     const confirmOrder = await order.save();
-    const content = 'templateMail(dhCreated)';
+    const content = mailTemplate(confirmOrder);
     sendMail(
       confirmOrder.userInfo.email,
       `[Order ${confirmOrder._id}] (${confirmOrder.createdAt

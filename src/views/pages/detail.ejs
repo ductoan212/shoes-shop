@@ -177,7 +177,7 @@
             <div class="you-might-like">
                 <div class="container">
                     <h3 class="you-might">Products You May Like</h3>
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-wrap justify-content-between">
                         <% for(let i=0; i<productRecommend.length; i++) { %>
                             <div class="product-item">
                                 <a href="/product/detail/<%= productRecommend[i]._id %>">

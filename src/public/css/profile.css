@@ -63,7 +63,7 @@ label.btn {
 
 .account-settings-links .list-group-item {
   font-weight: bold !important;
-  color: #212529d5 !important;
+  color: #0c527dbb !important;
   background-color: #ffffff !important;
   border-radius: 0px !important;
 }
@@ -71,14 +71,14 @@ label.btn {
 .account-settings-links .list-group-item:hover {
   font-weight: bold !important;
   color: #ffffff !important;
-  background-color: #212529ce !important;
+  background-color: #0c527dbb !important;
   border-radius: 0px !important;
 }
 
 .account-settings-links .list-group-item.active {
   font-weight: bold !important;
   color: #ffffff !important;
-  background-color: #212529 !important;
+  background-color: #0c517d !important;
   border-radius: 0px;
 }
 
