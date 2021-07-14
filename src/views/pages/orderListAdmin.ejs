@@ -33,7 +33,7 @@
                     <th scope="row" class="align-middle">
                       <%= (page-1)*10 + i+1 %>
                     </th>
-                    <td class="align-middle">
+                    <td class="align-middle text-truncate" style="max-width: 150px">
                       <%= orders[i]._id %>
                     </td class="align-middle">
                     <td class="align-middle">
@@ -42,7 +42,7 @@
                     <td class="align-middle">
                       <%= orders[i].userInfo.phoneNumber %>
                     </td>
-                    <td class="align-middle">
+                    <td class="align-middle text-truncate" style="max-width: 150px">
                       <%= orders[i].userInfo.address %>
                     </td class="align-middle">
                     <td class="align-middle">

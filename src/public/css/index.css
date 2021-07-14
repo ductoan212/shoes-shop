@@ -444,6 +444,18 @@ a:hover {
   color: #ffffff;
 }
 
+.label-shipping {
+  font-size: 1.2rem;
+}
+
+.input-shipping {
+  border: 1px solid #0c517d;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
 /* ====================== Custume ====================== */
 
 .my-button-white {
@@ -476,6 +488,7 @@ a:hover {
   font-size: 1.2rem;
   color: #ffffff;
   background-color: #0c517d;
+  transition-duration: 0.25s;
 }
 
 .my-button-checkout:hover {

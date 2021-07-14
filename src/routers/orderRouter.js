@@ -144,7 +144,10 @@ orderRouter.get('/user/id/:id', isLogin, async (req, res) => {
   res.json({ ordersOfId });
 });
 
-orderRouter.get('/checkout', async (req, res) => {
+orderRouter.get('/shipping', async (req, res) => {
+  if (!req.session.cart) {
+    res.redirect('/cart');
+  }
   const { cartItems, total } = req.session.cart;
   if (cartItems.length <= 0 || total <= 0) {
     res.redirect('/cart');
@@ -152,14 +155,31 @@ orderRouter.get('/checkout', async (req, res) => {
   }
   if (!req.session.user) {
     res.redirect('/user/login?redirect=/cart');
+    return;
   }
   const user = req.session.user;
+  res.render('shipping', { isLogin: true, user });
+});
+
+orderRouter.post('/checkout', async (req, res) => {
+  const { cartItems, total } = req.session.cart;
+  if (cartItems.length <= 0 || total <= 0) {
+    res.redirect('/cart');
+    return;
+  }
+  if (!req.session.user) {
+    res.redirect('/user/login?redirect=/cart');
+    return;
+  }
+  const shippingInfo = req.body;
+  const user = req.session.user;
+  shippingInfo.username = user.username;
   const order = new Order({
     items: [...req.session.cart.cartItems],
     total: req.session.cart.total,
     userId: user._id,
     userInfo: {
-      ...user,
+      ...shippingInfo,
     },
     isConfirm: false,
     isDelivered: false,
@@ -169,7 +189,6 @@ orderRouter.get('/checkout', async (req, res) => {
     req.session.cart.cartItems = [];
     req.session.cart.total = 0;
   }
-  // res.json({ cartItems, total });
   res.redirect('/order/user');
 });
 
