@@ -1,4 +1,5 @@
-var express = require('express');
+const express = require('express');
+const paypal = require('paypal-rest-sdk');
 const nodemailer = require('nodemailer');
 const Order = require('../models/orderModel.js');
 const Product = require('../models/productModel.js');
@@ -59,7 +60,7 @@ orderRouter.get('/id/:id', isAdmin, async (req, res) => {
   // res.render('orderListAdmin', { isLogin: true, user });
 });
 
-orderRouter.get('/confirmed/:id', isAdmin, async (req, res) => {
+orderRouter.get('/confirmed/:id', isLogin, async (req, res) => {
   const id = req.params.id;
   const order = await Order.findById(id);
   if (order) {
@@ -83,7 +84,11 @@ orderRouter.get('/delivered/:id', isLogin, async (req, res) => {
   if (order) {
     order.isDelivered = true;
     order.deliveredAt = Date.now();
-    const confirmOrder = await order.save();
+    if(order.isPaid == false){
+      order.isPaid = true;
+      order.paidAt = Date.now();
+    }
+     const confirmOrder = await order.save();
   }
   res.redirect('/order/user');
 });
@@ -181,6 +186,8 @@ orderRouter.post('/checkout', async (req, res) => {
     userInfo: {
       ...shippingInfo,
     },
+    paymentMethod: shippingInfo.paymentMethod,
+    isPaid: false,
     isConfirm: false,
     isDelivered: false,
   });
@@ -189,7 +196,22 @@ orderRouter.post('/checkout', async (req, res) => {
     req.session.cart.cartItems = [];
     req.session.cart.total = 0;
   }
+  if (createOrder.paymentMethod == 'paypal') {
+    res.redirect(`/pay/${createOrder._id}`);
+    return;
+  }
   res.redirect('/order/user');
+});
+
+orderRouter.get('/success/:id', async (req, res) => {
+  const id = req.params.id;
+  const order = await Order.findById(id);
+  if (order) {
+    order.isPaid = true;
+    order.paidAt = Date.now();
+    const paidOrder = await order.save();
+  }
+  res.redirect(`/order/confirmed/${id}`);
 });
 
 module.exports = orderRouter;

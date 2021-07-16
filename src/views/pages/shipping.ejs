@@ -38,6 +38,7 @@
                 </div>
                 <div class="cart-bottom">
                     <form class="w-75" style="margin: auto;" action="/order/checkout" method="POST">
+                    <!-- <form class="w-75" style="margin: auto;" action="/pay" method="GET"> -->
                         <div class="dis-total w-100">
                             <div class="text-left d-flex flex-column">
                                 <label class="label-shipping" for="fullname">Full name:</label>
@@ -53,8 +54,9 @@
                                 <input class="input-shipping" name="address" value="<%= user.address %>" required>
 
                                 <label class="label-shipping" for="">Payment method:</label>
-                                <select class="input-shipping">
-                                    <option value="3">Cash on delivery</option>
+                                <select name="paymentMethod" class="input-shipping">
+                                    <option value="paypal" selected>Paypal</option>
+                                    <option value="cash">Cash on delivery</option>
                                 </select>
                             </div>
                             <div class="tot-btn">
