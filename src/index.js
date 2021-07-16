@@ -41,15 +41,12 @@ app.set('view engine', 'ejs');
 // fileUpload
 app.use(fileUpload());
 
-// connect to mongodb cloud
-mongoose.connect(
-  'mongodb://localhost:27017/shoe_shop',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-  }
-);
+// connect to mongodb
+mongoose.connect('mongodb://localhost:27017/shoe_shop', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+});
 
 app.use('/user', userRouter);
 app.use('/product', productRouter);

@@ -281,7 +281,7 @@
 </head>
 
 <body style="background-color: antiquewhite; margin: auto; background-color: #fcb045">
-    <table align="center" style="border-spacing:0px">
+    <table align="center" style="border-spacing:0px; margin-bottom: 1rem;">
         <tr>
             <td class="es-m-p0l es-m-txt-c" align="center"
                 style="padding: 10px;Margin:0;padding-left:15px;font-size:0;  ">
@@ -346,9 +346,11 @@
                                                     style="font-size:17px;line-height:21px; color: #000000 !important;">${order.createdAt.toString().slice(0,15)}</span>
                                                 <br>
 
-                                                <span style="font-size:17px;line-height:21px; font-weight: bold;; color: #000000 !important;">Order
+                                                <span
+                                                    style="font-size:17px;line-height:21px; font-weight: bold;; color: #000000 !important;">Order
                                                     Total:</span>
-                                                <span style="font-size:17px;line-height:21px; color: #000000 !important;">$${order.total}</span>
+                                                <span
+                                                    style="font-size:17px;line-height:21px; color: #000000 !important;">$${order.total}</span>
                                             </div>
 
                                         </td>
@@ -360,10 +362,11 @@
                     <table class="es-right" width="50%" cellspacing="0" cellpadding="0"
                         style="border-spacing:0px;float:right">
                         <tr style="border-collapse:collapse">
-                            <td>
+                            <td style="width: 100%;">
                                 <table style="border-spacing:0px;" width="100%" bgcolor="#fef9ef">
                                     <tr style="border-collapse:collapse">
-                                        <td align="left" style="padding-top:20px;padding-left:20px;padding-right:20px">
+                                        <td align="left"
+                                            style="padding-top:20px;padding-left:20px;padding-right:20px; width: 100%;">
                                             <h4
                                                 style="Margin:0;line-height:120%;font-family:'trebuchet ms', helvetica, sans-serif; font-size: 1.25rem; color: #000000 !important;">
                                                 SHIPPING INFO:<br></h4>
@@ -371,20 +374,20 @@
                                     </tr>
                                     <tr>
                                         <td
-                                            style="padding:0;Margin:0;padding-bottom:20px;padding-left:20px;padding-right:20px">
+                                            style="padding:0;Margin:0;padding-bottom:20px;padding-left:20px;padding-right:20px; width: 100%;">
                                             <table style="border-spacing:0px;width:100%">
                                                 <tr>
-                                                    <td><span
+                                                    <td style="width: 100%;"><span
                                                             style="font-size:17px;line-height:21px; color: #000000 !important;">${order.userInfo.fullname}</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><span
+                                                    <td style="width: 100%;"><span
                                                             style="font-size:17px;line-height:21px; color: #000000 !important;">${order.userInfo.phoneNumber}</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><span
+                                                    <td style="width: 100%;"><span
                                                             style="font-size:17px;line-height:21px; color: #000000 !important;">${order.userInfo.address}</span>
                                                     </td>
                                                 </tr>
@@ -440,7 +443,7 @@
                                                 <td style="text-align:right;font-size:18px;line-height:27px">Subtotal:
                                                 </td>
                                                 <td style="text-align:right;font-size:18px;line-height:27px">
-                                                    ${order.total}</td>
+                                                    $${order.total}</td>
                                             </tr>
                                             <tr>
                                                 <td style="text-align:right;font-size:18px;line-height:27px">Flat-rate

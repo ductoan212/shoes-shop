@@ -11,7 +11,7 @@ module.exports.isLogin = (req, res, next) => {
   if (req.session.user) {
     next();
   } else {
-    res.redirect('/');
+    res.redirect('/user/login');
   }
 };
 
@@ -36,7 +36,7 @@ module.exports.mailTemplate = (order) => {
                                                     <p style="Margin:0;font-size:14px"><br></p>
                                                     <table style="border-spacing:0px;width:100%">
                                                         <tr>
-                                                            <td style="padding:0;Margin:0; color: #000000 !important;">${item.name} - size ${item.size}</td>
+                                                            <td style="padding:0;Margin:0; color: #000000 !important;">${item.name} <br>Size ${item.size}</td>
                                                             <td style="padding:0;Margin:0;width:60px;text-align:left; color: #000000 !important;">${item.quantity}
                                                             </td>
                                                             <td style="padding:0;Margin:0;width:100px;text-align:left; color: #000000 !important;">
@@ -337,7 +337,7 @@ module.exports.mailTemplate = (order) => {
 </head>
 
 <body style="background-color: antiquewhite; margin: auto; background-color: #fcb045">
-    <table align="center" style="border-spacing:0px">
+    <table align="center" style="border-spacing:0px; margin-bottom: 1rem;">
         <tr>
             <td class="es-m-p0l es-m-txt-c" align="center"
                 style="padding: 10px;Margin:0;padding-left:15px;font-size:0;  ">
@@ -408,11 +408,13 @@ module.exports.mailTemplate = (order) => {
                                                       .slice(0, 15)}</span>
                                                 <br>
 
-                                                <span style="font-size:17px;line-height:21px; font-weight: bold;; color: #000000 !important;">Order
+                                                <span
+                                                    style="font-size:17px;line-height:21px; font-weight: bold;; color: #000000 !important;">Order
                                                     Total:</span>
-                                                <span style="font-size:17px;line-height:21px; color: #000000 !important;">$${
-                                                  order.total
-                                                }</span>
+                                                <span
+                                                    style="font-size:17px;line-height:21px; color: #000000 !important;">$${
+                                                      order.total
+                                                    }</span>
                                             </div>
 
                                         </td>
@@ -424,10 +426,11 @@ module.exports.mailTemplate = (order) => {
                     <table class="es-right" width="50%" cellspacing="0" cellpadding="0"
                         style="border-spacing:0px;float:right">
                         <tr style="border-collapse:collapse">
-                            <td>
+                            <td style="width: 100%;">
                                 <table style="border-spacing:0px;" width="100%" bgcolor="#fef9ef">
                                     <tr style="border-collapse:collapse">
-                                        <td align="left" style="padding-top:20px;padding-left:20px;padding-right:20px">
+                                        <td align="left"
+                                            style="padding-top:20px;padding-left:20px;padding-right:20px; width: 100%;">
                                             <h4
                                                 style="Margin:0;line-height:120%;font-family:'trebuchet ms', helvetica, sans-serif; font-size: 1.25rem; color: #000000 !important;">
                                                 SHIPPING INFO:<br></h4>
@@ -435,10 +438,10 @@ module.exports.mailTemplate = (order) => {
                                     </tr>
                                     <tr>
                                         <td
-                                            style="padding:0;Margin:0;padding-bottom:20px;padding-left:20px;padding-right:20px">
+                                            style="padding:0;Margin:0;padding-bottom:20px;padding-left:20px;padding-right:20px; width: 100%;">
                                             <table style="border-spacing:0px;width:100%">
                                                 <tr>
-                                                    <td><span
+                                                    <td style="width: 100%;"><span
                                                             style="font-size:17px;line-height:21px; color: #000000 !important;">${
                                                               order.userInfo
                                                                 .fullname
@@ -446,7 +449,7 @@ module.exports.mailTemplate = (order) => {
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><span
+                                                    <td style="width: 100%;"><span
                                                             style="font-size:17px;line-height:21px; color: #000000 !important;">${
                                                               order.userInfo
                                                                 .phoneNumber
@@ -454,7 +457,7 @@ module.exports.mailTemplate = (order) => {
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><span
+                                                    <td style="width: 100%;"><span
                                                             style="font-size:17px;line-height:21px; color: #000000 !important;">${
                                                               order.userInfo
                                                                 .address
@@ -513,7 +516,7 @@ module.exports.mailTemplate = (order) => {
                                                 <td style="text-align:right;font-size:18px;line-height:27px">Subtotal:
                                                 </td>
                                                 <td style="text-align:right;font-size:18px;line-height:27px">
-                                                    ${order.total}</td>
+                                                    $${order.total}</td>
                                             </tr>
                                             <tr>
                                                 <td style="text-align:right;font-size:18px;line-height:27px">Flat-rate
