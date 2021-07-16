@@ -29,7 +29,7 @@
                 <% dateCreated=`${dateCreated.getDate()}-${dateCreated.getMonth()}-${dateCreated.getFullYear()}` %>
                   <tr>
                     <th scope="row">
-                      <%= i+1 %>
+                      <%= (page-1)*10 + i+1 %>
                     </th>
                     <td>
                       <%= users[i].username %>
@@ -50,14 +50,19 @@
                       <td class="text-danger font-weight-bold">
                         ADMIN
                       </td>
+                      <td>
+                      </td>
                       <% } else { %>
                         <td class="text-danger font-weight-bold">
                         </td>
-                        <% } %>
-                          <td>
-                            <button class="btn btn-outline-primary">Edit</button>
+                        <td>
+                          <a onclick="return confirmDeleteItem('<%= users[i].username %>')"
+                            href="/user/delete/<%= users[i]._id %>">
                             <button class="btn btn-outline-danger">Delete</button>
-                          </td>
+                          </a>
+                        </td>
+                        <% } %>
+
                   </tr>
                   <% } %>
 

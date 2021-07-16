@@ -1,0 +1,83 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <%- include('../partials/head'); %>
+        <link href="/css/style1.css" rel="stylesheet" type="text/css" media="all" />
+        <!-- Custom Theme files -->
+        <script>
+            $(document).ready(function (c) {
+                $('.close').on('click', function (c) {
+                    $('.cake-top').fadeOut('slow', function (c) {
+                        $('.cake-top').remove();
+                    });
+                });
+            });
+        </script>
+
+        <script>
+            $(document).ready(function (c) {
+                $('.close-btm').on('click', function (c) {
+                    $('.cake-bottom').fadeOut('slow', function (c) {
+                        $('.cake-bottom').remove();
+                    });
+                });
+            });
+        </script>
+</head>
+
+<body>
+    <%- include('../partials/header'); %>
+
+        <main class="d-flex flex-column" style="padding-top: 6rem !important;">
+            <div class="cart" style="border: 2px solid #0c517d;">
+                <div class="cart-top">
+                    <div class="cart-experience w-100">
+                        <h4 class="text-center">SHIPPING INFO</h4>
+                    </div>
+                    <div class="clear"> </div>
+                </div>
+                <div class="cart-bottom">
+                    <form class="w-75" style="margin: auto;" action="/order/checkout" method="POST">
+                        <div class="dis-total w-100">
+                            <div class="text-left d-flex flex-column">
+                                <label class="label-shipping" for="fullname">Full name:</label>
+                                <input class="input-shipping" name="fullname" value="<%= user.fullname %>" required>
+
+                                <label class="label-shipping" for="email">Email:</label>
+                                <input class="input-shipping" type="email" name="email" value="<%= user.email %>" required>
+
+                                <label class="label-shipping" for="phoneNumber">Phone number:</label>
+                                <input class="input-shipping" name="phoneNumber" value="<%= user.phoneNumber %>" required>
+
+                                <label class="label-shipping" for="address">Address:</label>
+                                <input class="input-shipping" name="address" value="<%= user.address %>" required>
+
+                                <label class="label-shipping" for="">Payment method:</label>
+                                <select class="input-shipping">
+                                    <option value="3">Cash on delivery</option>
+                                </select>
+                            </div>
+                            <div class="tot-btn">
+                                <a class="my-button-dark p-2" href="/cart">Back to Cart</a>
+                                <button class="my-button-checkout p-2 border-0">Place
+                                    Order</button>
+                            </div>
+                        </div>
+                        <div class="clear"> </div>
+                </div>
+                </form>
+            </div>
+            </div>
+
+            <script>
+                function updateTotalOne(i) {
+                    var x = document.getElementById("i").value;
+                    document.getElementById("i").innerHTML(x);
+                }
+            </script>
+        </main>
+
+        <%- include('../partials/footer'); %>
+</body>
+
+</html>

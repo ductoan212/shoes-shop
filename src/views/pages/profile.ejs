@@ -1,0 +1,179 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <%- include('../partials/head'); %>
+        <link href="/css/profile.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+
+<body>
+    <%- include('../partials/header'); %>
+
+        <main class="d-flex flex-column" style="padding-top: 6rem !important;">
+            <div class="container light-style flex-grow-1 container-p-y mb-5">
+                
+                <% if(error) { %>
+                    <div class="alert alert-danger" role="alert">
+                        <%= error %>
+                    </div>
+                    <% } %>
+                        <% if(success) { %>
+                            <div class="alert alert-primary" role="alert">
+                                <%= success %>
+                            </div>
+                            <% } %>
+
+                                <form method="POST" action="/user/update">
+                                    <div class="card overflow-hidden border-0" style="border-radius: 0px;">
+                                        <div class="bg-profile">
+                                            <h1 class="font-weight-bold py-3 text-center">
+                                                Account settings
+                                            </h1>
+                                        </div>
+                                        <div class="row no-gutters row-bordered row-border-light">
+
+                                            <div class="list-group list-group-flush account-settings-links col-md-3 pt-0"
+                                                id="account-tab">
+                                                <a class="btn list-group-item list-group-item-action active"
+                                                    id="general" onclick="openCity('general','account-general')">
+                                                    <i class="fas fa-user fa-lg mr-2"></i>
+                                                    General</a>
+                                                <a class="btn list-group-item list-group-item-action" id="password"
+                                                    onclick="openCity('password','account-change-password')">
+                                                    <i class="fas fa-lock fa-lg mr-2"></i>Change
+                                                    password</a>
+                                                <a class="btn list-group-item list-group-item-action" id="info"
+                                                    onclick="openCity('info','account-info')">
+                                                    <i class="fas fa-info-circle fa-lg mr-2"></i>Info</a>
+                                            </div>
+
+                                            <div class="tab-content col-md-9" id="account-tabContent">
+                                                <div class="tab-pane fade active show" id="account-general"
+                                                    role="tabpanel" style="display: block;">
+
+                                                    <div class="card-body media align-items-center">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                                                            alt="" class="d-block ui-w-80">
+                                                        <% if(user.isAdmin) {%>
+                                                            <h5 class="p-0 m-3 text-danger font-weight-bold">ADMIN</h5>
+                                                            <% } %>
+                                                    </div>
+                                                    <hr class="border-light m-0">
+                                                    <div class="card-body">
+                                                        <div class="form-group">
+                                                            <label class="form-label font-weight-bold">Username</label>
+                                                            <input name="username" type="text" class="form-control mb-1"
+                                                                value="<%= user.username %>" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="form-label font-weight-bold">Name</label>
+                                                            <input name="fullname" type="text" class="form-control"
+                                                                value="<%= user.fullname %>" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="form-label font-weight-bold">E-mail</label>
+                                                            <input name="email" type="email" class="form-control mb-1"
+                                                                value="<%= user.email %>" required>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="tab-pane fade active show" id="account-change-password"
+                                                    role="tabpanel" style="display: none;">
+                                                    <div class="card-body pb-2">
+
+                                                        <div class="form-group">
+                                                            <label class="form-label font-weight-bold">Current
+                                                                password</label>
+                                                            <input name="currentPassword" type="password"
+                                                                class="form-control">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="form-label font-weight-bold">New
+                                                                password</label>
+                                                            <input name="newPassword" type="password"
+                                                                class="form-control">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="form-label font-weight-bold">Repeat new
+                                                                password</label>
+                                                            <input name="newPasswordRepeat" type="password"
+                                                                class="form-control">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade active show" id="account-info" role="tabpanel"
+                                                    style="display: none;">
+                                                    <div class="card-body pb-2">
+
+                                                        <div class="form-group">
+                                                            <label class="form-label font-weight-bold">Bio</label>
+                                                            <textarea class="form-control"
+                                                                rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nunc arcu, dignissim sit amet sollicitudin iaculis, vehicula id urna. Sed luctus urna nunc. Donec fermentum, magna sit amet rutrum pretium, turpis dolor molestie diam, ut lacinia diam risus eleifend sapien. Curabitur ac nibh nulla. Maecenas nec augue placerat, viverra tellus non, pulvinar risus.</textarea>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="form-label font-weight-bold">Birthday</label>
+                                                            <input type="text" class="form-control" value="May 3, 1995">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="form-label font-weight-bold">Address</label>
+                                                            <input name="address" type="text" class="form-control"
+                                                                value="<%= user.address %>" required>
+                                                        </div>
+                                                    </div>
+                                                    <hr class="border-light m-0">
+                                                    <div class="card-body pb-2">
+
+                                                        <h3 class="mb-4 font-weight-bold">Contacts</h3>
+                                                        <div class="form-group">
+                                                            <label class="form-label font-weight-bold">Phone</label>
+                                                            <input name="phoneNumber" type="text" class="form-control"
+                                                                value="<%= user.phoneNumber %>" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="form-label font-weight-bold">Website</label>
+                                                            <input type="text" class="form-control" value="">
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-right mt-3" style="padding-right: 20px; padding-bottom: 20px;">
+                                            <button type="submit" class="btn my-button-checkout">Save
+                                                changes</button>&nbsp;
+                                        </div>
+                                    </div>
+                                </form>
+            </div>
+
+
+
+            </div>
+            <script>
+                function openCity(tabname, tabcontent) {
+                    var i, j;
+                    var x = document.getElementsByClassName("fade");
+                    var y = document.getElementsByClassName("list-group-item");
+                    for (i = 0; i < x.length; i++) {
+                        x[i].style.display = "none";
+                    }
+                    console.log(y);
+                    for (j = 0; j < y.length; j++) {
+                        y[j].classList.remove("active");
+
+                    }
+                    document.getElementById(tabname).className += " active";
+                    document.getElementById(tabcontent).style.display = "block";
+
+                }
+            </script>
+        </main>
+
+        <%- include('../partials/footer'); %>
+</body>
+
+</html>

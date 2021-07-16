@@ -7,12 +7,15 @@
 <body>
   <%- include('../partials/header'); %>
 
-    <main class="d-flex flex-column" style="padding-top: 6rem !important;">
+    <main class="d-flex flex-column" style="padding-top: 6rem !important; width: 80%; margin: auto;">
       <div class="d-flex justify-content-between p-3 mb-1 align-items-center">
-        <div class="d-flex flex align-items-center">
+        <div class="d-flex flex align-items-center justify-content-center">
           <b class="mr-5">
             <%= query.count %> Results
           </b>
+          <p class="m-0"><b>Search:</b>
+            <%= query.name %>
+          </p>
         </div>
         <div class="input-group" style="width: 20rem;">
           <div class="input-group-prepend">
@@ -32,68 +35,96 @@
       </div>
       <div class="d-flex ">
         <div class="d-flex flex-column p-3">
-          <a class="link-text" href="/product/search"><i class="fa fa-times-circle mr-1"></i>Clear all filter</a>
-          <div>
-            <h3>Category</h3>
-            <ul class="style-type-none filter">
-              <% const categories=['All', 'Men' , 'Women' , 'Kids' , 'Sports' ]; %>
-                <% for(let i=0; i<categories.length; i++) { let value=categories[i]!="All" ?categories[i]:""; let
-                  active=value==query.category?"filter-active":"" ; let
-                  link=`/product/search?name=${query.name}&&brand=${query.brand}&&category=${value}&&order=${query.order}&&min=${query.min}&&max=${query.max}`%>
-                  <li>
-                    <a class="<%= active %>" href="<%= link %>">
-                      <%= categories[i] %>
-                    </a>
-                  </li>
-                  <% } %>
-            </ul>
-          </div>
-          <hr>
-          <div>
-            <h3>Price</h3>
-            <ul class="style-type-none filter">
-              <% const prices=[ { name: 'All' , min: 0, max: 0, }, { name: '$1 - $10' , min: 1, max: 10, }, {
-                name: '$10 - $100' , min: 10, max: 100, }, { name: '$100 - $1000' , min: 100, max: 1000, }, ]; %>
-                <% for(let i=0; i<prices.length; i++) { let active=prices[i].min==query.min?"filter-active":"" ; let
-                  link=`/product/search?name=${query.name}&&brand=${query.brand}&&category=${query.category}&&order=${query.order}&&min=${prices[i].min}&&max=${prices[i].max}`
-                  %>
-                  <li>
-                    <a class="<%= active %>" href="<%= link %>">
-                      <%= prices[i].name %>
-                    </a>
-                  </li>
-                  <% } %>
+          <% let disable="btn-disabled" ; if(query.name|| query.brand|| query.category|| query.order|| query.min||
+            query.max) disable="" %>
+            <a class="<%= disable %> link-text" href="/product/search"><i class="fa fa-times-circle mr-1"></i>Clear all
+              filter</a>
+            <div>
+              <h3>Category</h3>
+              <ul class="style-type-none filter">
+                <% const categories=['All', 'Men' , 'Women' , 'Kids' , 'Sports' ]; %>
+                  <% for(let i=0; i<categories.length; i++) { let value=categories[i]!="All" ?categories[i]:""; let
+                    active=value==query.category?"filter-active":"" ; let
+                    link=`/product/search?name=${query.name}&&brand=${query.brand}&&category=${value}&&order=${query.order}&&min=${query.min}&&max=${query.max}`%>
+                    <li>
+                      <a class="<%= active %>" href="<%= link %>">
+                        <%= categories[i] %>
+                      </a>
+                    </li>
+                    <% } %>
+              </ul>
+            </div>
+            <hr>
+            <div>
+              <h3>Brand</h3>
+              <ul class="style-type-none filter">
+                <% const brands=[ "All" ,"Adidas", "Nike" ,"Converse", "Vans" ,"Puma" ] %>
+                  <% for(let i=0; i<brands.length; i++) { let value=brands[i]!="All" ?brands[i]:""; let
+                    active=value==query.brand?"filter-active":"" ; let
+                    link=`/product/search?name=${query.name}&&brand=${value}&&category=${query.category}&&order=${query.order}&&min=${query.min}&&max=${query.max}`%>
+                    <li>
+                      <a class="<%= active %>" href="<%= link %>">
+                        <%= brands[i] %>
+                      </a>
+                    </li>
+                    <% } %>
+              </ul>
+            </div>
+            <hr>
+            <div>
+              <h3>Price</h3>
+              <ul class="style-type-none filter">
+                <% const prices=[ { name: 'All' , min: 0, max: 0, }, { name: '$10 - $100' , min: 10, max: 100, }, {
+                  name: '$100 - $500' , min: 100, max: 500, }, { name: '$500 - $1000' , min: 500, max: 1000, }, ]; %>
+                  <% for(let i=0; i<prices.length; i++) { let active=prices[i].min==query.min?"filter-active":"" ; let
+                    link=`/product/search?name=${query.name}&&brand=${query.brand}&&category=${query.category}&&order=${query.order}&&min=${prices[i].min}&&max=${prices[i].max}`
+                    %>
+                    <li>
+                      <a class="<%= active %>" href="<%= link %>">
+                        <%= prices[i].name %>
+                      </a>
+                    </li>
+                    <% } %>
 
-            </ul>
-          </div>
+              </ul>
+            </div>
         </div>
         <div class="flex flex-column  flex-grow-1 align-items-center justify-content-center">
           <% if(products.length==0) { %>
-            <div class="no-resutls" >
-              </div>
+            <div class="no-resutls">
+            </div>
             <% } %>
-              <div class="w-100 d-flex flex-wrap justify-content-around align-items-center">
+              <div class="w-100 d-flex flex-wrap justify-content-between align-items-center">
                 <% for(let i=0; i<products.length; i++) { %>
                   <div class="product-item">
-                    <div class="img-product" style="background-image: url('<%= products[i].image %>')"></div>
-                    <div class="p-2">
-                      <p class="name-product text-truncate">
-                        <%= products[i].name %>
-                      </p>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                          <p class="old-price-product">$<%= products[i].oldPrice %>
-                          </p>
-                          <p class="new-price-product">$<%= products[i].price %>
-                          </p>
+                    <a href="/product/detail/<%= products[i]._id %>">
+                      <div class="img-product" style="background-image: url('<%= products[i].image %>')"></div>
+                      <div class="p-2">
+                        <p class="name-product text-truncate">
+                          <%= products[i].name %>
+                        </p>
+                        <a href="/product/search?brand=<%= products[i].brand %>" class="name-brand text-truncate">
+                          <%= products[i].brand %>
+                        </a>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div>
+                            <p class="old-price-product">$<%= products[i].oldPrice %>
+                            </p>
+                            <p class="new-price-product">$<%= products[i].price %>
+                            </p>
+                          </div>
+                          <% let
+                            redirect=`"/product/search?name=${query.name}&&brand=${query.brand}&&category=${query.category}&&order=${query.order}&&min=${query.min}&&max=${query.max}&&pageNumber=${query.pageNumber}"`
+                            %>
+                            <a class="order-product" href="/cart/add/<%= products[i]._id %>"><i
+                                class="fas fa-shopping-cart fa-lg m-2 btn" style="color: #fcb045"></i></a>
                         </div>
-                        <a href=""><i class="fas fa-shopping-cart fa-lg m-2 btn" style="color: #fcb045"></i></a>
                       </div>
-                    </div>
+                    </a>
                   </div>
                   <% } %>
               </div>
-              <div class="d-flex align-items-center justify-content-center">
+              <div class="d-flex align-items-center justify-content-center mt-5">
                 <ul class="style-type-none filter d-flex">
                   <% for(let i=1; i<=query.pages; i++) { let classs="" ; if(i==query.page) classs="filter-active" ; let
                     link=`/product/search?name=${query.name}&&brand=${query.brand}&&category=${query.category}&&order=${query.order}&&min=${query.min}&&max=${query.max}&&pageNumber=${i}`
@@ -108,9 +139,11 @@
               </div>
         </div>
       </div>
-
     </main>
 
+    <div class="contain-addSuccess">
+      <p class="addSuccess "><i class="fa fa-check-circle mr-2"></i>Add to cart success</p>
+    </div>
     <%- include('../partials/footer'); %>
 </body>
 

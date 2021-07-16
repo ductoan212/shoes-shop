@@ -1,17 +1,132 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <%- include('../partials/head'); %>
+    <%- include('../partials/head'); %>
+        <link href="/css/style1.css" rel="stylesheet" type="text/css" media="all" />
+        <!-- Custom Theme files -->
+        <script>
+            $(document).ready(function (c) {
+                $('.close').on('click', function (c) {
+                    $('.cake-top').fadeOut('slow', function (c) {
+                        $('.cake-top').remove();
+                    });
+                });
+            });
+        </script>
+
+        <script>
+            $(document).ready(function (c) {
+                $('.close-btm').on('click', function (c) {
+                    $('.cake-bottom').fadeOut('slow', function (c) {
+                        $('.cake-bottom').remove();
+                    });
+                });
+            });
+        </script>
 </head>
 
 <body>
-  <%- include('../partials/header'); %>
+    <%- include('../partials/header'); %>
 
-    <main style="top: 0px" style="z-index: 0">
+        <main class="d-flex flex-column" style="padding-top: 6rem !important;">
+            <div class="cart" style="border: 2px solid #0c517d;">
+                <div class="cart-top">
+                    <div class="cart-experience w-100">
+                        <h4 class="text-center">CART ITEMS</h4>
+                    </div>
+                    <div class="clear"> </div>
+                </div>
+                <div class="cart-bottom">
+                    <div class="table">
+                        <table class="w-100">
+                            <tbody>
+                                <tr class="main-heading">
+                                    <th>Images</th>
+                                    <th class="long-txt">Product Name</th>
+                                    <th>Quantity</th>
+                                    <th>Size</th>
+                                    <th>Price</th>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                                <% for(let i=0; i < cartItems.length;i++) { %>
+                                    <tr class="cake-top">
+                                        <td class="cakes">
+                                            <a href="/product/detail/<%= cartItems[i].productId %>">
+                                                <div class="product-img" style="width: 100px; height: 100px; ">
+                                                    <img style="object-fit: cover;width: 100%;height: 100%;"
+                                                        src="<%= cartItems[i].image %>">
+                                                </div>
+                                            </a>
+                                        </td>
+                                        <td class="cake-text align-middle h-100">
+                                            <a href="/product/detail/<%= cartItems[i].productId %>" class="my-link h4">
+                                                <%= cartItems[i].name %>
+                                            </a>
+                                        </td>
+                                        <td class="align-middle ">
+                                            <div class="d-flex align-items-center">
+                                                <a
+                                                    href="/cart/sub/<%= cartItems[i].productId %>?size=<%= cartItems[i].size %>"><button
+                                                        class="btn-qty"><b>–</b></button></a>
+                                                <p class="m-1 text-center" style="width: 40px; ">
+                                                    <%= cartItems[i].quantity %>
+                                                </p>
+                                                <a
+                                                    href="/cart/add/<%= cartItems[i].productId %>?size=<%= cartItems[i].size %>"><button
+                                                        class="btn-qty"><b>+</b></button></a>
+                                            </div>
+                                        </td>
+                                        <td class="align-middle h5">
+                                            <%= cartItems[i].size %>
+                                        </td>
+                                        <td class="align-middle h5">
+                                            $<%= cartItems[i].price %>
+                                        </td>
+                                        <td class="align-middle h4">
+                                            $<%= cartItems[i].totalItem %>
+                                        </td>
+                                        <td class="align-middle">
+                                            <a
+                                                href="/cart/remove/<%= cartItems[i].productId %>?size=<%= cartItems[i].size %>"><button
+                                                    class="btn-remove">Remove</button></a>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th colspan="5" class="text-right align-middle">Total:</th>
+                                    <th class="align-middle h4">
+                                        $<%= total %>
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="vocher">
+                        <div class="dis-total">
 
-    </main>
+                            <div class="tot-btn">
+                                <a class="my-button-dark p-2" href="/product/search">Back to Shop</a>
+                                <a class="my-button-checkout p-2" href="/order/shipping">Continue to Checkout</a>
+                            </div>
+                        </div>
+                        <div class="clear"> </div>
+                    </div>
+                </div>
+            </div>
 
-    <%- include('../partials/footer'); %>
+            <script>
+                function updateTotalOne(i) {
+                    var x = document.getElementById("i").value;
+                    document.getElementById("i").innerHTML(x);
+                }
+            </script>
+        </main>
+
+        <%- include('../partials/footer'); %>
 </body>
 
 </html>

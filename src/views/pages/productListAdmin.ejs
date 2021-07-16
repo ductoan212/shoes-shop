@@ -9,15 +9,15 @@
 
     <main class="d-flex flex-column" style="padding-top: 6rem !important;">
       <section class="p-3">
-        <div class="d-flex justify-content-between align-items-center mb-2">
-          <h1>List all product</h1>
+        <div class="d-flex align-items-center mb-2">
+          <h1 class="mr-5">List all products</h1>
           <a href="/product/create"><button class="btn btn-success">Add new product</button></a>
         </div>
         <table class="table table-striped">
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col" >Name</th>
+              <th scope="col">Name</th>
               <th scope="col">Brand</th>
               <th scope="col">Category</th>
               <th scope="col">Price</th>
@@ -31,10 +31,12 @@
             <% for(let i=0; i<products.length; i++) { %>
               <tr>
                 <th scope="row">
-                  <%= i+1 %>
+                  <%= (page-1)*10 + i+1 %>
                 </th>
                 <td style="word-wrap: break-word; max-width: 350px; ">
-                  <%= products[i].name %>
+                  <a href="/product/detail/<%= products[i]._id %>" class="my-link">
+                    <%= products[i].name %>
+                  </a>
                 </td>
                 <td>
                   <%= products[i].brand %>
@@ -81,14 +83,7 @@
     </main>
 
     <%- include('../partials/footer'); %>
-      <script>
-        const confirmDeleteItem = () => {
-          if (confirm(`Do you want to delete product?`)) {
-            return true;
-          }
-          return false;
-        };
-      </script>
+      
 </body>
 
 </html>

@@ -1,9 +1,29 @@
+/*--fonts--*/
+
+@font-face {
+  font-family: 'Didact Gothic';
+  src: url(../fonts/Didact_Gothic/DidactGothic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Pathway Gothic One';
+  src: url(../fonts/Pathway_Gothic_One/PathwayGothicOne-Regular.ttf)
+    format('truetype');
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  scroll-behavior: smooth;
+  font-family: 'Didact Gothic';
 }
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+} */
 
 body {
   background-color: #161616;

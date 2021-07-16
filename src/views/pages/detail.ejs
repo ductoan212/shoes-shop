@@ -1,0 +1,220 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <%- include('../partials/head'); %>
+        <!--coustom css-->
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <!--shop-kart-js-->
+        <script src="/js/simpleCart.min.js"></script>
+        <!--default-js-->
+        <script src="/js/jquery-2.1.4.min.js"></script>
+        <!--bootstrap-js-->
+        <script src="/js/bootstrap.min.js"></script>
+        <!--script-->
+        <!-- FlexSlider -->
+        <script src="/js/imagezoom.js"></script>
+        <script defer src="/js/jquery.flexslider.js"></script>
+        <link rel="stylesheet" href="/css/flexslider.css" type="text/css" media="screen" />
+
+        <script>
+            $(window).load(function () {
+                $('.flexslider').flexslider({
+                    // animation: "slide",
+                    // controlNav: "thumbnails"
+                });
+            });
+        </script>
+</head>
+
+<body>
+    <%- include('../partials/header'); %>
+
+        <main class="d-flex flex-column " style="padding-top: 8rem !important; padding-left: 15%; padding-right: 15%;">
+            <div class="showcase-grid">
+                <div class="d-flex justify-content-between responsive-detail">
+                    <div class="col-md-7 showcase p-0" style="height: 500px;">
+                        <div class="flexslider m-0 border-0" style="background-color: #f0f8ff00; height: 100%;">
+                            <ul class="slides">
+                                <li data-thumb="images/show.jpg">
+                                    <div class="thumb-image"> <img style="object-fit: cover; height: 100%; width: 100%;"
+                                            src="<%= product.image %>" data-imagezoom="true" class="img-responsive">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-5 showcase d-flex flex-column justify-content-between">
+                        <div class="showcase-rt-top">
+                            <div class="pull-left shoe-name mb-2">
+                                <h3 class="mb-2">
+                                    <%= product.name %>
+                                </h3>
+                                <div class="d-flex mb-2">
+                                    <a href="/product/search?brand=<%= product.brand %>">
+                                        <p class="link-text">
+                                            <%= product.brand %>
+                                        </p>
+                                    </a>
+                                    <p class="mr-2 ml-2"> | </p>
+                                    <a href="/product/search?category=<%= product.category %>">
+                                        <p class="link-text">
+                                            <%= product.category %>
+                                        </p>
+                                    </a>
+                                </div>
+                                <h4 style="text-decoration: line-through; color: #888; font-size: 1.25rem;">
+                                    $<%= product.oldPrice %>
+                                </h4>
+                                <h4>
+                                    $<%= product.price %>
+                                </h4>
+                            </div>
+                            <div class="pull-left w-100 rating-stars pt-0">
+                                <% for(let i=0; i<product.rating ;i++) { %>
+                                    <a href="#" class="active"><i class="fas fa-star " style="color: #ffc107;"
+                                            aria-hidden="true"></i></a>
+                                    <% } %>
+                                        <% for(let i=0; i<(5 - product.rating) ;i++) { %>
+                                            <a href="#"><i class="fas fa-star" style="color: #888;"
+                                                    aria-hidden="true"></i></a>
+                                            <% } %>
+                            </div>
+                        </div>
+                        <hr class="featurette-divider">
+                        <div class="shocase-rt-bot">
+                            <div class="float-qty-chart">
+                                <ul>
+                                    <li class="qty">
+                                        <h3>Size Chart</h3>
+                                        <select id="size-select" class="form-control siz-chrt">
+                                            <% for(let i=0; i<product.sizeAndStock.length;i++) { %>
+                                                <option value="<%= product.sizeAndStock[i].numSize %>">
+                                                    <%= product.sizeAndStock[i].numSize %>
+                                                </option>
+                                                <% } %>
+                                        </select>
+                                    </li>
+                                    <li class="qty">
+                                        <h4>QTY</h4>
+                                        <select id="qty-select" class="form-control qnty-chrt ">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <ul>
+                                <li class="ad-2-crt simpleCart_shelfItem">
+                                    <a id="btn-add-to-cart" class="btn item_add "
+                                        href="/cart/add/<%= product._id %>"" role=" button">Add To Cart</a>
+                                    <a id="btn-buy-now" class="btn " href="#" role="button">Buy Now</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="specifications">
+                <div class="container">
+                    <h3>Item Details</h3>
+                    <div class="detai-tabs">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-pills tab-nike" role="tablist">
+                            <li role="presentation" class="active m-1"><a class="p-3" href="#home" aria-controls="home"
+                                    role="tab" data-toggle="tab">Description</a></li>
+                            <li role="presentation" class="m-1"><a class="p-3" href="#profile" aria-controls="profile"
+                                    role="tab" data-toggle="tab">Highlights</a></li>
+                            <li role="presentation" class="m-1"><a class="p-3" href="#messages" aria-controls="messages"
+                                    role="tab" data-toggle="tab">Terms & conditiona</a></li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="home">
+                                <p>
+                                    <%= product.description %>
+                                </p>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="profile">
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius, omnis eum. Sint, esse
+                                    eum eaque tenetur recusandae molestias perspiciatis consequatur ipsum, explicabo,
+                                    praesentium maxime quo eveniet ipsam libero rerum corrupti voluptates tempore
+                                    accusantium obcaecati iusto quibusdam quisquam adipisci vel inventore? Recusandae
+                                    commodi vitae distinctio nostrum atque nam cupiditate, veniam accusantium eaque
+                                    architecto odio asperiores? Corrupti inventore sapiente sequi eligendi voluptas
+                                    velit iusto repudiandae quo unde perspiciatis beatae cum, minus deleniti quasi odit
+                                    vel culpa totam! Totam, atque veritatis rem non corrupti, sapiente repellat quae
+                                    suscipit aspernatur debitis alias in tempora nostrum quos! Delectus eaque et error
+                                    deserunt iusto quam tempore, expedita laudantium ducimus quisquam velit? Aut nemo
+                                    iste iure! Qui, ut. Vero suscipit iure illum rerum, repellendus, ducimus fugit
+                                    facere provident voluptate quaerat reprehenderit quidem amet quo facilis
+                                    voluptatibus! Blanditiis voluptates reiciendis necessitatibus fugiat odio enim fuga
+                                    ipsa excepturi culpa earum labore assumenda pariatur nobis asperiores, dignissimos
+                                    dolores commodi dolorum.
+                                </p>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="messages">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum impedit quos quae
+                                expedita hic aliquid rem, dolores voluptates atque nisi laboriosam nulla saepe
+                                architecto est esse sunt. Vero, recusandae sunt debitis tempora aliquam cupiditate
+                                itaque eaque eligendi animi hic sapiente commodi, id ratione, laborum expedita iusto
+                                illum voluptatum dignissimos facere aperiam quod officia! Illum consectetur aspernatur
+                                officiis vero optio sequi dicta eligendi fugit perspiciatis asperiores aliquam fuga
+                                enim, porro alias, maiores qui quidem laborum non earum nesciunt veniam. Et, dolores
+                                temporibus velit repudiandae id esse perferendis tempore saepe ratione doloremque cumque
+                                quaerat, sunt est sequi mollitia nemo similique, vel vero.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="you-might-like">
+                <div class="container">
+                    <h3 class="you-might">Products You May Like</h3>
+                    <div class="d-flex flex-wrap justify-content-between">
+                        <% for(let i=0; i<productRecommend.length; i++) { %>
+                            <div class="product-item">
+                                <a href="/product/detail/<%= productRecommend[i]._id %>">
+                                    <div class="img-product"
+                                        style="background-image: url('<%= productRecommend[i].image %>')">
+                                    </div>
+                                    <div class="p-2" style="text-align: start;">
+                                        <p class="name-product text-truncate">
+                                            <%= productRecommend[i].name %>
+                                        </p>
+                                        <p class="name-brand text-truncate">
+                                            <%= productRecommend[i].brand %>
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <p class="old-price-product">$<%= productRecommend[i].oldPrice %>
+                                                </p>
+                                                <p class="new-price-product">$<%= productRecommend[i].price %>
+                                                </p>
+                                            </div>
+                                            <a class="order-product" href="/cart/add/<%= productRecommend[i]._id %>"><i
+                                                    class="fas fa-shopping-cart fa-lg m-2 btn"
+                                                    style="color: #fcb045"></i></a>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="contain-addSuccess">
+            <p class="addSuccess "><i class="fa fa-check-circle mr-2"></i>Add to cart success</p>
+        </div>
+        <%- include('../partials/footer'); %>
+</body>
+
+</html>

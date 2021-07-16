@@ -1,8 +1,26 @@
+/*--fonts--*/
+
+@font-face {
+  font-family: 'Didact Gothic';
+  src: url(../fonts/Didact_Gothic/DidactGothic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Pathway Gothic One';
+  src: url(../fonts/Pathway_Gothic_One/PathwayGothicOne-Regular.ttf)
+    format('truetype');
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  font-family: 'Didact Gothic';
+}
+
+p {
+  font-size: 1.2rem;
 }
 
 ::-webkit-scrollbar {
@@ -21,18 +39,32 @@
   background: #555;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .logo {
-  background-image: url(https://i.pinimg.com/474x/f9/1a/a3/f91aa37eae15b0b16e6f0a5fb40f7732.jpg);
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/shoe-shop-6a8b1.appspot.com/o/logo%2Flogo.png?alt=media&token=530c4454-b7dd-4d27-847b-d5d7613fb367);
+  /* background-image: url(https://i.pinimg.com/474x/f9/1a/a3/f91aa37eae15b0b16e6f0a5fb40f7732.jpg); */
   height: 4rem;
   width: 4rem;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  background-color: #ffffff;
 }
 
 .nav-item {
   margin-right: 20px;
   margin-left: 20px;
+}
+
+.my-nav-link {
+  font-weight: bold;
+}
+.my-nav-link:hover {
+  color: #fcb045 !important;
+  font-weight: bold;
 }
 
 .search-input {
@@ -86,7 +118,8 @@
 .product-item {
   width: 15rem;
   background-color: #88888817;
-  /* border: 1px solid #88888805; */
+  /* border: 1px solid #88888817; */
+  padding: 2px;
   cursor: pointer;
   margin: 1rem;
 }
@@ -105,15 +138,24 @@
   font-weight: 600;
   font-size: 1.1rem;
   color: #343a40;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
+
+.name-brand {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #888888;
+  margin-bottom: 0rem;
+}
+
 .old-price-product {
   margin-bottom: 0px;
   text-decoration-line: line-through;
   color: #343a4094;
+  font-size: 1rem;
 }
 .new-price-product {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
 }
 
 /* ====================== CATEGORY ITEM ====================== */
@@ -310,6 +352,111 @@ a:hover {
   right: 1rem;
 }
 
+/* ====================== Back to top ====================== */
+.bg-aboutus {
+  width: 100%;
+  height: 30rem;
+  background-image: url(https://minara.net/blog/wp-content/uploads/2019/11/5-c%C3%A1ch-%C4%91%E1%BB%83-c%E1%BA%A3i-thi%E1%BB%87n-t%C3%ADnh-t%C6%B0%C6%A1ng-t%C3%A1c-c%E1%BB%A7a-nh%C3%A2n-vi%C3%AAn-%C4%91%E1%BB%91i-v%E1%BB%9Bi-doanh-nghi%E1%BB%87p-minara.net-2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.aboutus-quote {
+  width: 100%;
+  height: 20rem;
+  background-image: url(https://atlassianblog.wpengine.com/wp-content/uploads/2017/12/teamwork-quotes_9_phil-jackson@2x.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-right: 8px;
+}
+
+.aboutus-quote-2 {
+  width: 100%;
+  height: 20rem;
+  background-image: url(https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: 8px;
+}
+
+.img-hover-zoom {
+  overflow: hidden;
+  width: 20rem;
+  height: 20rem;
+  margin: 8px;
+}
+
+.img-ceo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.img-ceo:hover {
+  transform: scale(1.5);
+}
+
+.summary {
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  background-color: #ffffff;
+}
+
+.summary:hover {
+  background-color: #e6ac00;
+  color: #ffffff !important;
+}
+
+/* ====================== BRANDS ====================== */
+.img-brand {
+  /* border: 2px solid #ffffff; */
+  object-fit: contain;
+  height: 150px;
+  width: 150px;
+  transition: all 0.5s ease;
+}
+
+.img-brand:hover {
+  /* border: 2px solid #fcb045; */
+  transform: scale(1.5);
+}
+
+/* ====================== CART ====================== */
+.btn-qty {
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  border: 1px solid #212529;
+}
+
+.btn-remove {
+  padding: 0.5rem;
+}
+
+.btn-remove:hover {
+  background-color: #e02f47;
+  color: #ffffff;
+}
+
+.label-shipping {
+  font-size: 1.2rem;
+}
+
+.input-shipping {
+  border: 1px solid #0c517d;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
 /* ====================== Custume ====================== */
 
 .my-button-white {
@@ -334,6 +481,21 @@ a:hover {
 .my-button-dark:hover {
   color: #ffffff;
   background-color: #343a40;
+}
+
+.my-button-checkout {
+  border-radius: 0;
+  border: 2px solid #0c517d;
+  font-size: 1.2rem;
+  color: #ffffff;
+  background-color: #0c517d;
+  transition-duration: 0.25s;
+}
+
+.my-button-checkout:hover {
+  color: #ffffff;
+  border: 2px solid #0c517d;
+  background-color: #062b42;
 }
 
 button:hover {
@@ -361,7 +523,82 @@ button:hover {
   background-size: contain;
 }
 
+.btn-disabled,
+.btn-disabled[disabled] {
+  opacity: 0.4;
+  cursor: default !important;
+  pointer-events: none;
+}
+
+.contain-addSuccess {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  display: none;
+  /* transition: all 0.5s linear; */
+  z-index: 100;
+}
+
+.addSuccess {
+  color: #ffffff;
+  background-color: #fd9f1c;
+  padding: 1rem 2rem;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+.show-contain-addSuccess {
+  opacity: 1;
+  display: flex;
+}
+
+.my-link {
+  color: #000000;
+  transition-duration: 0.1s !important;
+}
+
+.my-link:hover {
+  color: #ffc107;
+}
+
+.my-grow-shrink {
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 50%;
+}
+
 /* ====================== REPONSIVE ====================== */
+@media only screen and (max-width: 1140px) {
+  .responsive-detail {
+    flex-direction: column !important;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .reponsive-about-us {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .aboutus-quote {
+    margin-right: 0px;
+    margin-bottom: 8px;
+  }
+
+  .aboutus-quote-2 {
+    margin-left: 0px;
+    margin-top: 8px;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .flex-reponsive {
     flex-direction: column !important;

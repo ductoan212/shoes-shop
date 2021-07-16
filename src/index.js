@@ -3,9 +3,11 @@ const session = require('express-session');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const path = require('path');
+const morgan = require('morgan');
 const userRouter = require('./routers/userRouter');
 const productRouter = require('./routers/productRouter');
 const orderRouter = require('./routers/orderRouter');
+const cartRouter = require('./routers/cartRouter');
 const Product = require('./models/productModel');
 const fileUpload = require('express-fileupload');
 
@@ -16,7 +18,8 @@ var app = express();
 // Middleware
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
+app.use(morgan('tiny'));
 
 // Session
 app.use(
@@ -38,7 +41,7 @@ app.set('view engine', 'ejs');
 // fileUpload
 app.use(fileUpload());
 
-// connect to mongodb cloud
+// connect to mongodb
 mongoose.connect(
   // process.env.MONGODB_URI || 
   'mongodb://localhost:27017/shoe_shop',
@@ -52,12 +55,17 @@ mongoose.connect(
 app.use('/user', userRouter);
 app.use('/product', productRouter);
 app.use('/order', orderRouter);
+app.use('/cart', cartRouter);
+app.get('/aboutus', async (req, res) => {
+  const isLogin = req.session.user ? true : false;
+  const user = req.session.user ? req.session.user : {};
+  res.render('aboutUs', { isLogin, user });
+});
 app.get('/', async (req, res) => {
   const isLogin = req.session.user ? true : false;
   const user = req.session.user ? req.session.user : {};
-  const interestProduct = await Product.find({}).limit(4);
-  // console.log({ interestProduct });
-  res.render('index', { isLogin, user, interestProduct });
+  const latestRelease = await Product.find({}).sort({ _id: -1 }).limit(4);
+  res.render('index', { isLogin, user, latestRelease });
 });
 app.get('*', async (req, res) => {
   res.render('404');

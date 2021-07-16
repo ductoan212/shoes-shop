@@ -1,4 +1,4 @@
-<header style="z-index: 1; position: absolute; width: 100%">
+<header style="z-index: 100; position: absolute; width: 100%">
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="z-index: 2 !important" id="mainNav">
     <div class="container">
       <a id="top-nav" class="
@@ -7,7 +7,7 @@
               font-weight-bold
               text-white-50
             " href="/">
-        <div class="logo circle"></div>
+        <div class="logo"></div>
       </a>
 
       <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -27,29 +27,30 @@
             </form>
           </li>
 
+
+          <li class="nav-item">
+            <a class="nav-link text-white my-nav-link" href="/product/search?category=Men">MEN</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white my-nav-link" href="/product/search?category=Women">WOMEN</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white my-nav-link" href="/product/search?category=Kids">KIDS</a>
+          </li>
           <li class="nav-item" style="width: 5rem">
-            <a class="nav-link text-white" href="/product/search?order=">NEW RELEASE</a>
+            <a class="nav-link text-white my-nav-link" href="/product/search?category=Sports">SPORTS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="/product/search?category=Men">MEN</a>
+            <a class="nav-link text-white my-nav-link" href="/aboutus">ABOUT US</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="/product/search?category=Women">WOMEN</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="/product/search?category=Kids">KIDS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">ABOUT US</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#"><i class="fas fa-shopping-cart fa-lg m-2 btn"
+            <a class="nav-link text-white my-nav-link" href="/cart"><i class="fas fa-shopping-cart fa-lg m-2 btn"
                 style="color: #ffffff"></i></a>
           </li>
 
           <% if(!isLogin) { %>
             <li class="nav-item">
-              <a href="/user/login" class="nav-link btn btn-my-style text-white">Login</a>
+              <a href="/user/login" class="nav-link btn btn-my-style text-white" style="font-weight: bold;">Login</a>
             </li>
             <% } else { %>
               <li class="nav-item dropdown">
@@ -59,8 +60,8 @@
                   <%= user.username %>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Profile</a>
-                  <a class="dropdown-item" href="/order/user/<%= user._id %> ">List orders</a>
+                  <a class="dropdown-item" href="/user/profile">Profile</a>
+                  <a class="dropdown-item" href="/order/user">List orders</a>
                   <% if(user.isAdmin) { %>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/user">All users</a>
@@ -68,7 +69,7 @@
                     <a class="dropdown-item" href="/order">All orders</a>
                     <% } %>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="/user/logout">Logout</a>
+                      <a class="dropdown-item logout-button" href="/user/logout">Logout</a>
                 </div>
               </li>
               <% } %>

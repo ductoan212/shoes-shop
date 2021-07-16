@@ -11,6 +11,7 @@ productRouter.get('/', isAdmin, async (req, res) => {
   const count = await Product.countDocuments({});
   const products = await Product.find({})
     .skip(pageSize * (page - 1))
+    .sort({ _id: -1 })
     .limit(pageSize);
 
   const isLogin = req.session.user ? true : false;
@@ -31,7 +32,7 @@ productRouter.get('/seed', async (req, res) => {
 });
 
 productRouter.get('/search', async (req, res) => {
-  const pageSize = 8;
+  const pageSize = 9;
   const page = Number(req.query.pageNumber) || 1;
   const name = req.query.name || '';
   const brand = req.query.brand || '';
@@ -42,7 +43,16 @@ productRouter.get('/search', async (req, res) => {
   const max =
     req.query.max && Number(req.query.max) !== 0 ? Number(req.query.max) : 0;
 
-  const nameFilter = name ? { name: { $regex: name, $options: '$i' } } : {};
+  const nameFilter = name
+    ? {
+        $or: [
+          { name: { $regex: name, $options: '$i' } },
+          { category: { $regex: name, $options: '$i' } },
+          { brand: { $regex: name, $options: '$i' } },
+          { description: { $regex: name, $options: '$i' } },
+        ],
+      }
+    : {};
   const categoryFilter = category ? { category } : {};
   const brandFilter = brand ? { brand } : {};
   const priceFilter = min && max ? { price: { $gte: min, $lte: max } } : {};
@@ -69,6 +79,7 @@ productRouter.get('/search', async (req, res) => {
     .sort(sortOrder)
     .skip(pageSize * (page - 1))
     .limit(pageSize);
+
   const query = {
     pages: Math.ceil(count / pageSize),
     page,
@@ -82,13 +93,23 @@ productRouter.get('/search', async (req, res) => {
   };
   const isLogin = req.session.user ? true : false;
   const user = req.session.user ? req.session.user : {};
-  // console.log({ products });
   res.render('search', {
     isLogin,
     user,
     query,
     products,
   });
+});
+
+productRouter.get('/detail/:id', async (req, res) => {
+  const isLogin = req.session.user ? true : false;
+  const user = req.session.user ? req.session.user : {};
+  const id = req.params.id;
+  const product = await Product.findById(id);
+  const productRecommend = await Product.aggregate([
+    { $sample: { size: 3 } },
+  ]);
+  res.render('detail', { isLogin, user, product, productRecommend });
 });
 
 productRouter.get('/create', isAdmin, async (req, res) => {
