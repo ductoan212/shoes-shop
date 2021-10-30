@@ -84,8 +84,8 @@ app.get('/pay/:id', async (req, res) => {
       payment_method: 'paypal',
     },
     redirect_urls: {
-      return_url: `http://localhost:3000/order/success/${id}`,
-      cancel_url: 'http://localhost:3000/order/user',
+      return_url: `https://tvtshoeshop.herokuapp.com/order/success/${id}`,
+      cancel_url: 'https://tvtshoeshop.herokuapp.com/order/user',
     },
     transactions: [
       {
