@@ -20,6 +20,8 @@
               <th scope="col">Address</th>
               <th scope="col">Created at</th>
               <th scope="col">Total</th>
+              <th scope="col">Payment</th>
+              <th scope="col">Is paid</th>
               <th scope="col">Is confirm</th>
               <th scope="col">Delivered</th>
               <th scope="col">Method</th>
@@ -50,6 +52,28 @@
                     </td>
                     <td class="align-middle">
                       $<%= ordersOfUser[i].total %>
+                    </td>
+                    <% let color = "text-danger"; %> 
+                    <% if(ordersOfUser[i].paymentMethod=="paypal") color="text-primary" %> 
+                    <td class="align-middle <%= color %> " style="text-transform: capitalize;">
+                      <%= ordersOfUser[i].paymentMethod %>
+                    </td>
+                    <td class="align-middle">
+                      <% if(ordersOfUser[i].paymentMethod=="paypal" ) { %>
+                        <% if(ordersOfUser[i].isPaid) { %>
+                          <% let datePaid=ordersOfUser[i].paidAt %>
+                            <% datePaid=`${datePaid.getDate()}-${datePaid.getMonth()+1}-${datePaid.getFullYear()}` %>
+                              <%= datePaid %>
+                                <% } else { %>
+                                  <a href="/pay/<%= ordersOfUser[i]._id %>"><button class="btn btn-primary">Pay
+                                      now</button></a>
+                                  <% } %>
+                                    <% } else if(ordersOfUser[i].paidAt) {%>
+                                      <% let datePaid=ordersOfUser[i].paidAt %>
+                                        <% datePaid=`${datePaid.getDate()}-${datePaid.getMonth()+1}-${datePaid.getFullYear()}`
+                                          %>
+                                          <%= datePaid %>
+                                            <% } %>
                     </td>
                     <% if(!ordersOfUser[i].isConfirm) { %>
                       <td class="align-middle">

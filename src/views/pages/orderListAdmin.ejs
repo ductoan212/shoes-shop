@@ -20,6 +20,8 @@
               <th scope="col">Address</th>
               <th scope="col">Created at</th>
               <th scope="col">Total</th>
+              <th scope="col">Payment</th>
+              <th scope="col">Is paid</th>
               <th scope="col">Is confirm</th>
               <th scope="col">Delivered</th>
               <th scope="col">Method</th>
@@ -50,6 +52,18 @@
                     </td>
                     <td class="align-middle">
                       $<%= orders[i].total %>
+                    </td>
+                    <% let color="text-danger" ; %>
+                      <% if(orders[i].paymentMethod=="paypal" ) color="text-primary" %>
+                        <td class="align-middle <%= color %> " style="text-transform: capitalize;">
+                          <%= orders[i].paymentMethod %>
+                        </td>
+                    <td class="align-middle">
+                      <% if(orders[i].paidAt) {%>
+                        <% let datePaid=orders[i].paidAt %>
+                          <% datePaid=`${datePaid.getDate()}-${datePaid.getMonth()+1}-${datePaid.getFullYear()}` %>
+                            <%= datePaid %>
+                              <% } %>
                     </td>
                     <td class="align-middle">
                       <% if(orders[i].isConfirm) { %>
