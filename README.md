@@ -1,7 +1,3 @@
----
-typora-root-url: ./
----
-
 # ĐỒ ÁN "KỸ THUẬT PHÁT TRIỂN HỆ THỐNG WEB - IE213.L21"
 
 **GVHD:** Thầy Võ Ngọc Tân
